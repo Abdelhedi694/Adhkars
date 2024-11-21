@@ -12,12 +12,18 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarStyle: {
+          backgroundColor: 'black', // Fond noir
+          borderTopWidth: 0, // Désactiver la bordure
+          elevation: 0, // Enlever l'ombre sur Android
+          shadowColor: 'transparent', // Enlever l'ombre sur iOS
+        },
         headerShown: false,
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Accueil',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
