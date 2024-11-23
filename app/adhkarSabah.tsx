@@ -1,6 +1,10 @@
 import { SafeAreaView, Text, StyleSheet, View, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
+import * as Haptics from 'expo-haptics';
+import { Audio } from 'expo-av'; // Importation d'Expo Audio
+import Slider  from '@react-native-community/slider';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const AdhkarSabah = () => {
     const adhkars = [
@@ -12,6 +16,7 @@ const AdhkarSabah = () => {
             
             Rapporté par Al Hakim 665.`,
             phonetique: `« Allahou la ilaha illa houwa alhayyou alqayyoum la ta/khoudhouhou sinatoun wala nawm lahou ma fi ssamawati wama fi l-ard man dha alladhi yachfa'ou 'indahou illa bi-idhnih ya'lamou ma bayna aydihim wama khalfahoum wala youhitouna bichay-in min 'ilmihi illa bima cha-a wasi'a koursiyyouhou ssamawati waal-arda wala yaoudouhou hifdhouhouma wahouwa al'aliyyou al'adhim. »`
+            ,audio: require('../assets/audios/ayatKursi.mp3')
         },
         {
             number: 2,
@@ -28,7 +33,8 @@ const AdhkarSabah = () => {
             Rapporté par Abu Dawud 1523 et An Nasâ’i
             3/68.`,
             phonetique: "Qul Huwa Allāhu 'Aĥadun ❀ Allāhu Aş-Şamadu ❀ Lam Yalid Wa Lam Yūlad ❀ Walam Yakun Lahu Kufūan 'Aĥadun",
-            howMuchTime: 3
+            howMuchTime: 3,
+            audio: require('../assets/audios/sourateIkhlass.mp3')
         },
         {
             number: 3,
@@ -47,7 +53,8 @@ const AdhkarSabah = () => {
             Rapporté par Abu Dawud 1523 et An Nasâ’i
             3/68.`,
             phonetique: "Qul 'A`ūdhu Birabbi Al-Falaqi ❀ Min Sharri Mā Khalaqa ❀ Wa Min Sharri Ghāsiqin 'Idhā Waqaba ❀ Wa Min Sharri An-Naffāthāti Fī Al-`Uqadi ❀ Wa Min Sharri Ĥāsidin 'Idhā Ĥasada",
-            howMuchTime: 3
+            howMuchTime: 3,
+            audio: require('../assets/audios/sourateAlFalaq.mp3')
         },
         {
             number: 4,
@@ -66,7 +73,8 @@ const AdhkarSabah = () => {
             Rapporté par Abu Dawud 1523 et An Nasâ’i
             3/68.`,
             phonetique: "Qul 'A`ūdhu Birabbi An-Nāsi ❀ Maliki An-Nāsi ❀ 'Ilahi An-Nāsi ❀ Min Sharri Al-Waswāsi Al-Khannāsi ❀ Al-Ladhī Yuwaswisu Fī Şudūri An-Nāsi ❀ Mina Al-Jinnati Wa An-Nāsi",
-            howMuchTime: 3
+            howMuchTime: 3,
+            audio: require('../assets/audios/sourateNas.mp3')
         },
         {
             number: 5,
@@ -80,7 +88,7 @@ const AdhkarSabah = () => {
             – Le fait de demander protection contre la paresse, et les maux de la vieillesse et ce que cela entraine comme perte de raison.
             – Le fait de demander protection contre le feu de l’enfer et les tourments de la tombe. Celui qui est préservé de la tombe (qui est la première demeure de l’au-delà), sera préservé de ce qu’il y a part la suite.“`,
             phonetique: "Asbahnâ wa asbaha-l-mulku li-llâhi wa-l-hamduli-llâh. Lâ ilâha illâ llâhu wahdahu lâ sharîka lah, lahu-l-mulku wa lahu-l-hamdu wa huwa ‘alâ kulli shayin Qadîr. Rabbi, asaluka khayra mâ fî hâdha-l-yawmi wa khayra mâ ba’dah. Wa a’ûdhu bika min sharri mâ fî hâdha-l-yawmi wa sharri mâ ba’dah. Rabbi a’ûdhu bika min al-kasali wa sûi-l-kibar. Rabbi a’ûdhu bika min ‘adhâbin fi-n-nâri wa ‘adhâbin fi-l-qabr.",
-            
+            audio: require('../assets/audios/asbahnaWaLqabr.mp3')
         },
         {
             number: 6,
@@ -88,7 +96,7 @@ const AdhkarSabah = () => {
             frenchTraduction: `Ô Seigneur ! C’est de Toi que dépendent notre réveil et notre sommeil, notre vie et notre mort. Et c’est vers Toi que nous serons ressuscités.`,
             source: "Rapporté par At Tirmidhi 3391.",
             phonetique: "Allâhumma bika asbahnâ, wa bika amsaynâ, wa bika nahyâ, wa bika namût, wa ilayka-n-nushûr.",
-            
+            audio: require('../assets/audios/ilaykaNushur.mp3')
         },
         {
             number: 7,
@@ -98,7 +106,7 @@ const AdhkarSabah = () => {
             
             Rapporté par Al Bukhari 6306.`,
             phonetique: "Allâhumma anta Rabbî, lâ ilâha illâ ant. Khalaqtanî wa ana ‘abduk, wa ana ‘alâ ‘ahdika wa wa’dika mâ stata’t. A’ûdhu bika min sharri mâ sana’t. Abûu laka bi-ni’matika ‘alayya wa abûu bi-dhanbî fa-ghfir lî, fa-innahu lâ yaghfiru-dh-dhunûba illâ ant.",
-            
+            audio: require('../assets/audios/persPardonnePecherSaufToi.mp3')
         },
         {
             number: 8,
@@ -111,7 +119,7 @@ const AdhkarSabah = () => {
             howMuchTime: 4,
             week: true,
             phonetique: "Allâhoumma innî asbahtou oush-hidouka, wa oush-hidou hamalata ‘arshika, wa malâ ikataka, wa jamî’a khalqika, annaka anta l-lâhou, lâ ilâha illâ anta, wahdaka lâ sharîka laka, wa anna mouhammadan ‘abdouka wa rasoûlouk.",
-            
+            audio: require('../assets/audios/4reprises.mp3')
         },
         {
             number: 9,
@@ -121,7 +129,7 @@ const AdhkarSabah = () => {
             
             source: `Rapporté par Dawud 5073 – An Nasâ’i 7 – Ibn As Sunni 41 – Ibn Hiban 2361.`,
             phonetique: "Allâhoumma mâ asbaha bî min ni’matin aw bi-ahadin min khalqika, fa-minka wahdaka lâ sharîka laka. Fa-laka-l-hamdou wa laka sh-shoukr.",
-            
+            audio: require('../assets/audios/toutBienfaitsParvient.mp3')
         },
         {
             number: 10,
@@ -133,7 +141,7 @@ const AdhkarSabah = () => {
             week: true,
             howMuchTime: 3,
             phonetique: "Allâhoumma ‘âfinî fî badanî. Allâhoumma ‘âfinî fî sam’î. Allâhoumma ‘âfinî fî basarî. Lâ ilâha illâ anta. Allâhoumma innî a’oûdhou bika mina-l-koufri, wa-l-faqri. Wa a’oûdhou bika min ‘adhâbi-l-qabri. Lâ ilâha illâ ant.",
-            
+            audio: require('../assets/audios/3reprisesafini.mp3')
         },
         {
             number: 10,
@@ -146,7 +154,7 @@ const AdhkarSabah = () => {
             week: true,
             howMuchTime: 7,
             phonetique: "Hasbiya Allahou La Ilaha Illa Houwa 'Alayhi Tawakaltou Wa Houwa Raboul 'Archil 'Adhim.",
-            
+            audio: require('../assets/audios/7fois.mp3')
         },
         {
             number: 11,
@@ -157,7 +165,7 @@ const AdhkarSabah = () => {
             
             Rapporté par Abu Dawud 5074 – Ibn Maja 3871.`,
             phonetique: "Allahumma Inni As'aluka l-'Afwa wal-'Âfiyata Fî-d-Dunyâ wa-l-Âkhira, Allahumma Inni As'aluka l-'Afwa wa-l-'Âfiyata Fî Dînî wa Dunyâya wa Ahlî wa Mâlî, Allahumma Ustur 'Awrâtî wa Âmin Raw'âtî, Allahumma Ihfadhnî Min Bayni Yadayya wa Min Khalfî wa 'An Yamînî, wa 'An Chimâlî, wa Min Fawqî, wa A'ûdhu Bi'Adhamatika An Ughtala Min Tahtî.",
-            
+            audio: require('../assets/audios/èfwaWa3afiyata.mp3')
         },
         {
             number: 12,
@@ -166,7 +174,7 @@ const AdhkarSabah = () => {
             
             source: `At Tirmidhi 3392 – Abu Dawud 5067.`,
             phonetique: "Allâhoumma 'âlim-alghaybi wa sh-shahâdati, fâtira s-samâwâti wa-l ardi, rabba koulli shay in wa malîkahou. Ash-hadou anlâ ilâha illâ anta. A'oûdhou bika min sharrin nafsî, wa min sharri sh-shaytâni wa 'hirkihi, wa an aqtarifa 'alâ nafsî soû an ajourrahou ilâ Mouslim.",
-            
+            audio: require('../assets/audios/visibleInvisible.mp3')
         },
         {
             number: 13,
@@ -178,7 +186,7 @@ const AdhkarSabah = () => {
             Rapporté par Tirmidhi et authentifié par Cheikh Albani dans Sahih Al Jami n°3388`,
             howMuchTime: 3,
             phonetique: "Bismilllah Alladhi La Yadourrou Ma'a Smihi Chay oun Fil Ardi Wa La Fis Sama Wa Houwas Sami'oul 'Alim.",
-            
+            audio: require('../assets/audios/lèYaDurru3fois.mp3')
         },
         {
             number: 14,
@@ -189,7 +197,7 @@ const AdhkarSabah = () => {
             
             Rapporté par Tabarani et authentifié par Cheikh Albani dans Silsila Sahiha n°2686`,
             phonetique: "Raditou Billahi Raban Wa Bil Islami Dinan Wa Bi Mohamedin Nabiyan.",
-            
+            audio: require('../assets/audios/attestation3fois.mp3')
         },
         {
             number: 15,
@@ -198,7 +206,7 @@ const AdhkarSabah = () => {
             
             source: `Rapporté par Al Hakim 654.`,
             phonetique: "Yâ hayyû, yâ qayyûmou bi rahmatika astaghîth. Aslih lî sha nî koullahou wa lâ takilnî ilâ nafsî tarfata 'ayn.",
-            
+            audio: require('../assets/audios/yèHayyou.mp3')
         },
         {
             number: 16,
@@ -208,7 +216,7 @@ const AdhkarSabah = () => {
             source: `Rapporté par Abu Dawud 5084.`,
             week: true,
             phonetique: "Asbahnâ wa asbaha-l-moulkou li-l-lâhi rabbi-l-‘âlamîn. Allahoumma innî as alouka khayra hâdhâ-l-yawmi : fathahou, wa nousrahou, wa noûrahou, wa barakatahou, wa houdâhou. Wa a’oûdhou bika min sharri mâ fîhi wa sharri mâ ba’dah.",
-            
+            audio: require('../assets/audios/Adkar sabah Asbahnâ wa asbaha-l-mulku li-llâhi Rabbi-l-‘âlamîn (1).mp3')
         },
         {
             number: 17,
@@ -217,7 +225,7 @@ const AdhkarSabah = () => {
             
             source: `Rapporté par Ahmad 15360 – Ibn Sunni 34.`,
             phonetique: "Asbahna 'ala fitrati-l-islami, wa 'ala kalimati-l-ikhlasi, wa 'ala dini nabiyyina Muhammadin, wa 'ala millati abina Ibrahima, hanifan, musliman, wa ma kana mina-l-mushrikin.",
-            
+            audio: require('../assets/audios/Adkar sabah Asbahna alâ fitrati-l-islâmi, wa alâ kalimati-l-ikhlâsi, wa alâ nabiyyinâ mouhammadin (1).mp3')
         },
         {
             number: 18,
@@ -229,7 +237,7 @@ const AdhkarSabah = () => {
             Rapporté par Mouslim dans son Sahih n°2692`,
             howMuchTime: 100,
             phonetique: "Sobhanalah Wa Bihamdih.",
-            
+            audio: require('../assets/audios/subhanAllahiWaBihamdih.mp3')
         },
         {
             number: 19,
@@ -239,7 +247,7 @@ const AdhkarSabah = () => {
             source: `Rapporté par An Nasâ’i 24.`,
             howMuchManyTime: "dix fois, ou une fois au moins lorsque l’on éprouve de la paresse",
             phonetique: "Lâ ilâha illa-llâhu wahdahu lâ sharîka lah. Lahu-l-mulku wa lahu-l-hamdu, wa huwa ‘alâ kulli shayin Qadîr.",
-            
+            audio: require('../assets/audios/100foisattestationComplete.mp3')
         },
         {
             number: 20,
@@ -253,7 +261,7 @@ const AdhkarSabah = () => {
             Rapporté par Al Bukhari 3293 – Muslim 2691.`,
             howMuchTime: 100,
             phonetique: "Lâ ilâha illa-llâhu wahdahu lâ sharîka lah. Lahu-l-mulku wa lahu-l-hamdu, wa huwa ‘alâ kulli shayin Qadîr.",
-            
+            audio: require('../assets/audios/100foisattestationComplete.mp3')
         },
         {
             number: 21,
@@ -267,7 +275,7 @@ const AdhkarSabah = () => {
             Sahîh Muslim n° 2090.`,
             howMuchTime: 3,
             phonetique: "Subhâna-llâhi wa bi-hamdih, ‘adada khalqih, wa ridâ nafsih, wa zinata ‘arshih, wa midâda kalimâtih.",
-            
+            audio: require('../assets/audios/3èdèdè.mp3')
         },
         {
             number: 22,
@@ -276,7 +284,7 @@ const AdhkarSabah = () => {
             
             source: `rapporté hidâyat ar-ruwâh (2432) et authentifié par cheikh el Albany.`,
             phonetique: "Allâhumma innî asaluka ‘ilman nâfi’â, wa rizqan tayyibâ, wa ‘amalan mutaqabbalâ.",
-            
+            audio: require('../assets/audios/3ilmNéfi3en.mp3')
         },
         {
             number: 23,
@@ -286,7 +294,7 @@ const AdhkarSabah = () => {
             source: `Rapporté par Al Bukhari 6307.`,
             howMuchManyTime: "100 fois par jour",
             phonetique: "Astaghfiru-llāha wa atūbu ilayh.",
-            
+            audio: require('../assets/audios/toubouIlayh.mp3')
         },
         {
             number: 24,
@@ -298,29 +306,129 @@ const AdhkarSabah = () => {
             Rapporté par At Tabarani 656.`,
             howMuchTime: 10,
             phonetique: "Allāhumma ṣalli wa sallim 'alā nabiyyinā Muḥammad.",
-            
+            audio: require('../assets/audios/saliWaSelim10fois.mp3')
         },
     ]
     const [showRewards, setShowRewards] = useState([]);
     const [counters, setCounters] = useState([]);
+    const [isPlayingList, setIsPlayingList] = useState([]);
+const [playbackPositionList, setPlaybackPositionList] = useState([]); // Pour stocker la position de lecture
+const soundRefList = useRef([]);
+const [audioDurationList, setAudioDurationList] = useState([]);
+
+    const triggerHapticFeedback = () => {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    };
 
     const handleToggleReward = (index) => {
         // Met à jour l'état de la récompense de la card cliquée seulement
         const updatedRewards = [...showRewards];
         updatedRewards[index] = !updatedRewards[index];
         setShowRewards(updatedRewards);
+        
     };
     const handleIncrement = (index) => {
         const updatedCounters = [...counters];
         updatedCounters[index] = (updatedCounters[index] || 0) + 1;
         setCounters(updatedCounters);
+        triggerHapticFeedback();
     };
 
     const handleDecrement = (index) => {
         const updatedCounters = [...counters];
         updatedCounters[index] = Math.max((updatedCounters[index] || 0) - 1, 0);
         setCounters(updatedCounters);
+        triggerHapticFeedback();
     };
+    const handleReset = (index) => {
+        const updatedCounters = [...counters];
+        updatedCounters[index] = 0; // Réinitialise le compteur à 0
+        setCounters(updatedCounters);
+    };
+    // Fonction pour jouer l'audio
+    const toggleAudio = async (audioFile, index) => {
+        if (!soundRefList.current[index]) {
+            soundRefList.current[index] = new Audio.Sound();
+            await soundRefList.current[index].loadAsync(audioFile);
+        }
+    
+        const newIsPlayingList = [...isPlayingList];
+        const newPlaybackPositionList = [...playbackPositionList];
+    
+        if (newIsPlayingList[index]) {
+            // En pause : enregistre la position actuelle et met en pause
+            const status = await soundRefList.current[index].getStatusAsync();
+            newPlaybackPositionList[index] = status.positionMillis;
+            await soundRefList.current[index].stopAsync();
+            newIsPlayingList[index] = false;
+        } else {
+            // Lecture : reprend à partir de la position sauvegardée ou de 0
+            if (newPlaybackPositionList[index] !== undefined) {
+                await soundRefList.current[index].playFromPositionAsync(newPlaybackPositionList[index]);
+            } else {
+                await soundRefList.current[index].playAsync();
+            }
+            newIsPlayingList[index] = true;
+        }
+    
+        setIsPlayingList(newIsPlayingList);
+        setPlaybackPositionList(newPlaybackPositionList);
+    };
+    
+    const updateAudioProgress = async (index) => {
+        const status = await soundRefList.current[index].getStatusAsync();
+        if (status.isLoaded) {
+            setIsPlayingList(prev => {
+                const newIsPlayingList = [...prev];
+                newIsPlayingList[index] = status.isPlaying;
+                return newIsPlayingList;
+            });
+    
+            setPlaybackPositionList(prev => {
+                const newPositionList = [...prev];
+                newPositionList[index] = status.positionMillis; // Mise à jour de la position sans "rattraper" le temps perdu
+                return newPositionList;
+            });
+    
+            setAudioDurationList(prev => {
+                const newDurationList = [...prev];
+                newDurationList[index] = status.durationMillis;
+                return newDurationList;
+            });
+        }
+    };
+    
+    
+    // Met à jour la position de l'audio lorsque l'utilisateur déplace le slider
+    const handleSliderValueChange = async (value, index) => {
+        const newPosition = value;
+        await soundRefList.current[index].setPositionAsync(newPosition);
+        setPlaybackPositionList(prev => {
+            const newPositionList = [...prev];
+            newPositionList[index] = newPosition;
+            return newPositionList;
+        });
+    };
+    const formatTime = (timeMillis) => {
+    if (typeof timeMillis !== 'number' || isNaN(timeMillis)) {
+        return '00:00'; // Retourne un format valide si le temps est invalide
+    }
+    const minutes = Math.floor(timeMillis / 60000);
+    const seconds = Math.floor((timeMillis % 60000) / 1000);
+    return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+};
+
+useEffect(() => {
+    const interval = setInterval(() => {
+        isPlayingList.forEach((isPlaying, index) => {
+            if (isPlaying) {
+                updateAudioProgress(index); // Met à jour la progression sans "rattraper" le temps perdu
+            }
+        });
+    }, 100); // Mettez à jour toutes les 100ms pour un défilement fluide.
+
+    return () => clearInterval(interval); // Nettoyage de l'intervalle
+}, [isPlayingList]);
     return (
         <SafeAreaView style={styles.safeArea}>
             <LinearGradient
@@ -336,28 +444,13 @@ const AdhkarSabah = () => {
                     {adhkars.map((adhkar, index) => (
                         <View key={index} style={styles.adhkarContainer}>
                             {(adhkar.howMuchTime || adhkar.howMuchManyTime) && (
-                                <View style={styles.counterContainer}>
-                                    <Text style={styles.howMuchTimeText}>
+                                <Text style={styles.howMuchTimeText}>
                                     ({adhkar.howMuchTime || adhkar.howMuchManyTime}
                                     {adhkar.howMuchTime ? " fois" : ""})
-                                    </Text>
-                                    <View style={styles.counter}>
-                                        <TouchableOpacity onPress={() => handleDecrement(index)} style={styles.counterButton}>
-                                            <Text style={styles.counterButtonText}>-</Text>
-                                        </TouchableOpacity>
-                                        <Text style={styles.counterValue}>
-                                            {counters[index] || 0}
-                                        </Text>
-                                        <TouchableOpacity onPress={() => handleIncrement(index)} style={styles.counterButton}>
-                                            <Text style={styles.counterButtonText}>+</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                </View>
+                                </Text>
                             )}
                             {adhkar.week && (
-                                <Text style={styles.howMuchTimeText}>
-                                    Il existe une divergence concernant l’authenticité de ce hadith.
-                                </Text>
+                                <Text style={styles.howMuchTimeText}>Il existe une divergence concernant l’authenticité de ce hadith.</Text>
                             )}
                             <ScrollView showsVerticalScrollIndicator={false} style={styles.cardContent} nestedScrollEnabled={true}>
                                 {!showRewards[index] ? (
@@ -380,11 +473,72 @@ const AdhkarSabah = () => {
                                     </>
                                 )}
                             </ScrollView>
-                            <TouchableOpacity style={styles.RewardBtn} onPress={() => handleToggleReward(index)}>
-                                <Text style={{ textTransform: "uppercase", fontWeight: "bold", color: "#0F7AAF" }}>
-                                    {showRewards[index] ? "Revenir -" : adhkar.reward ? "Pourquoi +" : "Source +"}
-                                </Text>
-                            </TouchableOpacity>
+    
+                            {/* Section inférieure */}
+                            <View style={styles.bottomContainer}>
+                                {/* Bouton "Pourquoi/Source" */}
+                                <TouchableOpacity style={styles.RewardBtn} onPress={() => handleToggleReward(index)}>
+                                    <Text style={styles.RewardBtnText}>
+                                        {showRewards[index] ? "Revenir -" : adhkar.reward ? "Pourquoi +" : "Source +"}
+                                    </Text>
+                                </TouchableOpacity>
+    
+                                {/* Compteur */}
+                                {(adhkar.howMuchTime || adhkar.howMuchManyTime) && (
+                                    <View style={styles.counter}>
+                                        <TouchableOpacity onPress={() => handleDecrement(index)} style={styles.counterButton}>
+                                            <Text style={styles.counterButtonText}>-</Text>
+                                        </TouchableOpacity>
+                                        <Text style={[styles.counterValue, { width: 40, textAlign: 'center' }]}>
+    {counters[index] || 0}
+</Text>
+                                        <TouchableOpacity onPress={() => handleIncrement(index)} style={styles.counterButton}>
+                                            <Text style={styles.counterButtonText}>+</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity onPress={() => handleReset(index)} style={styles.resetButton}>
+                                            <Text style={styles.resetButtonText}>Reset</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                )}
+                            </View>
+    
+                            {/* Section audio */}
+                            {adhkar.audio && (
+                                <View style={styles.audioContainer}>
+                                    <View style={styles.audioControls}>
+                                        {/* Play/Pause Button */}
+                                        <TouchableOpacity
+    style={styles.playPauseButton}
+    onPress={() => toggleAudio(adhkar.audio, index)}
+>
+    <Ionicons
+        name={isPlayingList[index] ? 'pause-circle' : 'play-circle'}
+        size={40}  // Vous pouvez ajuster la taille selon vos préférences
+        color="white"  // Vous pouvez définir la couleur en fonction de votre design
+    />
+</TouchableOpacity>
+
+    
+                                        {/* Slider & Time Remaining */}
+                                        <View style={styles.sliderWrapper}>
+                                            <Slider
+                                                style={styles.audioSlider}
+                                                minimumValue={0}
+                                                maximumValue={audioDurationList[index] || 1}
+                                                value={playbackPositionList[index] || 0}
+                                                onValueChange={(value) => handleSliderValueChange(value, index)}
+                                                onSlidingComplete={(value) => handleSliderValueChange(value, index)}
+                                                thumbTintColor="#FFFFFF"
+                                                minimumTrackTintColor="#007bff"
+                                                maximumTrackTintColor="white"
+                                            />
+                                            <Text style={styles.audioTimeRemaining}>
+                                                {formatTime(audioDurationList[index] - (playbackPositionList[index] || 0))}
+                                            </Text>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
                         </View>
                     ))}
                 </ScrollView>
@@ -398,17 +552,17 @@ const screenHeight = Dimensions.get('window').height;
 
 // Modifiez la hauteur de chaque carte à la moitié de l'écran
 const cardHeight = screenHeight / 1.7;
-    const styles = StyleSheet.create({
-      safeArea: {
-        flex: 1,
-        backgroundColor: "black"
-      },
-      background: {
-        flex: 1,
-        alignItems: 'center',
-        paddingHorizontal: 20,
-      },
-      title: {
+const styles = StyleSheet.create({
+    safeArea: {
+      flex: 1,
+      backgroundColor: "black"
+    },
+    background: {
+      flex: 1,
+      alignItems: 'center',
+      paddingHorizontal: 20,
+    },
+    title: {
         fontFamily: 'Arabolic',
         marginTop: 20,
         fontSize: 25,
@@ -423,30 +577,30 @@ const cardHeight = screenHeight / 1.7;
         color: "#627A92",
         textAlign: "center",
       },
-      scrollContainer: {
-        paddingVertical: 20,
-      },
-      adhkarContainer: {
-        backgroundColor: '#ffffff40', // Couleur de fond translucide
-        borderRadius: 10,
-        padding: 15,
-        marginBottom: 15,
-        alignItems: 'center',
-        width: '100%',
-        height: cardHeight,
-        overflow: 'hidden', // Masquer le débordement du contenu
-        elevation: 5, // Android
-        shadowColor: '#000', // iOS
-        shadowOffset: { width: 0, height: 4 }, // iOS
-        shadowOpacity: 0.1, // iOS
-        shadowRadius: 4, // iOS
-      },
-      adhkarNumber: {
-        fontSize: 20,
-        color: '#627A92',
-        fontWeight: 'bold',
-      },
-      adhkarArab: {
+    scrollContainer: {
+      paddingVertical: 20,
+    },
+    adhkarContainer: {
+      backgroundColor: '#ffffff40', // Couleur de fond translucide
+      borderRadius: 10,
+      padding: 15,
+      marginBottom: 15,
+      alignItems: 'center',
+      width: '100%',
+      height: cardHeight,
+      overflow: 'hidden', // Masquer le débordement du contenu
+      elevation: 5, // Android
+      shadowColor: '#000', // iOS
+      shadowOffset: { width: 0, height: 4 }, // iOS
+      shadowOpacity: 0.1, // iOS
+      shadowRadius: 4, // iOS
+    },
+    adhkarNumber: {
+      fontSize: 20,
+      color: '#627A92',
+      fontWeight: 'bold',
+    },
+    adhkarArab: {
         fontSize: 25,
         color: '#0F7AAF',
         fontFamily: 'Arabolic', // Assurez-vous d'avoir cette police installée
@@ -460,25 +614,30 @@ const cardHeight = screenHeight / 1.7;
         textAlign: 'center',
         fontStyle: 'italic',
       },
-      RewardBtn: {
-        padding: 10,
-        alignSelf: "flex-end",
-        overflow: 'hidden',
-        margin: 5
+    bottomContainer: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginTop: 10,
+      paddingHorizontal: 10,
+  },
+  RewardBtn: {
+      flex: 1, // Prend la place disponible à gauche
+      alignItems: "flex-start",
+  },
+  
+  RewardBtnText: {
+      color: "#627A92",
+      textTransform: "uppercase",
+      fontWeight: "bold",
+      fontSize: 14,
+  },
+  divider: {
+      height: 0.5,             // Hauteur du diviseur
+      backgroundColor: '#0F7AAF', // Couleur du diviseur (gris clair)
+      marginVertical: 15,    // Espacement avant et après le diviseur
     },
-    rewardText: {
-        fontSize: 14,
-        color: '#627A92',
-        fontStyle: 'italic',
-        marginTop: 10,
-        backgroundColor: "trans"
-    },
-    divider: {
-        height: 0.5,             // Hauteur du diviseur
-        backgroundColor: '#0F7AAF', // Couleur du diviseur (gris clair)
-        marginVertical: 15,    // Espacement avant et après le diviseur
-      },
-      texteInsideCardTitle: {
+    texteInsideCardTitle: {
         textAlign: "center",
         fontFamily: "SpaceMono",
         textTransform: "uppercase",
@@ -491,33 +650,79 @@ const cardHeight = screenHeight / 1.7;
         color: '#627A92',
         fontWeight: 'bold',
       },
-      counterContainer: {
-        alignItems: 'center',
-        marginBottom: 10,
-    },
-    counter: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 10,
-    },
-    counterButton: {
-        backgroundColor: '#0F7AAF',
-        borderRadius: 20,
-        padding: 10,
-        marginHorizontal: 5,
-    },
-    counterButtonText: {
-        color: '#FFF',
-        fontWeight: 'bold',
-        fontSize: 16,
-    },
-    counterValue: {
-        fontSize: 18,
-        color: '#FFF',
-        fontWeight: 'bold',
-        marginHorizontal: 10,
-    },
-    });
+    counterContainer: {
+      alignItems: 'center',
+      marginBottom: 10,
+  },
+  counter: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "flex-end",
+  },
+  counterButton: {
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+      backgroundColor: "#FF6F61",
+      borderRadius: 5,
+      marginHorizontal: 5,
+  },
+  counterButtonText: {
+      color: '#FFF',
+      fontWeight: 'bold',
+      fontSize: 16,
+  },
+  counterValue: {
+      fontSize: 16,
+      fontWeight: "bold",
+      color: "black",
+  },
+  resetButton: {
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+      backgroundColor: "#FFA07A",
+      borderRadius: 5,
+      marginLeft: 10,
+  },
+  resetButtonText: {
+      color: "#FFF",
+      fontWeight: "bold",
+      fontSize: 14,
+  },playPauseButton: {
+      padding: 0,
+      backgroundColor: '#007bff',
+      borderRadius: 50,
+      justifyContent: 'center',
+      alignItems: 'center',
+  },
+  playPauseText: {
+      color: 'white',
+      fontSize: 16,
+      fontWeight: 'bold',
+  },
+  audioControls: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      width: '95%',
+      justifyContent: 'space-between',
+      marginTop: 10,
+  },
+  sliderWrapper: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      width: '80%',
+      justifyContent: 'center',
+  },
+  audioSlider: {
+      flex: 1,
+      height: 40,
+  },
+  audioTimeRemaining: {
+      color: 'black',
+      fontSize: 14,
+      fontWeight : "bold",
+      width: 50,  // Fixe la largeur du texte pour qu'il ne change pas de taille
+      textAlign: 'right',  // Vous pouvez ajuster l'alignement selon vos préférences
+  }
+  });
 
 export default AdhkarSabah;

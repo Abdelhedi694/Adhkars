@@ -116,7 +116,7 @@ const adhkarMassa = () => {
             howMuchTime: 4,
             week: true,
             phonetique: "Allâhoumma innî amsaytou oush-hidouka, wa oush-hidou hamalata ‘arshika, wa malâ ikataka, wa jamî’a khalqika, annaka anta l-lâhou, lâ ilâha illâ anta, wahdaka lâ sharîka laka, wa anna mouhammadan ‘abdouka wa rasoûlouk.",
-            audio: require('../assets/audios/4reprises.mp3')
+            audio: require('../assets/audios/4reprisesSoir.mp3')
         },
         {
             number: 9,
@@ -126,7 +126,7 @@ const adhkarMassa = () => {
             
             source: `Rapporté par Dawud 5073 – An Nasâ’i 7 – Ibn As Sunni 41 – Ibn Hiban 2361.`,
             phonetique: "Allâhoumma mâ amsa bî min ni’matin aw bi-ahadin min khalqika, fa-minka wahdaka lâ sharîka laka. Fa-laka-l-hamdou wa laka sh-shoukr.",
-            audio: require('../assets/audios/toutBienfaitsParvient.mp3')
+            audio: require('../assets/audios/Allahumma ma amsa bi min nimatin - Mishary Rashid #sunnah #shortsvideo #dzikir (1).mp3')
         },
         {
             number: 10,
@@ -213,7 +213,7 @@ const adhkarMassa = () => {
             source: `Rapporté par Abu Dawud 5084.`,
             week: true,
             phonetique: "Amsaynâ wa amsâ-l-mulku li-llâhi Rabbi-l-‘âlamîn. Allâhumma innî asaluka khayra hâdhihi-l-laylah : fathahâ, wa nasrahâ, wa nûrahâ, wa barakatahâ, wa hudâhâ. Wa a’ûdhu bika min sharri mâ fîhâ wa sharri mâ ba’dahâ.",
-            
+            audio: require('../assets/audios/Amsayna wa amsal mulku lillahi Rabbi ‘l alamin  Daily Adhkar  Dua for victory, guidance from Allah (1).mp3')
         },
         {
             number: 17,
@@ -222,7 +222,7 @@ const adhkarMassa = () => {
             
             source: `Rapporté par Ahmad 15360 – Ibn Sunni 34.`,
             phonetique: "Amsayna 'ala fitrati-l-islami, wa 'ala kalimati-l-ikhlasi, wa 'ala dini nabiyyina Muhammadin, wa 'ala millati abina Ibrahima, hanifan, musliman, wa ma kana mina-l-mushrikin.",
-            
+            audio: require('../assets/audios/Amsayna ala fitratil-Islam wa ala kalimatil-ikhlas  Daily Adhkar  Recite daily once in the evening (1).mp3')
         },
         {
             number: 19,
@@ -244,7 +244,7 @@ const adhkarMassa = () => {
             Rapporté par At Tabarani 656.`,
             howMuchTime: 10,
             phonetique: "Allāhumma ṣalli wa sallim 'alā nabiyyinā Muḥammad.",
-            
+            audio: require('../assets/audios/saliWaSelim10fois.mp3')
         },
         {
             number: 24,
