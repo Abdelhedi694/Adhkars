@@ -35,7 +35,7 @@ const adhkarMassa = () => {
             3/68.`,
             phonetique: "Qul Huwa Allāhu 'Aĥadun ❀ Allāhu Aş-Şamadu ❀ Lam Yalid Wa Lam Yūlad ❀ Walam Yakun Lahu Kufūan 'Aĥadun",
             howMuchTime: 3,
-            audio: require('../assets/audios/ayatKursi.mp3')
+            audio: require('../assets/audios/sourateIkhlass.mp3')
         },
         {
             number: 3,
@@ -54,7 +54,8 @@ const adhkarMassa = () => {
             Rapporté par Abu Dawud 1523 et An Nasâ’i
             3/68.`,
             phonetique: "Qul 'A`ūdhu Birabbi Al-Falaqi ❀ Min Sharri Mā Khalaqa ❀ Wa Min Sharri Ghāsiqin 'Idhā Waqaba ❀ Wa Min Sharri An-Naffāthāti Fī Al-`Uqadi ❀ Wa Min Sharri Ĥāsidin 'Idhā Ĥasada",
-            howMuchTime: 3
+            howMuchTime: 3,
+            audio: require('../assets/audios/sourateAlFalaq.mp3')
         },
         {
             number: 4,
@@ -73,7 +74,8 @@ const adhkarMassa = () => {
             Rapporté par Abu Dawud 1523 et An Nasâ’i
             3/68.`,
             phonetique: "Qul 'A`ūdhu Birabbi An-Nāsi ❀ Maliki An-Nāsi ❀ 'Ilahi An-Nāsi ❀ Min Sharri Al-Waswāsi Al-Khannāsi ❀ Al-Ladhī Yuwaswisu Fī Şudūri An-Nāsi ❀ Mina Al-Jinnati Wa An-Nāsi",
-            howMuchTime: 3
+            howMuchTime: 3,
+            audio: require('../assets/audios/sourateNas.mp3')
         },
         {
             number: 5,
@@ -81,6 +83,7 @@ const adhkarMassa = () => {
             frenchTraduction: `Nous voilà au soir et le règne appartient à Allah. Louange à Allah, Il n’y a aucune divinité [digne d’être adorée] en dehors d’Allah, Seul, sans associé. À Lui la royauté, à Lui la louange et Il est capable de toute chose. Seigneur ! Je Te demande le bien que contient cette nuit et le bien qui vient après. Et je cherche refuge auprès de Toi contre le mal que contient cette nuit et le mal qui vient après. Seigneur ! Je cherche refuge auprès de Toi contre la paresse et les maux de la vieillesse. Je cherche refuge auprès de Toi contre le châtiment de l’Enfer et contre les tourments de la tombe.`,
             source: `Rapporté par Muslim 2723.`,
             phonetique: "Amsaynâ wa amsa-l-mulku li-llâhi wa-l-hamduli-llâh. Lâ ilâha illâ llâhu wahdahu lâ sharîka lah, lahu-l-mulku wa lahu-l-hamd, wa huwa ‘alâ kulli shayin Qadîr. Rabbi, asaluka khayra mâ fî hâdhihi-l-laylah, wa khayra mâ ba’dahâ. Wa a’ûdhu bika min sharri mâ fî hâdihia-l-laylah wa sharri mâ ba’dahâ. Rabbi a’ûdhu bika min al-kasali wa sûi-l-kibar. Rabbi a’ûdhu bika min ‘adhâbin fi-n-nâri wa ‘adhâbin fi-l-qabr.",
+            audio: require('../assets/audios/vieillessPauvrete.mp3')
             
         },
         {
@@ -89,6 +92,7 @@ const adhkarMassa = () => {
             frenchTraduction: `Ô Seigneur ! C’est de Toi que dépendent notre sommeil et notre réveil, notre vie et notre mort. Et c’est vers Toi que nous serons ressuscités.`,
             source: "Rapporté par At Tirmidhi 3391.",
             phonetique: "Allâhumma bika amsaynâ, wa bika, asbahnâ, wa bika nahyâ, wa bika namût, wa ilayka-l-masîr.",
+            audio: require('../assets/audios/bykaNaMout.mp3')
             
         },
         {
@@ -99,6 +103,7 @@ const adhkarMassa = () => {
             
             Rapporté par Al Bukhari 6306.`,
             phonetique: "Allâhumma anta Rabbî, lâ ilâha illâ ant. Khalaqtanî wa ana ‘abduk, wa ana ‘alâ ‘ahdika wa wa’dika mâ stata’t. A’ûdhu bika min sharri mâ sana’t. Abûu laka bi-ni’matika ‘alayya wa abûu bi-dhanbî fa-ghfir lî, fa-innahu lâ yaghfiru-dh-dhunûba illâ ant.",
+            audio: require('../assets/audios/persPardonnePecherSaufToi.mp3')
             
         },
         {
@@ -111,7 +116,7 @@ const adhkarMassa = () => {
             howMuchTime: 4,
             week: true,
             phonetique: "Allâhoumma innî amsaytou oush-hidouka, wa oush-hidou hamalata ‘arshika, wa malâ ikataka, wa jamî’a khalqika, annaka anta l-lâhou, lâ ilâha illâ anta, wahdaka lâ sharîka laka, wa anna mouhammadan ‘abdouka wa rasoûlouk.",
-            
+            audio: require('../assets/audios/4reprises.mp3')
         },
         {
             number: 9,
@@ -121,7 +126,7 @@ const adhkarMassa = () => {
             
             source: `Rapporté par Dawud 5073 – An Nasâ’i 7 – Ibn As Sunni 41 – Ibn Hiban 2361.`,
             phonetique: "Allâhoumma mâ amsa bî min ni’matin aw bi-ahadin min khalqika, fa-minka wahdaka lâ sharîka laka. Fa-laka-l-hamdou wa laka sh-shoukr.",
-            
+            audio: require('../assets/audios/toutBienfaitsParvient.mp3')
         },
         {
             number: 10,
@@ -133,7 +138,7 @@ const adhkarMassa = () => {
             week: true,
             howMuchTime: 3,
             phonetique: "Allâhoumma ‘âfinî fî badanî. Allâhoumma ‘âfinî fî sam’î. Allâhoumma ‘âfinî fî basarî. Lâ ilâha illâ anta. Allâhoumma innî a’oûdhou bika mina-l-koufri, wa-l-faqri. Wa a’oûdhou bika min ‘adhâbi-l-qabri. Lâ ilâha illâ ant.",
-            
+            audio: require('../assets/audios/3reprisesafini.mp3')
         },
         {
             number: 10,
@@ -146,7 +151,7 @@ const adhkarMassa = () => {
             week: true,
             howMuchTime: 7,
             phonetique: "Hasbiya Allahou La Ilaha Illa Houwa 'Alayhi Tawakaltou Wa Houwa Raboul 'Archil 'Adhim.",
-            
+            audio: require('../assets/audios/7fois.mp3')
         },
         {
             number: 11,
@@ -157,7 +162,7 @@ const adhkarMassa = () => {
             
             Rapporté par Abu Dawud 5074 – Ibn Maja 3871.`,
             phonetique: "Allahumma Inni As'aluka l-'Afwa wal-'Âfiyata Fî-d-Dunyâ wa-l-Âkhira, Allahumma Inni As'aluka l-'Afwa wa-l-'Âfiyata Fî Dînî wa Dunyâya wa Ahlî wa Mâlî, Allahumma Ustur 'Awrâtî wa Âmin Raw'âtî, Allahumma Ihfadhnî Min Bayni Yadayya wa Min Khalfî wa 'An Yamînî, wa 'An Chimâlî, wa Min Fawqî, wa A'ûdhu Bi'Adhamatika An Ughtala Min Tahtî.",
-            
+            audio: require('../assets/audios/èfwaWa3afiyata.mp3')
         },
         {
             number: 12,
@@ -166,7 +171,7 @@ const adhkarMassa = () => {
             
             source: `At Tirmidhi 3392 – Abu Dawud 5067.`,
             phonetique: "Allâhoumma 'âlim-alghaybi wa sh-shahâdati, fâtira s-samâwâti wa-l ardi, rabba koulli shay in wa malîkahou. Ash-hadou anlâ ilâha illâ anta. A'oûdhou bika min sharrin nafsî, wa min sharri sh-shaytâni wa 'hirkihi, wa an aqtarifa 'alâ nafsî soû an ajourrahou ilâ Mouslim.",
-            
+            audio: require('../assets/audios/visibleInvisible.mp3')
         },
         {
             number: 13,
@@ -178,7 +183,7 @@ const adhkarMassa = () => {
             Rapporté par Tirmidhi et authentifié par Cheikh Albani dans Sahih Al Jami n°3388`,
             howMuchTime: 3,
             phonetique: "Bismilllah Alladhi La Yadourrou Ma'a Smihi Chay oun Fil Ardi Wa La Fis Sama Wa Houwas Sami'oul 'Alim.",
-            
+            audio: require('../assets/audios/lèYaDurru3fois.mp3')
         },
         {
             number: 14,
@@ -189,7 +194,7 @@ const adhkarMassa = () => {
             
             Rapporté par Tabarani et authentifié par Cheikh Albani dans Silsila Sahiha n°2686`,
             phonetique: "Raditou Billahi Raban Wa Bil Islami Dinan Wa Bi Mohamedin Nabiyan.",
-            
+            audio: require('../assets/audios/attestation3fois.mp3')
         },
         {
             number: 15,
@@ -198,7 +203,7 @@ const adhkarMassa = () => {
             
             source: `Rapporté par Al Hakim 654.`,
             phonetique: "Yâ hayyû, yâ qayyûmou bi rahmatika astaghîth. Aslih lî sha nî koullahou wa lâ takilnî ilâ nafsî tarfata 'ayn.",
-            
+            audio: require('../assets/audios/yèHayyou.mp3')
         },
         {
             number: 16,
@@ -227,7 +232,7 @@ const adhkarMassa = () => {
             source: `Rapporté par An Nasâ’i 24.`,
             howMuchManyTime: "dix fois, ou une fois au moins lorsque l’on éprouve de la paresse",
             phonetique: "Lâ ilâha illa-llâhu wahdahu lâ sharîka lah. Lahu-l-mulku wa lahu-l-hamdu, wa huwa ‘alâ kulli shayin Qadîr.",
-            
+            audio: require('../assets/audios/100foisattestationComplete.mp3')
         },
         {
             number: 24,
@@ -251,6 +256,19 @@ const adhkarMassa = () => {
             Rapporté par Ahmad 7898 – An-Nassâ’i 590 – Ibn As Sunni 68.`,
             howMuchTime: 3,
             phonetique: "A’ûdhu bi-kalimati-llâhi-t-tâmmâti min sharri mâ khalaq.",
+            audio: require('../assets/audios/kalimatilLah3fois.mp3')
+        },
+        {
+            number: 25,
+            adkharArab: `سُبْحَانَ اللَّهِ وَبِحَمْدِهِ`,
+            frenchTraduction: `Je me réfugie auprès des paroles parfaites d’Allah contre le mal de ce qu’Il a créé.`,
+            
+            reward: `*  Nul ne pourrait présenter le Jour de la Résurrection une œuvre plus méritoire que le fait de prononcer ces mots cent fois le matin et le soir, si ce n’est celui qui les répéterait autant de fois ou davantage.
+            
+            Rapporté par Muslim 2723.`,
+            howMuchTime: 100,
+            phonetique: "Sobhanallah wa bihamdihi.",
+            audio: require('../assets/audios/subhanAllahiWaBihamdih.mp3')
             
         },
     ]
@@ -434,9 +452,9 @@ useEffect(() => {
                                         <TouchableOpacity onPress={() => handleDecrement(index)} style={styles.counterButton}>
                                             <Text style={styles.counterButtonText}>-</Text>
                                         </TouchableOpacity>
-                                        <Text style={styles.counterValue}>
-                                            {counters[index] || 0}
-                                        </Text>
+                                        <Text style={[styles.counterValue, { width: 40, textAlign: 'center' }]}>
+    {counters[index] || 0}
+</Text>
                                         <TouchableOpacity onPress={() => handleIncrement(index)} style={styles.counterButton}>
                                             <Text style={styles.counterButtonText}>+</Text>
                                         </TouchableOpacity>
@@ -458,7 +476,7 @@ useEffect(() => {
 >
     <Ionicons
         name={isPlayingList[index] ? 'pause-circle' : 'play-circle'}
-        size={30}  // Vous pouvez ajuster la taille selon vos préférences
+        size={40}  // Vous pouvez ajuster la taille selon vos préférences
         color="white"  // Vous pouvez définir la couleur en fonction de votre design
     />
 </TouchableOpacity>
@@ -666,6 +684,7 @@ const cardHeight = screenHeight / 1.7;
     audioTimeRemaining: {
         color: 'white',
         fontSize: 14,
+        fontWeight : "bold",
         width: 50,  // Fixe la largeur du texte pour qu'il ne change pas de taille
         textAlign: 'right',  // Vous pouvez ajuster l'alignement selon vos préférences
     }
