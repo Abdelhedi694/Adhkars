@@ -5,17 +5,25 @@ import * as Haptics from 'expo-haptics';
 import { Audio } from 'expo-av'; // Importation d'Expo Audio
 import Slider from '@react-native-community/slider';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useTranslation } from 'react-i18next';
 
 
 const adhkarMassa = () => {
+
+  const [showRewards, setShowRewards] = useState([]);
+  const [counters, setCounters] = useState([]);
+  const [isPlayingList, setIsPlayingList] = useState([]);
+  const [playbackPositionList, setPlaybackPositionList] = useState([]); // Pour stocker la position de lecture
+  const soundRefList = useRef([]);
+  const [audioDurationList, setAudioDurationList] = useState([]);
+  const { t } = useTranslation();
+
   const adhkars = [
     {
       number: 1,
       adkharArab: "اللهُ لاَ إِلَهَ إِلاَّ هُوَ الحَيُّ القَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَ لاَ نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَ مَا فِي الأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَ مَا خَلْفَهُمْ وَ لاَ يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلاَّ بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَ الأَرْضَ وَ لاَ يَئُودُهُ حِفْظُهُمَا وَ هُوَ العَلَيُّ العَظِيمُ",
-      frenchTraduction: "« Allah ! Point de divinité à part Lui, le Vivant, Celui qui n’a besoin de rien et dont toute chose dépend « al-Qayyûm ». Ni somnolence ni sommeil ne Le saisissent. À Lui appartient tout ce qui est dans les cieux et sur la Terre. Qui peut intercéder auprès de Lui sans Sa permission ? Il connaît leur passé et leur futur. Et, de Sa science, ils n’embrassent que ce qu’Il veut. Son Kursî (Piédestal) déborde les cieux et la Terre et leur garde ne Lui coûte aucune peine. Et Il est le Très Haut, l’Immense. »",
-      reward: `* Quiconque prononce ces mots en se réveillant se verra protégé des djinns jusqu’au soir. Et quiconque prononce ces mots en allant se coucher se verra protégé des djinns jusqu’au matin.
-            
-            Rapporté par Al Hakim 665.`,
+      frenchTraduction: t('adhkarMassa.ayatKursi.traduction'),
+      reward: t('adhkarMassa.ayatKursi.recompense'),
       phonetique: `« Allahou la ilaha illa houwa alhayyou alqayyoum la ta/khoudhouhou sinatoun wala nawm lahou ma fi ssamawati wama fi l-ard man dha alladhi yachfa'ou 'indahou illa bi-idhnih ya'lamou ma bayna aydihim wama khalfahoum wala youhitouna bichay-in min 'ilmihi illa bima cha-a wasi'a koursiyyouhou ssamawati waal-arda wala yaoudouhou hifdhouhouma wahouwa al'aliyyou al'adhim. »`,
       audio: require('../assets/audios/ayatKursi.mp3')
     },
@@ -26,13 +34,8 @@ const adhkarMassa = () => {
 قُلْ هُوَ اللهُ أَحَدٌ❀ اللهُ الصَّمَدُ❀ لَمْ يَلِدْ وَلَمْ يُولَدْ❀ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ
             
 سُورَةُ الإِخْلاَصِ`,
-      frenchTraduction: `Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux
-
-            « Dis :  Il est Allah, Unique ❀ Allah Le Seul à être imploré pour ce que nous désirons ❀ Il n’a jamais engendré et n’a pas été engendré non plus ❀ Et nul n’est égal à Lui. »`,
-      reward: `* Quiconque les récite trois fois en se réveillant et en se couchant y trouvera une protection suffisante contre toute chose.
-            
-            Rapporté par Abu Dawud 1523 et An Nasâ’i
-            3/68.`,
+      frenchTraduction: t('adhkarMassa.ikhlass.traduction'),
+      reward: t('adhkarMassa.ikhlass.recompense'),
       phonetique: "Qul Huwa Allāhu 'Aĥadun ❀ Allāhu Aş-Şamadu ❀ Lam Yalid Wa Lam Yūlad ❀ Walam Yakun Lahu Kufūan 'Aĥadun",
       howMuchTime: 3,
       audio: require('../assets/audios/sourateIkhlass.mp3')
@@ -45,14 +48,8 @@ const adhkarMassa = () => {
 وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ❀ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
             
 سُورَةُ الفَلَق`,
-      frenchTraduction: `Au Nom d’Allah le Tout Miséricordieux le Très Miséricordieux 
-            
-            « Dis : Je cherche protection auprès du Seigneur de l’aube naissante ❀ contre le mal des êtres qu’Il a créés ❀ contre le mal de l’obscurité quand elle s’approfondit ❀ contre le mal de celles qui soufflent sur les nœuds ❀ et contre le mal de l’envieux quand il envie. »
-            `,
-      reward: `* Quiconque les récite trois fois en se réveillant et en se couchant y trouvera une protection suffisante contre toute chose.
-            
-            Rapporté par Abu Dawud 1523 et An Nasâ’i
-            3/68.`,
+      frenchTraduction: t('adhkarMassa.falaq.traduction'),
+      reward: t('adhkarMassa.falaq.recompense'),
       phonetique: "Qul 'A`ūdhu Birabbi Al-Falaqi ❀ Min Sharri Mā Khalaqa ❀ Wa Min Sharri Ghāsiqin 'Idhā Waqaba ❀ Wa Min Sharri An-Naffāthāti Fī Al-`Uqadi ❀ Wa Min Sharri Ĥāsidin 'Idhā Ĥasada",
       howMuchTime: 3,
       audio: require('../assets/audios/sourateAlFalaq.mp3')
@@ -65,14 +62,8 @@ const adhkarMassa = () => {
 الْخَنَّاسِ ❀ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ❀ مِنَ الْجِنَّةِ وَالنَّاسِ
             
 سُورَةُ النَّاس`,
-      frenchTraduction: `Au Nom d’Allah le Tout Miséricordieux le Très Miséricordieux 
-            
-            « Dis : Je cherche protection auprès du Seigneur des hommes ❀ le Souverain des hommes ❀ Dieu des hommes ❀ contre le mal du mauvais conseiller furtif ❀ qui souffle le mal dans les poitrines des hommes ❀ qu’il soit djinn ou être humain. »
-            `,
-      reward: `* Quiconque les récite trois fois en se réveillant et en se couchant y trouvera une protection suffisante contre toute chose.
-            
-            Rapporté par Abu Dawud 1523 et An Nasâ’i
-            3/68.`,
+      frenchTraduction: t('adhkarMassa.nas.traduction'),
+      reward: t('adhkarMassa.nas.recompense'),
       phonetique: "Qul 'A`ūdhu Birabbi An-Nāsi ❀ Maliki An-Nāsi ❀ 'Ilahi An-Nāsi ❀ Min Sharri Al-Waswāsi Al-Khannāsi ❀ Al-Ladhī Yuwaswisu Fī Şudūri An-Nāsi ❀ Mina Al-Jinnati Wa An-Nāsi",
       howMuchTime: 3,
       audio: require('../assets/audios/sourateNas.mp3')
@@ -80,8 +71,8 @@ const adhkarMassa = () => {
     {
       number: 5,
       adkharArab: `أَمْسَيْنَا وَ أَمْسَى المُلْكُ للهِ وَ الحَمْدُ للهِ، لاَ إِلَهَ إِلاَّ اللهُ وَحدَهُ لاَشَرِيكَ لَهُ، لَهُ المُلْكُ وَ لَهُ الحَمْدُ، وَ هُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيلَةِ وَ خَيرَ مَا بَعْدَهَا، وَ أَعُوذُ بِكَ مِنْ شَرِّ مَا هَذِهِ اللَّيلَةِ وَ شَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الكَسَلِ وَ سُوءِ الكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَ عَذَابٍ فِي القَبْرِ`,
-      frenchTraduction: `Nous voilà au soir et le règne appartient à Allah. Louange à Allah, Il n’y a aucune divinité [digne d’être adorée] en dehors d’Allah, Seul, sans associé. À Lui la royauté, à Lui la louange et Il est capable de toute chose. Seigneur ! Je Te demande le bien que contient cette nuit et le bien qui vient après. Et je cherche refuge auprès de Toi contre le mal que contient cette nuit et le mal qui vient après. Seigneur ! Je cherche refuge auprès de Toi contre la paresse et les maux de la vieillesse. Je cherche refuge auprès de Toi contre le châtiment de l’Enfer et contre les tourments de la tombe.`,
-      source: `Rapporté par Muslim 2723.`,
+      frenchTraduction: t('adhkarMassa.vieillessPauvrete.traduction'),
+      source: t('adhkarMassa.vieillessPauvrete.source'),
       phonetique: "Amsaynâ wa amsa-l-mulku li-llâhi wa-l-hamduli-llâh. Lâ ilâha illâ llâhu wahdahu lâ sharîka lah, lahu-l-mulku wa lahu-l-hamd, wa huwa ‘alâ kulli shayin Qadîr. Rabbi, asaluka khayra mâ fî hâdhihi-l-laylah, wa khayra mâ ba’dahâ. Wa a’ûdhu bika min sharri mâ fî hâdihia-l-laylah wa sharri mâ ba’dahâ. Rabbi a’ûdhu bika min al-kasali wa sûi-l-kibar. Rabbi a’ûdhu bika min ‘adhâbin fi-n-nâri wa ‘adhâbin fi-l-qabr.",
       audio: require('../assets/audios/vieillessPauvrete.mp3')
 
@@ -89,8 +80,8 @@ const adhkarMassa = () => {
     {
       number: 6,
       adkharArab: `اللّهُـمَّ بِكَ أَمْسَـينا، وَبِكَ أَصْـبَحْنا، وَبِكَ نَحْـيا، وَبِكَ نَمـوتُ وَإِلَـيْكَ المَصـير`,
-      frenchTraduction: `Ô Seigneur ! C’est de Toi que dépendent notre sommeil et notre réveil, notre vie et notre mort. Et c’est vers Toi que nous serons ressuscités.`,
-      source: "Rapporté par At Tirmidhi 3391.",
+      frenchTraduction: t('adhkarMassa.bykaNaMout.traduction'),
+      source: t('adhkarMassa.bykaNaMout.source'),
       phonetique: "Allâhumma bika amsaynâ, wa bika, asbahnâ, wa bika nahyâ, wa bika namût, wa ilayka-l-masîr.",
       audio: require('../assets/audios/bykaNaMout.mp3'),
       dii: "kj"
@@ -99,10 +90,8 @@ const adhkarMassa = () => {
     {
       number: 7,
       adkharArab: `اللّهـمَّ أَنْتَ رَبِّـي لا إلهَ إلاّ أَنْتَ ، خَلَقْتَنـي وَأَنا عَبْـدُك ، وَأَنا عَلـى عَهْـدِكَ وَوَعْـدِكَ ما اسْتَـطَعْـت ، أَعـوذُبِكَ مِنْ شَـرِّ ما صَنَـعْت ، أَبـوءُ لَـكَ بِنِعْـمَتِـكَ عَلَـيَّ وَأَبـوءُ بِذَنْـبي فَاغْفـِرْ لي فَإِنَّـهُ لا يَغْـفِرُ الذُّنـوبَ إِلاّ أَنْتَ`,
-      frenchTraduction: `Ô Seigneur ! Tu es, Toi, mon Maître et Toi Seul mérites l’adoration ! C’est Toi qui m’as créé et je suis Ton serviteur. Je me soumets à l’engagement que j’ai pris envers Toi et à Ta promesse dans la mesure de mes capacités. Je me réfugié auprès de Toi contre le mal de mes actes. Je reconnais pleinement le bienfait dont Tu m’as comblé et je reconnais mon péché. Accorde-moi donc Ton pardon car Il n’est personne qui pardonne les fautes en dehors de Toi. `,
-      reward: `* Quiconque prononce ces mots avec certitude en se couchant et meurt lors de cette nuit, entrera au Paradis. Et il en est de même pour celui qui les prononce en se réveillant.
-            
-            Rapporté par Al Bukhari 6306.`,
+      frenchTraduction: t('adhkarMassa.persPardonnePecherSaufToi.traduction'),
+      reward: t('adhkarMassa.persPardonnePecherSaufToi.recompense'),
       phonetique: "Allâhumma anta Rabbî, lâ ilâha illâ ant. Khalaqtanî wa ana ‘abduk, wa ana ‘alâ ‘ahdika wa wa’dika mâ stata’t. A’ûdhu bika min sharri mâ sana’t. Abûu laka bi-ni’matika ‘alayya wa abûu bi-dhanbî fa-ghfir lî, fa-innahu lâ yaghfiru-dh-dhunûba illâ ant.",
       audio: require('../assets/audios/persPardonnePecherSaufToi.mp3')
 
@@ -110,10 +99,8 @@ const adhkarMassa = () => {
     {
       number: 8,
       adkharArab: `اللّهُـمَّ إِنِّـي أَمْسَيْتُ أَُشْـهِدُك ، وَأُشْـهِدُ حَمَلَـةَ عَـرْشِـك ، وَمَلائِكَتِك ، وَجَمـيعَ خَلْـقِك ، أَنَّـكَ أَنْـتَ اللهُ لا إلهَ إلاّ أَنْـتَ وَحْـدَكَ لا شَريكَ لَـك ، وَأَنَّ مُحَمّـداً عَبْـدُكَ وَرَسـولُـك`,
-      frenchTraduction: ` Ô Seigneur ! Me voici au soir, je Te prends à témoin et je prends à témoins les porteurs de Ton Trône ainsi que Tes anges et toutes tes créatures, que c’est Toi Allah, il n’y a de divinité que Toi, Tu es Seul et sans associé, et que Muhammad est Ton esclave et Ton messager.`,
-      reward: `* Quiconque prononce cette formule à quatre reprises en se réveillant ou en allant se coucher verra Allah l’affranchir de l’enfer.
-            
-            Rapporté par Abu Dawud 5069 – Al Bukhari 1201 – An Nasâ’i 9  et Ibn As Sunni 70.`,
+      frenchTraduction: t('adhkarMassa.4reprisesSoir.traduction'),
+      reward: t('adhkarMassa.4reprisesSoir.recompense'),
       howMuchTime: 4,
       week: true,
       phonetique: "Allâhoumma innî amsaytou oush-hidouka, wa oush-hidou hamalata ‘arshika, wa malâ ikataka, wa jamî’a khalqika, annaka anta l-lâhou, lâ ilâha illâ anta, wahdaka lâ sharîka laka, wa anna mouhammadan ‘abdouka wa rasoûlouk.",
@@ -123,9 +110,8 @@ const adhkarMassa = () => {
       number: 9,
       adkharArab: `اللّهُـمَّ ما أمْسَى بِي مِنْ نِعْمَةٍ، أوْ بِأحَدٍ مِنْ خَلقِكَ، فَمِنْكَ وَحْدَكَ لا
 شَرِيْكَ لَكَ، فَلَكَ الحَمْدُ ولَكَ الشُّكْرُ`,
-      frenchTraduction: `Ô Seigneur ! Tout ce qui m’arrive comme bienfaits en cette soirée, à moi ou à l’une de Tes créatures, provient de Toi Seul, sans associé. A Toi la louange ainsi que la gratitude.`,
-
-      source: `Rapporté par Dawud 5073 – An Nasâ’i 7 – Ibn As Sunni 41 – Ibn Hiban 2361.`,
+      frenchTraduction: t('adhkarMassa.allahummamaamsabiminnimatin.traduction'),
+      source: t('adhkarMassa.allahummamaamsabiminnimatin.source'),
       phonetique: "Allâhoumma mâ amsa bî min ni’matin aw bi-ahadin min khalqika, fa-minka wahdaka lâ sharîka laka. Fa-laka-l-hamdou wa laka sh-shoukr.",
       audio: require('../assets/audios/Allahumma ma amsa bi min nimatin - Mishary Rashid #sunnah #shortsvideo #dzikir (1).mp3')
     },
@@ -133,9 +119,8 @@ const adhkarMassa = () => {
       number: 10,
       adkharArab: `اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لَا إلَهَ إلاَّ أنْتَ، اللَّهُمَّ إنِّي أَعُوذُ بِكَ مِنَ الكُفْرِ وَالفَقْرِ، وأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لا إلَهَ إلاَّ
 أنْتَ`,
-      frenchTraduction: `Ô Seigneur ! Maintiens-moi en bonne santé. Ô Seigneur ! Préserve la santé de mon ouïe. Ô Seigneur ! Préserve la santé de ma vue. Ô Seigneur ! Je me réfugie auprès de Toi contre la mécréance et la pauvreté, et je me réfugie auprès de Toi contre les supplices de la tombe. Nulle divinité n’est digne d’être adorée en dehors de Toi.`,
-
-      source: `Rapporté par Abu Dawud 5090 – Ahmad 20430 – An Nasâ’i 22.`,
+      frenchTraduction: t('adhkarMassa.3reprisesafini.traduction'),
+      source: t('adhkarMassa.3reprisesafini.source'),
       week: true,
       howMuchTime: 3,
       phonetique: "Allâhoumma ‘âfinî fî badanî. Allâhoumma ‘âfinî fî sam’î. Allâhoumma ‘âfinî fî basarî. Lâ ilâha illâ anta. Allâhoumma innî a’oûdhou bika mina-l-koufri, wa-l-faqri. Wa a’oûdhou bika min ‘adhâbi-l-qabri. Lâ ilâha illâ ant.",
@@ -144,11 +129,8 @@ const adhkarMassa = () => {
     {
       number: 10,
       adkharArab: `حَسْبِيَ اللهُ لاَ إلَهَ إلاَّ هُوَ عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ العَرْشِ العَظِيمِ`,
-      frenchTraduction: `Allah me suffit, il n’y a de divinité que Lui, c’est en Lui que je place ma confiance et Il est le Seigneur du Trône immense.`,
-
-      reward: `* Quiconque prononce ces paroles à sept reprises le matin et le soir verra Allah l’épargner de tous les soucis qui le préoccuperont, tant sur cette terre que dans l’au-delà.
-            
-            Rapporté par Abou Daoud dans ses Sounan n°5081 et authentifié par Cheikh Ibn Baz dans Majou' Al Fatawa vol 26 p 65, par Cheikh Al 'Abad dans Charh Sounan Abi Daoud cours n°577 ainsi que par Cheikh Salim Al Hilali dans Sahih Al Adhkar Nawawiya p 83.`,
+      frenchTraduction: t('adhkarMassa.7fois.traduction'),
+      reward: t('adhkarMassa.7fois.recompense'),
       week: true,
       howMuchTime: 7,
       phonetique: "Hasbiya Allahou La Ilaha Illa Houwa 'Alayhi Tawakaltou Wa Houwa Raboul 'Archil 'Adhim.",
@@ -157,31 +139,24 @@ const adhkarMassa = () => {
     {
       number: 11,
       adkharArab: `اللهُمَّ إنِّي أسْألُكَ العَفْوَ والعَافيةَ في الدُّنْيَا والآخِرَةِ، اللهُمَّ إنِّي أسْألُكَ العَفْوَ والعَافيةَ في دِيْني ودُنْيَاي، وأهْلِي، ومَالي، اللهُمَّ اسْتُرْ عَوْرَاتي، وآمِنْ رَوْعَاتي، اللهُمَّ احْفَظْني مِنْ بيْنِ يَدَيَّ، ومِنْ خَلْفِي، وعَنْ يَميني، وعَنْ شِمَالي، ومِنْ فَوْقِي، وأعُوذُ بِعَظَمَتكَ أنْ أُغْتالَ مِنْ تَحْتي`,
-      frenchTraduction: `Ô Seigneur ! Je T’implore de m’accorder Ton pardon et Ta protection dans cette vie et dans l’au-delà. Ô Seigneur ! Je T’implore de m’accorder Ton pardon et Ta protection dans ma religion, ma vie, ma famille et mes biens. Ô Seigneur ! Couvre mes défauts et rassure-moi quant aux peurs qui me tiraillent. Ô Seigneur ! Préserve-moi de tout ce qui pourrait survenir de devant ou derrière moi, à ma droite, à ma gauche ou au-dessus de moi, et je me réfugie auprès de Ta toute grandeur contre une mort qui surgirait d’en-dessous de moi.`,
-
-      reward: `* Le Messager d'Allah (ﷺ) n'omettait jamais de faire ces invocations le matin et le soir.
-            
-            Rapporté par Abu Dawud 5074 – Ibn Maja 3871.`,
+      frenchTraduction: t('adhkarMassa.èfwaWa3afiyata.traduction'),
+      reward: t('adhkarMassa.èfwaWa3afiyata.recompense'),
       phonetique: "Allahumma Inni As'aluka l-'Afwa wal-'Âfiyata Fî-d-Dunyâ wa-l-Âkhira, Allahumma Inni As'aluka l-'Afwa wa-l-'Âfiyata Fî Dînî wa Dunyâya wa Ahlî wa Mâlî, Allahumma Ustur 'Awrâtî wa Âmin Raw'âtî, Allahumma Ihfadhnî Min Bayni Yadayya wa Min Khalfî wa 'An Yamînî, wa 'An Chimâlî, wa Min Fawqî, wa A'ûdhu Bi'Adhamatika An Ughtala Min Tahtî.",
       audio: require('../assets/audios/èfwaWa3afiyata.mp3')
     },
     {
       number: 12,
       adkharArab: `اللَّهُمَّ عَالِمَ الغَيْبِ والشَّهَادَةِ، فَاطِرَ السَّموَاتِ والأرْضِ، رَبَّ كُلِّ شَيءٍ ومَلِيْكَهُ، أشْهَدُ أنْ لا إلَهَ إلاَّ أنْتَ، أعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وأنْ أقْتَرِفَ عَلَى نَفْسِي سُوءاً، أوْ أجُرَّهُ إلَى مُسْلِمٍ`,
-      frenchTraduction: `Ô Seigneur ! Toi qui connais parfaitement l’invisible et le visible ! Créateur des cieux et de la terre ! Maître et Possesseur de toute chose ! J’atteste qu’il n’est d’autre divinité méritant l’adoration en dehors de Toi. Je me réfugie auprès de Toi contre le mal de mon âme, contre celui du diable et de son incitation à T’attribuer un associé. (Et je me réfugié auprès de Toi) contre tout méfait que je pourrais perpétrer envers moi-même ou envers autrui.`,
-
-      source: `At Tirmidhi 3392 – Abu Dawud 5067.`,
+      frenchTraduction: t('adhkarMassa.visibleInvisible.traduction'),
+      source: t('adhkarMassa.visibleInvisible.source'),
       phonetique: "Allâhoumma 'âlim-alghaybi wa sh-shahâdati, fâtira s-samâwâti wa-l ardi, rabba koulli shay in wa malîkahou. Ash-hadou anlâ ilâha illâ anta. A'oûdhou bika min sharrin nafsî, wa min sharri sh-shaytâni wa 'hirkihi, wa an aqtarifa 'alâ nafsî soû an ajourrahou ilâ Mouslim.",
       audio: require('../assets/audios/visibleInvisible.mp3')
     },
     {
       number: 13,
       adkharArab: `بِسْمِ اللهِ الَّذِي لا يَضُرُّ مَعَ اسْمِهِ شَيءٌ في الأرْضِ وَلَا فِي السَّمَاءِ وهُوَ السَّمِيعُ العَلِيْمُ`,
-      frenchTraduction: `Au Nom d’Allah dont la mention empêche toute chose de nuire, tant sur la terre que dans le ciel, et Il est l’Audient et l’Omniscient.`,
-
-      reward: `D'après 'Othman Ibn 'Affan (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit: « Il n'y a pas un serviteur qui dit trois fois au début de chaque journée et au début de chaque nuit : - Au nom d'Allah, Celui avec le Nom duquel rien n'est nuisible que ce soit sur la Terre ou dans les cieux et Il est Celui qui entend, Le Connaisseur - qui sera touché par une chose qui lui soit nuisible. »
-            
-            Rapporté par Tirmidhi et authentifié par Cheikh Albani dans Sahih Al Jami n°3388`,
+      frenchTraduction: t('adhkarMassa.lèYaDurru3fois.traduction'),
+      reward: t('adhkarMassa.lèYaDurru3fois.recompense'),
       howMuchTime: 3,
       phonetique: "Bismilllah Alladhi La Yadourrou Ma'a Smihi Chay oun Fil Ardi Wa La Fis Sama Wa Houwas Sami'oul 'Alim.",
       audio: require('../assets/audios/lèYaDurru3fois.mp3')
@@ -189,29 +164,24 @@ const adhkarMassa = () => {
     {
       number: 14,
       adkharArab: `رَضِيْتُ بِاللهِ رَبًّا، وبالإسْلامِ دِيْناً، وبِمُحَمَّدٍ نَبيًّا`,
-      frenchTraduction: `Je reconnais Allah en tant que Seigneur, l’Islam en tant que religion et Muhammad en tant que Prophète.`,
-
-      reward: `D'après Mounaydhir (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit « Celui qui dit le matin (*): Je suis satisfait d'Allah comme Seigneur, de l'islam comme religion et de Mouhammad comme prophète (**), je lui garantis que je le prendrais par la main jusqu'à le faire entrer au paradis »
-            
-            Rapporté par Tabarani et authentifié par Cheikh Albani dans Silsila Sahiha n°2686`,
+      frenchTraduction: t('adhkarMassa.attestation3fois.traduction'),
+      reward: t('adhkarMassa.attestation3fois.recompense'),
       phonetique: "Raditou Billahi Raban Wa Bil Islami Dinan Wa Bi Mohamedin Nabiyan.",
       audio: require('../assets/audios/attestation3fois.mp3')
     },
     {
       number: 15,
       adkharArab: `يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ، وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ`,
-      frenchTraduction: `Ô Vivant ! Ô Toi qui es le Seul à être imploré pour ce que nous désirons ! C’est à Ta Miséricorde que j’en appelle. Améliore ma situation et ne me livre pas à moi-même, ne serait-ce qu’un seul instant.`,
-
-      source: `Rapporté par Al Hakim 654.`,
+      frenchTraduction: t('adhkarMassa.yèHayyou.traduction'),
+      source: t('adhkarMassa.yèHayyou.source'),
       phonetique: "Yâ hayyû, yâ qayyûmou bi rahmatika astaghîth. Aslih lî sha nî koullahou wa lâ takilnî ilâ nafsî tarfata 'ayn.",
       audio: require('../assets/audios/yèHayyou.mp3')
     },
     {
       number: 16,
       adkharArab: `أَمْسَيْنَا وَ أَمْسَى المُلْكُ للهِ رَبِّ العَالَمِينَ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذِهِ اللَّيلَةِ، فَتْحَهَا، وَ نَصْرَهَا، وَ نُورَهَا وَ بَرَكَتَهَا، وَ هُدَاهَا، وَ أَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهَا وَ شَرِّ مَا بَعْدَهَا.`,
-      frenchTraduction: `Nous voilà au soir et le règne appartient à Allah, le Seigneur de l’univers. Ô Seigneur ! Je Te demande le bien de cette nuit : conquêtes, victoires, lumière, bénédiction et guidée. Je me mets sous Ta protection contre le mal de cette nuit et le mal qui vient après.`,
-
-      source: `Rapporté par Abu Dawud 5084.`,
+      frenchTraduction: t('adhkarMassa.amsalmulkulillahiRabbi.traduction'),
+      source: t('adhkarMassa.amsalmulkulillahiRabbi.source'),
       week: true,
       phonetique: "Amsaynâ wa amsâ-l-mulku li-llâhi Rabbi-l-‘âlamîn. Allâhumma innî asaluka khayra hâdhihi-l-laylah : fathahâ, wa nasrahâ, wa nûrahâ, wa barakatahâ, wa hudâhâ. Wa a’ûdhu bika min sharri mâ fîhâ wa sharri mâ ba’dahâ.",
       audio: require('../assets/audios/Amsayna wa amsal mulku lillahi Rabbi ‘l alamin  Daily Adhkar  Dua for victory, guidance from Allah (1).mp3')
@@ -219,18 +189,16 @@ const adhkarMassa = () => {
     {
       number: 17,
       adkharArab: `أَمْسَيْنَا عَلَى فِطْرَةِ الإسْلامِ، وعَلَى كَلِمَةِ الإخْلاصِ، وعَلَى دِيْنِ نَبيِّنَا مُحَمَّدٍ – صلى الله عليه وسلم -، وعَلَى مِلَّةِ أبِينَا إبْرَاهيمَ، حَنيفاً مُسْلِماً ومَا كَانَ مِنَ المُشْرِكِينَ.`,
-      frenchTraduction: `Nous voici au soir, et en nous se trouve la nature première qui est l’Islam, en nous, la parole du monothéisme ; nous sommes dans la religion de notre Prophète Muhammad (que la prière d'Allah et Son salut soient sur lui) et sur la voie de notre père Abraham qui vouait son culte exclusivement à Allah, soumis à Lui, et n’était point du nombre des associateurs.`,
-
-      source: `Rapporté par Ahmad 15360 – Ibn Sunni 34.`,
+      frenchTraduction: t('adhkarMassa.fitratilislamSoir.traduction'),
+      source: t('adhkarMassa.fitratilislamSoir.source'),
       phonetique: "Amsayna 'ala fitrati-l-islami, wa 'ala kalimati-l-ikhlasi, wa 'ala dini nabiyyina Muhammadin, wa 'ala millati abina Ibrahima, hanifan, musliman, wa ma kana mina-l-mushrikin.",
       audio: require('../assets/audios/Amsayna ala fitratil-Islam wa ala kalimatil-ikhlas  Daily Adhkar  Recite daily once in the evening (1).mp3')
     },
     {
       number: 19,
       adkharArab: `لا إلَهَ إلاَّ اللهُ وَحْدَهُ لا شَرِيْكَ لَهُ، لَهُ المُلْكُ، ولَهُ الحَمْدُ، وَهُوَ عَلَى كُلِّ شَيءٍ قَديرٌ`,
-      frenchTraduction: `Nulle divinité n’est digne d’être adorée en dehors d’Allah, Seul et sans associé. À lui appartiennent la Souveraineté absolue et la louange, et Il est Omnipotent.`,
-
-      source: `Rapporté par An Nasâ’i 24.`,
+      frenchTraduction: t('adhkarMassa.100foisattestationComplete.traduction'),
+      source: t('adhkarMassa.100foisattestationComplete.source'),
       howMuchManyTime: "dix fois, ou une fois au moins lorsque l’on éprouve de la paresse",
       phonetique: "Lâ ilâha illa-llâhu wahdahu lâ sharîka lah. Lahu-l-mulku wa lahu-l-hamdu, wa huwa ‘alâ kulli shayin Qadîr.",
       audio: require('../assets/audios/100foisattestationComplete.mp3')
@@ -238,11 +206,8 @@ const adhkarMassa = () => {
     {
       number: 24,
       adkharArab: `اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبيِّنَا مُحَمَّدٍ`,
-      frenchTraduction: `Ô Seigneur ! Accorde Tes bénédictions et la paix à notre Prophète Muhammad.`,
-
-      reward: `* Quiconque implore les bénédictions d’Allah en ma faveur dix fois au lever et dix fois en se couchant, verra mon intercession l’atteindre au Jour de la Résurrection
-            
-            Rapporté par At Tabarani 656.`,
+      frenchTraduction: t('adhkarMassa.saliWaSelim10fois.traduction'),
+      reward: t('adhkarMassa.saliWaSelim10fois.recompense'),
       howMuchTime: 10,
       phonetique: "Allāhumma ṣalli wa sallim 'alā nabiyyinā Muḥammad.",
       audio: require('../assets/audios/saliWaSelim10fois.mp3')
@@ -250,11 +215,8 @@ const adhkarMassa = () => {
     {
       number: 24,
       adkharArab: `أَعُوْذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ`,
-      frenchTraduction: `Je me réfugie auprès des paroles parfaites d’Allah contre le mal de ce qu’Il a créé.`,
-
-      reward: `*  Quiconque prononce ces mots à trois reprises ne se verra pas atteint par la fièvre cette nuit.
-            
-            Rapporté par Ahmad 7898 – An-Nassâ’i 590 – Ibn As Sunni 68.`,
+      frenchTraduction: t('adhkarMassa.kalimatilLah3fois.traduction'),
+      reward: t('adhkarMassa.kalimatilLah3fois.recompense'),
       howMuchTime: 3,
       phonetique: "A’ûdhu bi-kalimati-llâhi-t-tâmmâti min sharri mâ khalaq.",
       audio: require('../assets/audios/kalimatilLah3fois.mp3')
@@ -262,23 +224,14 @@ const adhkarMassa = () => {
     {
       number: 25,
       adkharArab: `سُبْحَانَ اللَّهِ وَبِحَمْدِهِ`,
-      frenchTraduction: `Je me réfugie auprès des paroles parfaites d’Allah contre le mal de ce qu’Il a créé.`,
-
-      reward: `*  Nul ne pourrait présenter le Jour de la Résurrection une œuvre plus méritoire que le fait de prononcer ces mots cent fois le matin et le soir, si ce n’est celui qui les répéterait autant de fois ou davantage.
-            
-            Rapporté par Muslim 2723.`,
+      frenchTraduction: t('adhkarMassa.subhanAllahiWaBihamdih.traduction'),
+      reward: t('adhkarMassa.subhanAllahiWaBihamdih.recompense'),
       howMuchTime: 100,
       phonetique: "Sobhanallah wa bihamdihi.",
       audio: require('../assets/audios/subhanAllahiWaBihamdih.mp3')
 
     },
   ]
-  const [showRewards, setShowRewards] = useState([]);
-  const [counters, setCounters] = useState([]);
-  const [isPlayingList, setIsPlayingList] = useState([]);
-  const [playbackPositionList, setPlaybackPositionList] = useState([]); // Pour stocker la position de lecture
-  const soundRefList = useRef([]);
-  const [audioDurationList, setAudioDurationList] = useState([]);
 
   const triggerHapticFeedback = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);

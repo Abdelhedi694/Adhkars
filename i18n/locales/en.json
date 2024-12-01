@@ -1,4 +1,194 @@
 {
     "invocationsMatin": "Morning Invocations",
-    "invocationSsoir": "Evening Invocations"
+    "invocationSsoir": "Evening Invocations",
+    "adhkarSabah": {
+        "ayatKursi": {
+            "traduction": "« Allah! There is no deity but Him, the Ever-Living, the Sustainer of all existence, Al-Qayyum. Neither drowsiness nor sleep overtakes Him. To Him belongs all that is in the heavens and the earth. Who can intercede with Him except by His permission? He knows what is before them and what will be after them. And from His knowledge, they encompass only what He wills. His Kursi (Footstool) extends over the heavens and the earth, and their preservation does not tire Him. And He is the Most High, the Most Great. »",
+            "recompense": "* Whoever recites these words upon waking will be protected from the jinn until evening. And whoever recites these words before sleeping will be protected from the jinn until morning. Reported by Al Hakim 665."
+        },
+        "ikhlass": {
+            "traduction": "In the name of Allah, the Most Merciful, the Most Compassionate. « Say: He is Allah, the One ❀ Allah, the Only One to be invoked for what we desire ❀ He neither begets nor is begotten ❀ And none is equal to Him. »",
+            "recompense": "* Whoever recites this three times in the morning and evening will find sufficient protection against all things. Reported by Abu Dawud 1523 and An-Nasa’i 3/68."
+        },
+        "falaq": {
+            "traduction": "In the name of Allah, the Most Merciful, the Most Compassionate. « Say: I seek refuge with the Lord of the dawn ❀ from the evil of what He has created ❀ from the evil of the darkness as it spreads ❀ from the evil of those who blow on knots ❀ and from the evil of the envious when he envies. »",
+            "recompense": "* Whoever recites this three times in the morning and evening will find sufficient protection against all things. Reported by Abu Dawud 1523 and An-Nasa’i 3/68."
+        },
+        "nas": {
+            "traduction": "In the name of Allah, the Most Merciful, the Most Compassionate. « Say: I seek refuge with the Lord of mankind ❀ the King of mankind ❀ the God of mankind ❀ from the evil of the whisperer who withdraws ❀ who whispers in the breasts of mankind ❀ of jinn and of mankind. »",
+            "recompense": "* Whoever recites this three times in the morning and evening will find sufficient protection against all things. Reported by Abu Dawud 1523 and An-Nasa’i 3/68."
+        },
+        "asbahnaWaLqabr": {
+            "traduction": "The day has dawned upon us, and sovereignty belongs to Allah alone. Praise belongs to Allah. No deity is worthy of worship except Allah, Alone with no partners. To Him belongs absolute sovereignty and praise, and He is Omnipotent. O Lord! I implore You to grant me the good of this day and the good that follows it. And I seek refuge in You from the evil of this day and the evil that follows it. O Lord! I seek refuge in You from laziness and from the ill effects of aging. O Lord! Protect me from the punishment of Hell and from the torment of the grave.",
+            "recompense": "Sheikh Abderrazak al Badr explained this hadith in the book Fiqh al ad’iyati wa al adhkaar p.471: “Among the benefits of this hadith: – Asking for protection from the evil of the day, both apparent and hidden. – Asking for protection from laziness, and the ailments of aging and its consequences. – Asking for protection from the fire of Hell and the torment of the grave. Whoever is protected from the grave (the first abode in the hereafter), will be protected from what follows it.”"
+        },
+        "ilaykaNushur": {
+            "traduction": "O Lord! It is from You that our waking and sleeping, our life and death depend. And it is to You that we will be resurrected.",
+            "source": "Reported by At-Tirmidhi 3391."
+        },
+        "persPardonnePecherSaufToi": {
+            "traduction": "O Lord! You are my Master, and You alone deserve worship! You created me, and I am Your servant. I submit to the covenant I made with You and to Your promise to the best of my ability. I seek refuge in You from the evil of my actions. I fully acknowledge the blessings You have bestowed upon me, and I recognize my sin. Forgive me, for none but You can forgive sins.",
+            "recompense": "* Whoever recites these words with certainty before going to sleep and dies during that night will enter Paradise. The same applies to the one who recites them upon waking. Reported by Al-Bukhari 6306."
+        },
+        "4reprises": {
+            "traduction": "O Lord! Here I am in the morning, and I call to witness You and the bearers of Your Throne, as well as Your angels and all Your creatures, that You are Allah, there is no deity but You, You are Alone with no partners, and that Muhammad is Your servant and Your Messenger.",
+            "recompense": "* Whoever recites this phrase four times upon waking or before going to sleep will be freed from Hell by Allah. Reported by Abu Dawud 5069 – Al Bukhari 1201 – An-Nasa’i 9 and Ibn As-Sunni 70."
+        },
+        "toutBienfaitsParvient": {
+            "traduction": "O Lord! All the blessings that come to me today, or to any of Your creatures, come from You alone, with no partners. To You be praise and gratitude.",
+            "source": "Reported by Dawud 5073 – An-Nasa’i 7 – Ibn As-Sunni 41 – Ibn Hiban 2361."
+        },
+        "3reprisesafini": {
+            "traduction": "O Lord! Keep me healthy. O Lord! Preserve the health of my hearing. O Lord! Preserve the health of my sight. O Lord! I seek refuge in You from disbelief and poverty, and I seek refuge in You from the torment of the grave. There is no deity worthy of worship but You.",
+            "source": "Reported by Abu Dawud 5090 – Ahmad 20430 – An-Nasa’i 22."
+        },
+        "7fois": {
+            "traduction": "Allah is sufficient for me; there is no deity but Him, in Him I place my trust, and He is the Lord of the Great Throne.",
+            "recompense": "* Whoever recites these words seven times in the morning and evening will be spared from all worries in this world and the Hereafter. Reported by Abu Dawud in his Sunan no. 5081 and authenticated by Sheikh Ibn Baz in Majmu' al-Fatawa vol 26 p 65, Sheikh Al-Abad in Sharh Sunan Abi Dawood course no. 577, and Sheikh Salim Al-Hilali in Sahih Al-Adhkar Nawawiya p 83."
+        },
+        "èfwaWa3afiyata": {
+            "traduction": "O Lord! I implore You to grant me Your forgiveness and protection in this life and the Hereafter. O Lord! I implore You to grant me Your forgiveness and protection in my religion, my life, my family, and my wealth. O Lord! Cover my faults and reassure me concerning the fears that trouble me. O Lord! Protect me from all that may occur before me, behind me, on my right, on my left, or above me, and I seek refuge in Your grandeur from a death that may arise beneath me.",
+            "recompense": "* The Messenger of Allah (ﷺ) never neglected to make these supplications in the morning and evening. Reported by Abu Dawud 5074 – Ibn Majah 3871."
+        },
+        "visibleInvisible": {
+            "traduction": "O Lord! You who perfectly know the unseen and the seen! Creator of the heavens and the earth! Master and Possessor of everything! I testify that there is no deity worthy of worship but You. I seek refuge in You from the evil of my soul, from the evil of the devil, and from his incitement to associate You with others. (And I seek refuge in You) from any evil that I may commit against myself or others.",
+            "source": "Reported by At-Tirmidhi 3392 – Abu Dawud 5067."
+        },
+        "lèYaDurru3fois": {
+            "traduction": "In the name of Allah, with Whose name nothing can harm, neither on the earth nor in the sky, and He is the All-Hearing, the All-Knowing.",
+            "recompense": "According to 'Othman Ibn 'Affan (may Allah be pleased with him), the Prophet (ﷺ) said: « There is no servant who says three times at the beginning of each day and each night: - In the name of Allah, with Whose name nothing is harmful either on the earth or in the sky, and He is the All-Hearing, the All-Knowing – without it benefiting him in terms of protection from harm. » Reported by Abu Dawud, Tirmidhi, and Ibn Majah."
+        },
+        "attestation3fois": {
+            "traduction": "I acknowledge Allah as the Lord, Islam as the religion, and Muhammad as the Prophet.",
+            "recompense": "According to Mounaydhir (may Allah be pleased with him), the Prophet (peace and blessings be upon him) said: « Whoever says in the morning (*): I am content with Allah as my Lord, Islam as my religion, and Muhammad as my Prophet (**), I guarantee that I will take him by the hand and lead him into paradise. » Reported by Tabarani and authenticated by Sheikh Albani in Silsila Sahiha n°2686."
+        },
+        "yèHayyou": {
+            "traduction": "O Ever-Living! O You who are the only One to be invoked for what we desire! It is to Your Mercy that I call. Improve my situation and do not leave me to myself, even for a single moment.",
+            "source": "Reported by Al Hakim 654."
+        },
+        "moulkoulillâhirabbilalamin": {
+            "traduction": "We are now in the morning, and the dominion belongs to Allah, the Lord of the universe. O Lord! I ask You for the good of this day: its victories, light, blessings, and guidance. I seek Your protection against the evil of this day and the evil that comes after it.",
+            "source": "Reported by Abu Dawud 5084."
+        },
+        "fitratilislami": {
+            "traduction": "We are now in the morning, and within us is the natural disposition that is Islam, within us the word of monotheism; we are in the religion of our Prophet Muhammad (peace and blessings be upon him) and on the path of our father Abraham who dedicated his worship exclusively to Allah, submissive to Him, and was not among the idolaters.",
+            "source": "Reported by Ahmad 15360 – Ibn Sunni 34."
+        },
+        "subhanAllahiWaBihamdih": {
+            "traduction": "Glory and purity to Allah, and to Him is the praise.",
+            "recompense": "According to Abu Huraira (may Allah be pleased with him), the Prophet (peace and blessings be upon him) said: « Whoever says – Glory and Praise to Allah – 100 times in the morning and 100 times in the afternoon, no one will come on the Day of Resurrection with a better deed than him, except for someone who has done the equivalent or more. » Reported by Muslim in his Sahih n°2692."
+        },
+        "100foisattestationComplete": {
+            "traduction": "There is no deity worthy of worship except Allah, alone and without partner. To Him belongs the absolute sovereignty and praise, and He is omnipotent.",
+            "source": "Reported by An Nasâ’i 24.",
+            "recompense": "Abu Huraira (may Allah be pleased with him) reported that the Prophet (peace and blessings be upon him) said: « Whoever says one hundred times during the day: 'There is no deity worthy of worship except Allah, alone without partner, to Him belongs the kingdom, and to Him belongs the praise, and He is omnipotent', will have the equivalent (in recompense) of the freeing of ten people, one hundred good deeds will be recorded for him, one hundred sins will be erased, and it will protect him from the devil throughout that day until evening. Furthermore, no one will do better than him except for someone who does even more. » Reported by Al Bukhari 3293 – Muslim 2691."
+        },
+        "3èdèdè": {
+            "traduction": "Glory, purity, and praise to Allah, as many times as there are creatures, as much as it takes to gain His pleasure, as heavy as His Throne, and as much ink as would be needed to write His words.",
+            "recompense": "The Prophet (peace and blessings be upon him) went out one morning from the house of Juwayriyah Bint Al-Harith after performing the morning prayer, while she remained sitting in the place where she had prayed. He returned after the day had dawned and found her sitting in the same position. He asked her: « Did you not change your posture since I left you? » She replied: « No. » The Prophet (peace and blessings be upon him) then said: « After I left you, I recited three times four phrases that, if weighed, would be heavier than everything you said since this morning: Glory, purity, and praise to Allah... » Sahih Muslim n° 2090."
+        },
+        "3ilmNéfi3en": {
+            "traduction": "O Lord! Grant me useful knowledge, wholesome sustenance, and accepted deeds.",
+            "source": "Reported by Hidâyat ar-Ruwâh (2432) and authenticated by Sheikh Al-Albani."
+        },
+        "toubouIlayh": {
+            "traduction": "I seek forgiveness from Allah and turn to Him in repentance.",
+            "source": "Reported by Al Bukhari 6307."
+        },
+        "saliWaSelim10fois": {
+            "traduction": "O Lord! Grant Your blessings and peace upon our Prophet Muhammad.",
+            "recompense": "Whoever asks Allah for blessings upon me ten times in the morning and ten times in the evening will receive my intercession on the Day of Resurrection. Reported by At-Tabarani 656."
+        }
+    },
+    "adhkarMassa": {
+        "ayatKursi": {
+            "traduction": "Allah! There is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
+            "recompense": "* Whoever recites this in the morning will be protected from the jinn until evening, and whoever recites this at night will be protected until morning. Reported by Al Hakim 665."
+        },
+        "ikhlass": {
+            "traduction": "In the name of Allah, the Most Gracious, the Most Merciful. Say: He is Allah, the One and Only; Allah, the Eternal, Absolute; He begets not, nor is He begotten; And there is none like unto Him.",
+            "recompense": "* Whoever recites it three times in the morning and evening will find sufficient protection against everything. Reported by Abu Dawud 1523 and An Nasâ’i 3/68."
+        },
+        "falaq": {
+            "traduction": "In the name of Allah, the Most Gracious, the Most Merciful. Say: I seek refuge with (Allah), the Lord of the dawn, From the mischief of the things He created; From the mischief of Darkness as it overspreads; From the mischief of those who practice secret arts; And from the mischief of the envious one as he practices envy.",
+            "recompense": "* Whoever recites it three times in the morning and evening will find sufficient protection against everything. Reported by Abu Dawud 1523 and An Nasâ’i 3/68."
+        },
+        "nas": {
+            "traduction": "In the name of Allah, the Most Gracious, the Most Merciful. Say: I seek refuge with (Allah), the Lord of mankind, The King of mankind, The God of mankind, From the mischief of the Whisperer (of Evil), who withdraws (after his whisper), The same who whispers into the hearts of mankind, Among Jinns and among men.",
+            "recompense": "* Whoever recites it three times in the morning and evening will find sufficient protection against everything. Reported by Abu Dawud 1523 and An Nasâ’i 3/68."
+        },
+        "vieillessPauvrete": {
+            "traduction": "O Allah, we have reached the evening and the kingdom belongs to You. All praise is due to You. There is no deity but You, alone, without partner. To You belongs sovereignty, and to You belongs all praise, and You are capable of all things. O Lord, I ask You for the good of this night and the good of what follows it. I seek refuge in You from the evil of this night and the evil of what follows it. O Lord, I seek refuge in You from laziness and the woes of old age. I seek refuge in You from the punishment of Hell and the torment of the grave.",
+            "source": "Reported by Muslim 2723."
+        },
+        "bykaNaMout": {
+            "traduction": "O Lord! In Your name we live and die, and to You, we will be resurrected.",
+            "source": "Reported by At Tirmidhi 3391."
+        },
+        "persPardonnePecherSaufToi": {
+            "traduction": "O Allah! You are my Lord, none has the right to be worshiped but You. You created me, and I am Your servant. I keep Your covenant and my pledge to You as much as I can. I seek refuge in You from the evil of what I have done. I acknowledge Your favor upon me, and I acknowledge my sin. So forgive me, for none forgives sins except You.",
+            "recompense": "* Whoever recites these words with certainty before sleeping and dies that night will enter Paradise. The same applies to one who recites them in the morning. Reported by Al Bukhari 6306."
+        },
+        "4reprisesSoir": {
+            "traduction": "O Allah! As the evening arrives, I bear witness that You are Allah, there is no deity but You, You are One, without partner, and that Muhammad is Your servant and Messenger. I take as witnesses the carriers of Your Throne, Your angels, and all Your creations.",
+            "recompense": "* Whoever recites this four times in the morning or evening, Allah will free them from Hellfire. Reported by Abu Dawud 5069, Al Bukhari 1201, An Nasâ’i 9, and Ibn As Sunni 70."
+        },
+        "allahummamaamsabiminnimatin": {
+            "traduction": "O Allah, whatever blessings I or any of Your creatures have this evening, they come only from You, without partner. To You belongs all praise and gratitude.",
+            "source": "Reported by Dawud 5073, An Nasâ’i 7, Ibn As Sunni 41, Ibn Hiban 2361."
+        },
+        "3reprisesafini": {
+            "traduction": "O Allah! Grant me well-being. O Allah! Preserve the health of my hearing. O Allah! Preserve the health of my vision. O Allah! I seek refuge in You from disbelief and poverty, and I seek refuge in You from the torment of the grave. There is no deity worthy of worship except You.",
+            "source": "Reported by Abu Dawud 5090, Ahmad 20430, An Nasâ’i 22."
+        },
+        "7fois": {
+            "traduction": "Allah is sufficient for me; there is no deity except Him. In Him, I put my trust, and He is the Lord of the Mighty Throne.",
+            "recompense": "* Whoever recites this seven times in the morning and evening, Allah will suffice them against all concerns, in this world and the hereafter. Reported by Abu Dawud 5081 and authenticated by various scholars."
+        },
+        "èfwaWa3afiyata": {
+            "traduction": "O Allah! I ask You for forgiveness and well-being in this world and the Hereafter. O Allah! I ask You for forgiveness and well-being in my religion, my worldly affairs, my family, and my wealth. O Allah! Cover my faults and reassure me against my fears. O Allah! Protect me from in front of me, behind me, from my right, my left, and from above me, and I seek refuge in Your Greatness from being taken unaware from below me.",
+            "recompense": "* The Messenger of Allah (ﷺ) never neglected these supplications in the morning and evening. Reported by Abu Dawud 5074, Ibn Maja 3871."
+        },
+        "visibleInvisible": {
+            "traduction": "O Allah, Knower of the unseen and the seen, Creator of the heavens and the earth, Lord and Sovereign of all things, I testify that there is no deity worthy of worship except You. I seek refuge in You from the evil of myself and from the evil of Satan and his incitement to polytheism. I also seek refuge in You from bringing harm to myself or to others.",
+            "source": "Reported by At Tirmidhi 3392 – Abu Dawud 5067."
+        },
+        "lèYaDurru3fois": {
+            "traduction": "In the name of Allah, whose mention prevents any harm from occurring on earth or in the sky, and He is the All-Hearing, the All-Knowing.",
+            "recompense": "According to 'Uthman Ibn 'Affan (may Allah be pleased with him), the Prophet (peace and blessings be upon him) said: 'There is no servant who says, three times at the beginning of each day and the beginning of each night: *In the name of Allah, with whose Name nothing on earth or in the heavens can harm, and He is the All-Hearing, the All-Knowing*, who will be harmed by anything.' Reported by Tirmidhi and authenticated by Sheikh Albani in Sahih Al Jami, no. 3388."
+        },
+        "attestation3fois": {
+            "traduction": "I acknowledge Allah as my Lord, Islam as my religion, and Muhammad as my Prophet.",
+            "recompense": "According to Munaidhar (may Allah be pleased with him), the Prophet (peace and blessings be upon him) said: 'Whoever says in the morning: *I am pleased with Allah as my Lord, Islam as my religion, and Muhammad as my Prophet,* I guarantee to take him by the hand until I admit him into Paradise.' Reported by Tabarani and authenticated by Sheikh Albani in Silsila Sahiha no. 2686."
+        },
+        "yèHayyou": {
+            "traduction": "O Ever-Living, O Sustainer of [all] existence! I seek refuge in Your Mercy. Rectify my affairs and do not leave me to myself, even for a single moment.",
+            "source": "Reported by Al Hakim 654."
+        },
+        "amsalmulkulillahiRabbi": {
+            "traduction": "We have entered the evening, and the sovereignty belongs to Allah, the Lord of the universe. O Lord, I ask You for the good of this night: its conquests, victories, light, blessings, and guidance. I seek refuge in You from the evil of this night and the evil that follows it.",
+            "source": "Reported by Abu Dawood 5084."
+        },
+        "fitratilislamSoir": {
+            "traduction": "We have reached the evening, and we are upon the natural disposition of Islam, upon the word of monotheism; we are in the religion of our Prophet Muhammad (peace and blessings be upon him) and on the path of our father Abraham, who was devoted to Allah alone, submissive to Him, and was not among the polytheists.",
+            "source": "Reported by Ahmad 15360 – Ibn Sunni 34."
+        },
+        "100foisattestationComplete": {
+            "traduction": "There is no deity worthy of worship except Allah, alone, without partner. To Him belongs absolute sovereignty and all praise, and He is All-Powerful.",
+            "source": "Reported by An Nasâ’i 24.",
+            "recompense": "Abu Hurayra (may Allah be pleased with him) reported that the Prophet (peace and blessings be upon him) said: 'Whoever says a hundred times in a day: *There is no deity but Allah, alone, without partner. To Him belongs the sovereignty and praise, and He is All-Powerful,* will have a recompense equivalent to freeing ten slaves, one hundred good deeds will be recorded for him, one hundred sins will be erased, and it will be a protection for him from the devil for the rest of the day until the evening. No one will do anything better than what he has done except someone who does more than that. As for the one who says: *Glory is to Allah and praise is to Him* one hundred times in a day, his sins will be forgiven even if they are as much as the foam of the sea.' Reported by Al Bukhari 3293 – Muslim 2691."
+        },
+        "saliWaSelim10fois": {
+            "traduction": "O Allah, send Your blessings and peace upon our Prophet Muhammad.",
+            "recompense": "* Whoever sends blessings upon me ten times in the morning and ten times in the evening will receive my intercession on the Day of Resurrection. Reported by At-Tabarani 656."
+        },
+        "kalimatilLah3fois": {
+            "traduction": "I seek refuge in the perfect words of Allah from the evil of what He has created.",
+            "recompense": "* Whoever says these words three times will not be harmed by fever that night. Reported by Ahmad 7898 – An-Nasa’i 590 – Ibn As-Sunni 68."
+        },
+        "subhanAllahiWaBihamdih": {
+            "traduction": "Glory and praise to Allah.",
+            "recompense": "Abu Huraira (may Allah be pleased with him) reported that the Prophet (peace and blessings be upon him) said: 'Whoever says, *Glory and Praise to Allah*, 100 times in the morning and 100 times in the afternoon, no one will come on the Day of Judgment with a better deed than him except someone who does the same or more.' Reported by Muslim no. 2692."
+        }
+    }
 }

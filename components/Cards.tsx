@@ -42,13 +42,64 @@ const Cards = () => {
     const languages = [
         { label: "Français", value: "fr" },
         { label: "English", value: "en" },
+        { label: "Español", value: "es" }, // Ajout de l'espagnol
     ];
+    const languageLabels = {
+        fr: {
+            fr: "Français",
+            en: "Anglais",
+            es: "Espagnol",
+        },
+        en: {
+            fr: "French",
+            en: "English",
+            es: "Spanish",
+        },
+        es: {
+            fr: "Francés",
+            en: "Inglés",
+            es: "Español",
+        },
+    };
+
 
     const languageToFlag = {
         fr: "FR",
         en: "GB",
+        es: "ES", // Drapeau espagnol
     };
 
+    useEffect(() => {
+        const loadLanguage = async () => {
+            try {
+                const storedLanguage = await AsyncStorage.getItem('appLanguage');
+                if (storedLanguage) {
+                    setLanguage(storedLanguage);
+                    i18next.changeLanguage(
+                        storedLanguage === 'fr' ? 'fr-FR' :
+                            storedLanguage === 'es' ? 'es-ES' : 'en-US'
+                    );
+                }
+            } catch (error) {
+                console.error("Error loading language from storage:", error);
+            }
+        };
+
+        loadLanguage();
+    }, []);
+
+    const changeLanguage = (selectedLanguage: string) => {
+        try {
+            setLanguage(selectedLanguage);
+            AsyncStorage.setItem('appLanguage', selectedLanguage);
+            i18next.changeLanguage(
+                selectedLanguage === 'fr' ? 'fr-FR' :
+                    selectedLanguage === 'es' ? 'es-ES' : 'en-US'
+            );
+        } catch (error) {
+            console.error("Error saving language to storage:", error);
+        }
+    };
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -71,7 +122,8 @@ const Cards = () => {
         };
 
         fetchImages();
-    }, []);
+    }, []); // Recharger les images uniquement si elles ne sont pas encore chargées
+
 
     const { width } = Dimensions.get('screen');
     const _imageWidth = width * 0.7;
@@ -113,10 +165,11 @@ const Cards = () => {
             };
         });
 
+        const destination = index === 0 ? '/adhkarSabah' : '/adhkarMassa';
         const { text, arabicText, style, arabicStyle } = imageTexts[index] || { text: 'Default Text', arabicText: '', style: { color: 'white' }, arabicStyle: {} };
 
         return (
-            <Link href={'/adhkarMassa'}>
+            <Link href={destination}>
                 <View style={{ width: _imageWidth, height: _imageHeight, overflow: 'hidden', borderRadius: 16 }}>
                     <Animated.View style={[{ flex: 1 }, stylez]}>
                         <ImageBackground
@@ -130,7 +183,6 @@ const Cards = () => {
                     </Animated.View>
                 </View>
             </Link>
-
         );
     }
 
@@ -151,12 +203,10 @@ const Cards = () => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
             <StatusBar barStyle="light-content" backgroundColor="black" />
-            {/* Picker positionné juste en dessous du SafeAreaView */}
             <View style={[styles.pickerContainer]}>
                 <TouchableOpacity onPress={() => setModalVisible(true)}>
                     <CountryFlag isoCode={languageToFlag[language]} size={25} style={{ borderRadius: 5 }} />
                 </TouchableOpacity>
-                {/* Modal pour sélectionner une langue */}
                 <Modal
                     visible={modalVisible}
                     transparent={true}
@@ -164,29 +214,23 @@ const Cards = () => {
                     onRequestClose={() => setModalVisible(false)}
                 >
                     <View style={styles.modalContainer}>
-                        {/* Picker sans wrapper supplémentaire */}
                         <Picker
                             selectedValue={language}
                             onValueChange={(value) => {
-                                if (value == 'en') {
-                                    i18next.changeLanguage("en-US"); // Change la langue avec i18next
-                                } else if (value == 'fr') {
-                                    i18next.changeLanguage("fr-FR"); // Change la langue avec i18next
-                                }
-
-                                setLanguage(value); // Mettez à jour l'état local
+                                changeLanguage(value);
                                 setModalVisible(false);
                             }}
                             style={styles.picker}
+                            itemStyle={{ color: 'white' }}
                         >
-                            {languages.map((lang) => (
-                                <Picker.Item key={lang.value} label={lang.label} value={lang.value} />
+                            {Object.keys(languageLabels[language]).map((key) => (
+                                <Picker.Item key={key} label={languageLabels[language][key]} value={key} />
                             ))}
                         </Picker>
+
                     </View>
                 </Modal>
             </View>
-
             {/* Contenu principal */}
             <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
                 <View style={StyleSheet.absoluteFillObject}>

@@ -1,4 +1,194 @@
 {
     "invocationsMatin": "Invocations du matin",
-    "invocationSsoir": "Invocations du soir"
+    "invocationSsoir": "Invocations du soir",
+    "adhkarSabah": {
+        "ayatKursi": {
+            "traduction": "« Allah ! Point de divinité à part Lui, le Vivant, Celui qui n’a besoin de rien et dont toute chose dépend « al-Qayyûm ». Ni somnolence ni sommeil ne Le saisissent. À Lui appartient tout ce qui est dans les cieux et sur la Terre. Qui peut intercéder auprès de Lui sans Sa permission ? Il connaît leur passé et leur futur. Et, de Sa science, ils n’embrassent que ce qu’Il veut. Son Kursî (Piédestal) déborde les cieux et la Terre et leur garde ne Lui coûte aucune peine. Et Il est le Très Haut, l’Immense. »",
+            "recompense": "* Quiconque prononce ces mots en se réveillant se verra protégé des djinns jusqu’au soir. Et quiconque prononce ces mots en allant se coucher se verra protégé des djinns jusqu’au matin. Rapporté par Al Hakim 665."
+        },
+        "ikhlass": {
+            "traduction": "Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux « Dis : Il est Allah, Unique ❀ Allah Le Seul à être imploré pour ce que nous désirons ❀ Il n’a jamais engendré et n’a pas été engendré non plus ❀ Et nul n’est égal à Lui. »",
+            "recompense": "* Quiconque les récite trois fois en se réveillant et en se couchant y trouvera une protection suffisante contre toute chose. Rapporté par Abu Dawud 1523 et An Nasâ’i 3/68."
+        },
+        "falaq": {
+            "traduction": "Au Nom d’Allah le Tout Miséricordieux le Très Miséricordieux « Dis : Je cherche protection auprès du Seigneur de l’aube naissante ❀ contre le mal des êtres qu’Il a créés ❀ contre le mal de l’obscurité quand elle s’approfondit ❀ contre le mal de celles qui soufflent sur les nœuds ❀ et contre le mal de l’envieux quand il envie. »",
+            "recompense": "* Quiconque les récite trois fois en se réveillant et en se couchant y trouvera une protection suffisante contre toute chose.Rapporté par Abu Dawud 1523 et An Nasâ’i 3/68."
+        },
+        "nas": {
+            "traduction": "Au Nom d’Allah le Tout Miséricordieux le Très Miséricordieux « Dis : Je cherche protection auprès du Seigneur des hommes ❀ le Souverain des hommes ❀ Dieu des hommes ❀ contre le mal du mauvais conseiller furtif ❀ qui souffle le mal dans les poitrines des hommes ❀ qu’il soit djinn ou être humain. »",
+            "recompense": "* Quiconque les récite trois fois en se réveillant et en se couchant y trouvera une protection suffisante contre toute chose. Rapporté par Abu Dawud 1523 et An Nasâ’i 3/68."
+        },
+        "asbahnaWaLqabr": {
+            "traduction": "Le jour se lève sur nous et la souveraineté absolue revient à Allah. La louange appartient à Allah. Nulle divinité n’est digne d’être adorée en dehors d’Allah, Seul sans associé. À Lui appartiennent la Souveraineté absolue et la louange, et Il est Omnipotent. Seigneur ! Je T’implore de m’accorder le bien présent en ce jour et le bien venant après. Et je me réfugie auprès de Toi contre le mal présent de ce jour et contre le mal venant après. Seigneur ! Je me réfugié auprès de Toi contre la paresse et le mauvais vieillissement. Seigneur ! Préserve-moi de tout châtiment en Enfer et de tout supplice dans la tombe.",
+            "recompense": "Cheikh Abderrazaq al Badr a expliqué ce hadith dans le livre Fiqh al ad’iyati wa al adhkaar p.471 : “Parmi les bienfaits de ce hadith : – Le fait de demander protection contre le mal de la journée, de ce qui est apparent et caché. – Le fait de demander protection contre la paresse, et les maux de la vieillesse et ce que cela entraine comme perte de raison. – Le fait de demander protection contre le feu de l’enfer et les tourments de la tombe. Celui qui est préservé de la tombe (qui est la première demeure de l’au-delà), sera préservé de ce qu’il y a part la suite.“"
+        },
+        "ilaykaNushur": {
+            "traduction": "Ô Seigneur ! C’est de Toi que dépendent notre réveil et notre sommeil, notre vie et notre mort. Et c’est vers Toi que nous serons ressuscités.",
+            "source": "Rapporté par At Tirmidhi 3391."
+        },
+        "persPardonnePecherSaufToi": {
+            "traduction": "Ô Seigneur ! Tu es, Toi, mon Maître et Toi Seul mérites l’adoration ! C’est Toi qui m’as créé et je suis Ton serviteur. Je me soumets à l’engagement que j’ai pris envers Toi et à Ta promesse dans la mesure de mes capacités. Je me réfugié auprès de Toi contre le mal de mes actes. Je reconnais pleinement le bienfait dont Tu m’as comblé et je reconnais mon péché. Accorde-moi donc Ton pardon car Il n’est personne qui pardonne les fautes en dehors de Toi.",
+            "recompense": "* Quiconque prononce ces mots avec certitude en se couchant et meurt lors de cette nuit, entrera au Paradis. Et il en est de même pour celui qui les prononce en se réveillant. Rapporté par Al Bukhari 6306."
+        },
+        "4reprises": {
+            "traduction": "Ô Seigneur ! Me voici au matin, je Te prends à témoin et je prends à témoins les porteurs de Ton Trône ainsi que Tes anges et toutes tes créatures, que c’est Toi Allah, il n’y a de divinité que Toi, Tu es Seul et sans associé, et que Muhammad est Ton esclave et Ton messager.",
+            "recompense": "* Quiconque prononce cette formule à quatre reprises en se réveillant ou en allant se coucher verra Allah l’affranchir de l’enfer. Rapporté par Abu Dawud 5069 – Al Bukhari 1201 – An Nasâ’i 9  et Ibn As Sunni 70."
+        },
+        "toutBienfaitsParvient": {
+            "traduction": "Ô Seigneur ! Tout ce qui m’arrive comme bienfaits en ce jour qui se lève, à moi ou à l’une de Tes créatures, provient de Toi Seul, sans associé. A Toi la louange ainsi que la gratitude.",
+            "source": "Rapporté par Dawud 5073 – An Nasâ’i 7 – Ibn As Sunni 41 – Ibn Hiban 2361."
+        },
+        "3reprisesafini": {
+            "traduction": "Ô Seigneur ! Maintiens-moi en bonne santé. Ô Seigneur ! Préserve la santé de mon ouïe. Ô Seigneur ! Préserve la santé de ma vue. Ô Seigneur ! Je me réfugie auprès de Toi contre la mécréance et la pauvreté, et je me réfugie auprès de Toi contre les supplices de la tombe. Nulle divinité n’est digne d’être adorée en dehors de Toi.",
+            "source": "Rapporté par Abu Dawud 5090 – Ahmad 20430 – An Nasâ’i 22."
+        },
+        "7fois": {
+            "traduction": "Allah me suffit, il n’y a de divinité que Lui, c’est en Lui que je place ma confiance et Il est le Seigneur du Trône immense.",
+            "recompense": "* Quiconque prononce ces paroles à sept reprises le matin et le soir verra Allah l’épargner de tous les soucis qui le préoccuperont, tant sur cette terre que dans l’au-delà. Rapporté par Abou Daoud dans ses Sounan n°5081 et authentifié par Cheikh Ibn Baz dans Majou' Al Fatawa vol 26 p 65, par Cheikh Al 'Abad dans Charh Sounan Abi Daoud cours n°577 ainsi que par Cheikh Salim Al Hilali dans Sahih Al Adhkar Nawawiya p 83."
+        },
+        "èfwaWa3afiyata": {
+            "traduction": "Ô Seigneur ! Je T’implore de m’accorder Ton pardon et Ta protection dans cette vie et dans l’au-delà. Ô Seigneur ! Je T’implore de m’accorder Ton pardon et Ta protection dans ma religion, ma vie, ma famille et mes biens. Ô Seigneur ! Couvre mes défauts et rassure-moi quant aux peurs qui me tiraillent. Ô Seigneur ! Préserve-moi de tout ce qui pourrait survenir de devant ou derrière moi, à ma droite, à ma gauche ou au-dessus de moi, et je me réfugie auprès de Ta toute grandeur contre une mort qui surgirait d’en-dessous de moi.",
+            "recompense": "* Le Messager d'Allah (ﷺ) n'omettait jamais de faire ces invocations le matin et le soir. Rapporté par Abu Dawud 5074 – Ibn Maja 3871."
+        },
+        "visibleInvisible": {
+            "traduction": "Ô Seigneur ! Toi qui connais parfaitement l’invisible et le visible ! Créateur des cieux et de la terre ! Maître et Possesseur de toute chose ! J’atteste qu’il n’est d’autre divinité méritant l’adoration en dehors de Toi. Je me réfugie auprès de Toi contre le mal de mon âme, contre celui du diable et de son incitation à T’attribuer un associé. (Et je me réfugié auprès de Toi) contre tout méfait que je pourrais perpétrer envers moi-même ou envers autrui.",
+            "source": "Rapporté par At Tirmidhi 3392 – Abu Dawud 5067."
+        },
+        "lèYaDurru3fois": {
+            "traduction": "Au Nom d’Allah dont la mention empêche toute chose de nuire, tant sur la terre que dans le ciel, et Il est l’Audient et l’Omniscient.",
+            "recompense": "D'après 'Othman Ibn 'Affan (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit: « Il n'y a pas un serviteur qui dit trois fois au début de chaque journée et au début de chaque nuit : - Au nom d'Allah, Celui avec le Nom duquel rien n'est nuisible que ce soit sur la Terre ou dans les cieux et Il est Celui qui entend, Le Connaisseur - qui sera touché par une chose qui lui soit nuisible. » Rapporté par Tirmidhi et authentifié par Cheikh Albani dans Sahih Al Jami n°3388"
+        },
+        "attestation3fois": {
+            "traduction": "Je reconnais Allah en tant que Seigneur, l’Islam en tant que religion et Muhammad en tant que Prophète.",
+            "recompense": "D'après Mounaydhir (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit « Celui qui dit le matin (*): Je suis satisfait d'Allah comme Seigneur, de l'islam comme religion et de Mouhammad comme prophète (**), je lui garantis que je le prendrais par la main jusqu'à le faire entrer au paradis » Rapporté par Tabarani et authentifié par Cheikh Albani dans Silsila Sahiha n°2686."
+        },
+        "yèHayyou": {
+            "traduction": "Ô Vivant ! Ô Toi qui es le Seul à être imploré pour ce que nous désirons ! C’est à Ta Miséricorde que j’en appelle. Améliore ma situation et ne me livre pas à moi-même, ne serait-ce qu’un seul instant.",
+            "source": "Rapporté par Al Hakim 654."
+        },
+        "moulkoulillâhirabbilalamin": {
+            "traduction": "Nous voilà au matin et le règne appartient à Allah, le Seigneur de l’univers. Ô Seigneur ! Je Te demande le bien de ce jour : ce qu’il contient comme conquêtes, victoires, lumière, bénédiction et guidée. Je me mets sous Ta protection contre le mal de ce jour et le mal qui vient après lui.",
+            "source": "Rapporté par Abu Dawud 5084."
+        },
+        "fitratilislami": {
+            "traduction": "Nous voici au matin, et en nous se trouve la nature première qui est l’Islam, en nous, la parole du monothéisme ; nous sommes dans la religion de notre Prophète Muhammad (que la prière d'Allah et Son salut soient sur lui) et sur la voie de notre père Abraham qui vouait son culte exclusivement à Allah, soumis à Lui, et n’était point du nombre des associateurs.",
+            "source": "Rapporté par Ahmad 15360 – Ibn Sunni 34."
+        },
+        "subhanAllahiWaBihamdih": {
+            "traduction": "Gloire et pureté à Allah et à Lui la louange.",
+            "recompense": "D'après Abou Houreira (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit : « Celui qui dit -Gloire et Louange à Allah- 100 fois le matin et 100 fois l'après-midi, personne ne viendra le jour de la résurrection avec une oeuvre meilleure que lui sauf quelqu'un qui aura fait l'équivalent ou plus que cela ». Rapporté par Mouslim dans son Sahih n°2692"
+        },
+        "100foisattestationComplete": {
+            "traduction": "Nulle divinité n’est digne d’être adorée en dehors d’Allah, Seul et sans associé. À lui appartiennent la Souveraineté absolue et la louange, et Il est Omnipotent.",
+            "source": "Rapporté par An Nasâ’i 24.",
+            "recompense": "Abû Hurayra, qu'Allah soit satisfait de lui, a rapporté que le Prophète () a dit : « Celui qui dit cent fois dans la journée : 'Lâ ilâha ill-Allahu wahdahu lâ charîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘lâ kulli chay’in qadîr (Nulle divinité n’est digne d’être adorée en dehors d’Allah, seul, sans associé, à Lui la Royauté et à Lui la Louange, et il est Omnipotent)', aura l'équivalent (en rétribution) de l'affranchissement de dix personnes, cent bonnes actions lui seront inscrites, cent péchés lui seront effacés et elle (l'invocation) le protégera contre le diable durant ce jour-là jusqu'au soir. De plus, nul ne fera mieux que lui si ce n’est celui qui fera davantage. Quant à celui qui dit cent fois dans la journée : 'Subhân Allahi wa bihamdihi (Gloire à Allah et Louanges à Lui)', il se verra pardonner ses péchés, même s’ils sont aussi abondants que l’écume de la mer. » Rapporté par Al Bukhari 3293 – Muslim 2691."
+        },
+        "3èdèdè": {
+            "traduction": "Gloire, pureté et louange à Allah, autant de fois qu’il n’y a de créatures, autant qu’il ne faut pour obtenir Son agrément, autant que ne pèse Son Trône et autant qu’il ne faudrait d’encre pour écrire Ses paroles.",
+            "recompense": "Le Prophète (صلى الله عليه وسلم) sortit un matin de chez Juwayriyah Bint Al-Hârith après avoir accompli la prière du matin, tandis qu’elle restait assise à l’endroit où elle avait effectué sa prière. Puis il revint après que le jour soit levé ; la trouvant assise comme il l’avait laissée. Il lui demanda : « Tu n’as pas changé de posture depuis que je t’ai quittée ? » « Non. » répondit-elle » Le Prophète (صلى الله عليه وسلم) dit alors : « Après t’avoir quittée, j’ai prononcé à trois reprises quatre formules qui si elles étaient pesées, pèseraient plus lourd que tout ce que tu as dit depuis ce matin : Gloire, pureté et louange à Allah…» Sahîh Muslim n° 2090."
+        },
+        "3ilmNéfi3en": {
+            "traduction": "Ô Seigneur ! Fais-moi don d’une science utile, d’une saine subsistance et d’une œuvre agréée.",
+            "source": "Rapporté hidâyat ar-ruwâh (2432) et authentifié par cheikh el Albany."
+        },
+        "toubouIlayh": {
+            "traduction": "J’implore le pardon d’Allah et à Lui je me repens.",
+            "source": "Rapporté par Al Bukhari 6307."
+        },
+        "saliWaSelim10fois": {
+            "traduction": "Ô Seigneur ! Accorde Tes bénédictions et la paix à notre Prophète Muhammad.",
+            "recompense": "* Quiconque implore les bénédictions d’Allah en ma faveur dix fois au lever et dix fois en se couchant, verra mon intercession l’atteindre au Jour de la Résurrection. Rapporté par At Tabarani 656."
+        }
+    },
+    "adhkarMassa": {
+        "ayatKursi": {
+            "traduction": "« Allah ! Point de divinité à part Lui, le Vivant, Celui qui n’a besoin de rien et dont toute chose dépend « al-Qayyûm ». Ni somnolence ni sommeil ne Le saisissent. À Lui appartient tout ce qui est dans les cieux et sur la Terre. Qui peut intercéder auprès de Lui sans Sa permission ? Il connaît leur passé et leur futur. Et, de Sa science, ils n’embrassent que ce qu’Il veut. Son Kursî (Piédestal) déborde les cieux et la Terre et leur garde ne Lui coûte aucune peine. Et Il est le Très Haut, l’Immense. »",
+            "recompense": "* Quiconque prononce ces mots en se réveillant se verra protégé des djinns jusqu’au soir. Et quiconque prononce ces mots en allant se coucher se verra protégé des djinns jusqu’au matin. Rapporté par Al Hakim 665."
+        },
+        "ikhlass": {
+            "traduction": "Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux « Dis : Il est Allah, Unique ❀ Allah Le Seul à être imploré pour ce que nous désirons ❀ Il n’a jamais engendré et n’a pas été engendré non plus ❀ Et nul n’est égal à Lui. »",
+            "recompense": "* Quiconque les récite trois fois en se réveillant et en se couchant y trouvera une protection suffisante contre toute chose. Rapporté par Abu Dawud 1523 et An Nasâ’i 3/68."
+        },
+        "falaq": {
+            "traduction": "Au Nom d’Allah le Tout Miséricordieux le Très Miséricordieux « Dis : Je cherche protection auprès du Seigneur de l’aube naissante ❀ contre le mal des êtres qu’Il a créés ❀ contre le mal de l’obscurité quand elle s’approfondit ❀ contre le mal de celles qui soufflent sur les nœuds ❀ et contre le mal de l’envieux quand il envie. »",
+            "recompense": "* Quiconque les récite trois fois en se réveillant et en se couchant y trouvera une protection suffisante contre toute chose.Rapporté par Abu Dawud 1523 et An Nasâ’i 3/68."
+        },
+        "nas": {
+            "traduction": "Au Nom d’Allah le Tout Miséricordieux le Très Miséricordieux « Dis : Je cherche protection auprès du Seigneur des hommes ❀ le Souverain des hommes ❀ Dieu des hommes ❀ contre le mal du mauvais conseiller furtif ❀ qui souffle le mal dans les poitrines des hommes ❀ qu’il soit djinn ou être humain. »",
+            "recompense": "* Quiconque les récite trois fois en se réveillant et en se couchant y trouvera une protection suffisante contre toute chose. Rapporté par Abu Dawud 1523 et An Nasâ’i 3/68."
+        },
+        "vieillessPauvrete": {
+            "traduction": "Nous voilà au soir et le règne appartient à Allah. Louange à Allah, Il n’y a aucune divinité [digne d’être adorée] en dehors d’Allah, Seul, sans associé. À Lui la royauté, à Lui la louange et Il est capable de toute chose. Seigneur ! Je Te demande le bien que contient cette nuit et le bien qui vient après. Et je cherche refuge auprès de Toi contre le mal que contient cette nuit et le mal qui vient après. Seigneur ! Je cherche refuge auprès de Toi contre la paresse et les maux de la vieillesse. Je cherche refuge auprès de Toi contre le châtiment de l’Enfer et contre les tourments de la tombe.",
+            "source": "Rapporté par Muslim 2723."
+        },
+        "bykaNaMout": {
+            "traduction": "Ô Seigneur ! C’est de Toi que dépendent notre sommeil et notre réveil, notre vie et notre mort. Et c’est vers Toi que nous serons ressuscités.",
+            "source": "Rapporté par At Tirmidhi 3391."
+        },
+        "persPardonnePecherSaufToi": {
+            "traduction": "Ô Seigneur ! Tu es, Toi, mon Maître et Toi Seul mérites l’adoration ! C’est Toi qui m’as créé et je suis Ton serviteur. Je me soumets à l’engagement que j’ai pris envers Toi et à Ta promesse dans la mesure de mes capacités. Je me réfugié auprès de Toi contre le mal de mes actes. Je reconnais pleinement le bienfait dont Tu m’as comblé et je reconnais mon péché. Accorde-moi donc Ton pardon car Il n’est personne qui pardonne les fautes en dehors de Toi.",
+            "recompense": "* Quiconque prononce ces mots avec certitude en se couchant et meurt lors de cette nuit, entrera au Paradis. Et il en est de même pour celui qui les prononce en se réveillant. Rapporté par Al Bukhari 6306."
+        },
+        "4reprisesSoir": {
+            "traduction": "Ô Seigneur ! Me voici au soir, je Te prends à témoin et je prends à témoins les porteurs de Ton Trône ainsi que Tes anges et toutes tes créatures, que c’est Toi Allah, il n’y a de divinité que Toi, Tu es Seul et sans associé, et que Muhammad est Ton esclave et Ton messager.",
+            "recompense": "* Quiconque prononce cette formule à quatre reprises en se réveillant ou en allant se coucher verra Allah l’affranchir de l’enfer. Rapporté par Abu Dawud 5069 – Al Bukhari 1201 – An Nasâ’i 9  et Ibn As Sunni 70."
+        },
+        "allahummamaamsabiminnimatin": {
+            "traduction": "Ô Seigneur ! Tout ce qui m’arrive comme bienfaits en cette soirée, à moi ou à l’une de Tes créatures, provient de Toi Seul, sans associé. A Toi la louange ainsi que la gratitude.",
+            "source": "Rapporté par Dawud 5073 – An Nasâ’i 7 – Ibn As Sunni 41 – Ibn Hiban 2361."
+        },
+        "3reprisesafini": {
+            "traduction": "Ô Seigneur ! Maintiens-moi en bonne santé. Ô Seigneur ! Préserve la santé de mon ouïe. Ô Seigneur ! Préserve la santé de ma vue. Ô Seigneur ! Je me réfugie auprès de Toi contre la mécréance et la pauvreté, et je me réfugie auprès de Toi contre les supplices de la tombe. Nulle divinité n’est digne d’être adorée en dehors de Toi.",
+            "source": "Rapporté par Abu Dawud 5090 – Ahmad 20430 – An Nasâ’i 22."
+        },
+        "7fois": {
+            "traduction": "Allah me suffit, il n’y a de divinité que Lui, c’est en Lui que je place ma confiance et Il est le Seigneur du Trône immense.",
+            "recompense": "* Quiconque prononce ces paroles à sept reprises le matin et le soir verra Allah l’épargner de tous les soucis qui le préoccuperont, tant sur cette terre que dans l’au-delà. Rapporté par Abou Daoud dans ses Sounan n°5081 et authentifié par Cheikh Ibn Baz dans Majou' Al Fatawa vol 26 p 65, par Cheikh Al 'Abad dans Charh Sounan Abi Daoud cours n°577 ainsi que par Cheikh Salim Al Hilali dans Sahih Al Adhkar Nawawiya p 83."
+        },
+        "èfwaWa3afiyata": {
+            "traduction": "Ô Seigneur ! Je T’implore de m’accorder Ton pardon et Ta protection dans cette vie et dans l’au-delà. Ô Seigneur ! Je T’implore de m’accorder Ton pardon et Ta protection dans ma religion, ma vie, ma famille et mes biens. Ô Seigneur ! Couvre mes défauts et rassure-moi quant aux peurs qui me tiraillent. Ô Seigneur ! Préserve-moi de tout ce qui pourrait survenir de devant ou derrière moi, à ma droite, à ma gauche ou au-dessus de moi, et je me réfugie auprès de Ta toute grandeur contre une mort qui surgirait d’en-dessous de moi.",
+            "recompense": "* Le Messager d'Allah (ﷺ) n'omettait jamais de faire ces invocations le matin et le soir. Rapporté par Abu Dawud 5074 – Ibn Maja 3871."
+        },
+        "visibleInvisible": {
+            "traduction": "Ô Seigneur ! Toi qui connais parfaitement l’invisible et le visible ! Créateur des cieux et de la terre ! Maître et Possesseur de toute chose ! J’atteste qu’il n’est d’autre divinité méritant l’adoration en dehors de Toi. Je me réfugie auprès de Toi contre le mal de mon âme, contre celui du diable et de son incitation à T’attribuer un associé. (Et je me réfugié auprès de Toi) contre tout méfait que je pourrais perpétrer envers moi-même ou envers autrui.",
+            "source": "Rapporté par At Tirmidhi 3392 – Abu Dawud 5067."
+        },
+        "lèYaDurru3fois": {
+            "traduction": "Au Nom d’Allah dont la mention empêche toute chose de nuire, tant sur la terre que dans le ciel, et Il est l’Audient et l’Omniscient.",
+            "recompense": "D'après 'Othman Ibn 'Affan (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit: « Il n'y a pas un serviteur qui dit trois fois au début de chaque journée et au début de chaque nuit : - Au nom d'Allah, Celui avec le Nom duquel rien n'est nuisible que ce soit sur la Terre ou dans les cieux et Il est Celui qui entend, Le Connaisseur - qui sera touché par une chose qui lui soit nuisible. » Rapporté par Tirmidhi et authentifié par Cheikh Albani dans Sahih Al Jami n°3388"
+        },
+        "attestation3fois": {
+            "traduction": "Je reconnais Allah en tant que Seigneur, l’Islam en tant que religion et Muhammad en tant que Prophète.",
+            "recompense": "D'après Mounaydhir (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit « Celui qui dit le matin (*): Je suis satisfait d'Allah comme Seigneur, de l'islam comme religion et de Mouhammad comme prophète (**), je lui garantis que je le prendrais par la main jusqu'à le faire entrer au paradis » Rapporté par Tabarani et authentifié par Cheikh Albani dans Silsila Sahiha n°2686."
+        },
+        "yèHayyou": {
+            "traduction": "Ô Vivant ! Ô Toi qui es le Seul à être imploré pour ce que nous désirons ! C’est à Ta Miséricorde que j’en appelle. Améliore ma situation et ne me livre pas à moi-même, ne serait-ce qu’un seul instant.",
+            "source": "Rapporté par Al Hakim 654."
+        },
+        "amsalmulkulillahiRabbi": {
+            "traduction": "Nous voilà au soir et le règne appartient à Allah, le Seigneur de l’univers. Ô Seigneur ! Je Te demande le bien de cette nuit : conquêtes, victoires, lumière, bénédiction et guidée. Je me mets sous Ta protection contre le mal de cette nuit et le mal qui vient après.",
+            "source": "Rapporté par Abu Dawud 5084."
+        },
+        "fitratilislamSoir": {
+            "traduction": "Nous voici au soir, et en nous se trouve la nature première qui est l’Islam, en nous, la parole du monothéisme ; nous sommes dans la religion de notre Prophète Muhammad (que la prière d'Allah et Son salut soient sur lui) et sur la voie de notre père Abraham qui vouait son culte exclusivement à Allah, soumis à Lui, et n’était point du nombre des associateurs.",
+            "source": "Rapporté par Ahmad 15360 – Ibn Sunni 34."
+        },
+        "100foisattestationComplete": {
+            "traduction": "Nulle divinité n’est digne d’être adorée en dehors d’Allah, Seul et sans associé. À lui appartiennent la Souveraineté absolue et la louange, et Il est Omnipotent.",
+            "source": "Rapporté par An Nasâ’i 24.",
+            "recompense": "Abû Hurayra, qu'Allah soit satisfait de lui, a rapporté que le Prophète () a dit : « Celui qui dit cent fois dans la journée : 'Lâ ilâha ill-Allahu wahdahu lâ charîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘lâ kulli chay’in qadîr (Nulle divinité n’est digne d’être adorée en dehors d’Allah, seul, sans associé, à Lui la Royauté et à Lui la Louange, et il est Omnipotent)', aura l'équivalent (en rétribution) de l'affranchissement de dix personnes, cent bonnes actions lui seront inscrites, cent péchés lui seront effacés et elle (l'invocation) le protégera contre le diable durant ce jour-là jusqu'au soir. De plus, nul ne fera mieux que lui si ce n’est celui qui fera davantage. Quant à celui qui dit cent fois dans la journée : 'Subhân Allahi wa bihamdihi (Gloire à Allah et Louanges à Lui)', il se verra pardonner ses péchés, même s’ils sont aussi abondants que l’écume de la mer. » Rapporté par Al Bukhari 3293 – Muslim 2691."
+        },
+        "saliWaSelim10fois": {
+            "traduction": "Ô Seigneur ! Accorde Tes bénédictions et la paix à notre Prophète Muhammad.",
+            "recompense": "* Quiconque implore les bénédictions d’Allah en ma faveur dix fois au lever et dix fois en se couchant, verra mon intercession l’atteindre au Jour de la Résurrection. Rapporté par At Tabarani 656."
+        },
+        "kalimatilLah3fois": {
+            "traduction": "Je me réfugie auprès des paroles parfaites d’Allah contre le mal de ce qu’Il a créé.",
+            "recompense": "* Quiconque prononce ces mots à trois reprises ne se verra pas atteint par la fièvre cette nuit. Rapporté par Ahmad 7898 – An-Nassâ’i 590 – Ibn As Sunni 68."
+        },
+        "subhanAllahiWaBihamdih": {
+            "traduction": "Gloire et pureté à Allah et à Lui la louange.",
+            "recompense": "D'après Abou Houreira (qu'Allah l'agrée), le Prophète (que la prière d'Allah et Son salut soient sur lui) a dit : « Celui qui dit -Gloire et Louange à Allah- 100 fois le matin et 100 fois l'après-midi, personne ne viendra le jour de la résurrection avec une oeuvre meilleure que lui sauf quelqu'un qui aura fait l'équivalent ou plus que cela ». Rapporté par Mouslim dans son Sahih n°2692"
+        }
+    }
 }

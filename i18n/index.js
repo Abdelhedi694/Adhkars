@@ -5,10 +5,12 @@ import * as Localization from "expo-localization";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import translationEn from "./locales/en.json";
 import translationFr from "./locales/fr.json";
+import translationEs from "./locales/es.json";
 
 const resources = {
   "en-US": { translation: translationEn },
   "fr-FR": { translation: translationFr },
+  "es-ES": { translation: translationEs },
 };
 
 const initI18n = async () => {
