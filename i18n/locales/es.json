@@ -1,6 +1,30 @@
 {
     "invocationsMatin": "Invocaciones de la mañana",
     "invocationSsoir": "Invocaciones de la noche",
+    "pourquoi": "Por qué",
+    "source": "Fuente",
+    "revenir": "Regresar",
+    "fois": "veces",
+    "fermer": "Cerrar",
+    "valider": "Validar",
+    "merites": "Méritos",
+    "sourate76V25": "Sura 76, versículo 25",
+    "etInvoque": "« Y menciona el nombre de tu Señor, por la mañana (Bukratan) y por la tarde (‘Asilan) »",
+    "bouclier": "El recuerdo de la mañana y de la tarde es como un escudo; a medida que su grosor (es decir, la cantidad de evocación) aumenta, quien lo practique no será alcanzado (por los ataques del diablo).",
+    "ibnQayimMisericorde": "Ibn Al-Qayyim, que Allah tenga misericordia de él, dijo :",
+    "pourquoiFaireCeci": "¿Por qué hacemos estas invocaciones?",
+    "nabiADit": "El Profeta ﷺ dijo :",
+    "aimeriezVous": "¿No os gustaría que os informe de la mejor obra, la más pura ante vuestro Señor, la que os eleva a la posición más alta, la que es mejor para vosotros que donar vuestro oro y plata, y mejor que enfrentar a vuestros enemigos en combate? Ellos respondieron: 'Sí, ¡Oh Mensajero de Allah!' Él dijo: 'Es la evocación de Allah.'",
+    "rapporteAbouDaoud698": "Reported by Abu Dawud 3667. Graded as good (hasan) by Sheikh Al Albani in Sahih Sunan Abi Dawud 2 – 698.",
+    "anasRapporte": "Anas relata que el Profeta ﷺ dijo :",
+    "meJoindre": "Unirme a un grupo de personas que mencionan el recuerdo de Allah, Exaltado sea, desde la oración del alba hasta el amanecer, es más querido para mi corazón que liberar a cuatro hijos de Isma‘il. Y unirme a un grupo de personas que mencionan el recuerdo de Allah desde la oración del ‘Asr hasta el Maghrib es mucho más querido para mí que liberar a cuatro esclavos.",
+    "réinitialiserLesCouleurs": "Restablecer",
+    "dixfoisjours": "100 veces al día",
+    "dixfoisouparesse": "Diez veces, o al menos una vez cuando se siente pereza",
+    "traductionSens": "Traducción del significado",
+    "phonétique": "Fonética",
+    "Réinitialiser": "Restablecer",
+    "divergenceExiste": "Existe una divergencia sobre la autenticidad de este hadiz.",
     "adhkarSabah": {
         "ayatKursi": {
             "traduction": "« ¡Aláh! No hay deidad excepto Él, el Viviente, el Sustentador de toda la existencia, Al-Qayyum. Ni el somnoliento ni el sueño lo alcanzan. A Él pertenece todo lo que hay en los cielos y la tierra. ¿Quién puede interceder ante Él excepto con Su permiso? Él sabe lo que está delante de ellos y lo que sucederá después de ellos. Y de Su conocimiento, ellos abarcan solo lo que Él quiere. Su Kursi (reposapiés) se extiende sobre los cielos y la tierra, y su preservación no lo cansa. Y Él es el Más Alto, el Más Grande. »",
@@ -80,8 +104,12 @@
         },
         "100foisattestationComplete": {
             "traduction": "No hay deidad digna de adoración excepto Allah, solo y sin compañero. A Él le pertenece la soberanía absoluta y la alabanza, y Él es omnipotente.",
-            "source": "Reportado por An Nasâ’i 24.",
-            "recompense": "Abu Huraira (que Allah esté complacido con él) reportó que el Profeta (la paz y las bendiciones sean con él) dijo: « Quien diga cien veces durante el día: 'No hay deidad digna de adoración excepto Allah, solo sin compañero, a Él le pertenece el reino, y a Él le pertenece la alabanza, y Él es omnipotente', tendrá el equivalente (en recompensa) a la liberación de diez personas, cien buenas obras serán registradas para él, cien pecados serán borrados, y estará protegido del diablo durante todo ese día hasta la noche. Además, nadie hará mejor que él, excepto aquel que haga incluso más. » Reportado por Al Bukhari 3293 – Muslim 2691."
+            "recompense": "Quien diga cien veces en un día: 'Lâ ilâha ill-Allahu wahdahu lâ sharîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘alâ kulli shay’in qadîr' (No hay divinidad digna de adoración excepto Allah, solo, sin asociado. A Él pertenece la soberanía y a Él pertenece toda alabanza, y Él es omnipotente), recibirá una recompensa equivalente a liberar a diez esclavos, se le registrarán cien buenas acciones, se le borrarán cien pecados, y esta invocación le protegerá del diablo durante todo ese día hasta la noche. Además, nadie hará mejor que él, excepto quien haga más. En cuanto a quien diga cien veces en un día: 'Subhân Allahi wa bihamdihi' (Gloria a Allah y alabanzas a Él), se le perdonarán sus pecados, incluso si son tan abundantes como la espuma del mar.' (Bujari y Muslim)"
+        },
+        "1foisattestationComplete": {
+            "traduction": "No hay divinidad digna de ser adorada fuera de Allah, Único y sin asociado. A Él pertenece la soberanía absoluta y la alabanza, y Él es Omnipotente.",
+            "source": "Narrado por An Nasâ’i 24.",
+            "recompense": "Quien recite esta invocación por la mañana obtendrá la recompensa equivalente a liberar a un esclavo de los descendientes de Ismâʿîl. Además, se le registrarán diez buenas acciones, se le borrarán diez pecados, se le elevará en diez grados y estará protegido contra el diablo hasta la noche. Si recita esta fórmula por la noche, disfrutará de los mismos favores hasta la mañana. Sahîh Abû Dâwûd n.º 5077."
         },
         "3èdèdè": {
             "traduction": "Gloria, pureza y alabanza a Allah, tantas veces como haya criaturas, tanto como sea necesario para ganar Su placer, tan pesado como Su Trono, y tanta tinta como sería necesaria para escribir Sus palabras.",
@@ -176,7 +204,12 @@
         "100foisattestationComplete": {
             "traduction": "No hay divinidad digna de ser adorada fuera de Allah, Único y sin asociado. A Él pertenece la soberanía absoluta y la alabanza, y Él es Omnipotente.",
             "source": "Narrado por An Nasâ’i 24.",
-            "recompense": "Abû Hurayra, que Allah esté complacido con él, relató que el Profeta (que la paz y las bendiciones de Allah sean sobre él) dijo: «Quien diga cien veces al día: 'Lâ ilâha ill-Allahu wahdahu lâ charîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘lâ kulli chay’in qadîr (No hay divinidad digna de ser adorada fuera de Allah, único, sin asociado, a Él la soberanía y a Él la alabanza, y Él es Omnipotente)', tendrá el equivalente (en recompensa) de la liberación de diez personas, cien buenas acciones le serán inscritas, cien pecados le serán borrados y esa invocación lo protegerá del diablo durante ese día hasta la noche. Además, nadie hará mejor que él, a menos que alguien haga más que eso. En cuanto a quien diga cien veces al día: 'Subhân Allahi wa bihamdihi (Gloria a Allah y Alabanza a Él)', se le perdonarán sus pecados, incluso si son tan abundantes como la espuma del mar.» Narrado por Al Bukhari 3293 – Muslim 2691."
+            "recompense": "Quien diga cien veces en un día: 'Lâ ilâha ill-Allahu wahdahu lâ sharîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘alâ kulli shay’in qadîr' (No hay divinidad digna de adoración excepto Allah, solo, sin asociado. A Él pertenece la soberanía y a Él pertenece toda alabanza, y Él es omnipotente), recibirá una recompensa equivalente a liberar a diez esclavos, se le registrarán cien buenas acciones, se le borrarán cien pecados, y esta invocación le protegerá del diablo durante todo ese día hasta la noche. Además, nadie hará mejor que él, excepto quien haga más. En cuanto a quien diga cien veces en un día: 'Subhân Allahi wa bihamdihi' (Gloria a Allah y alabanzas a Él), se le perdonarán sus pecados, incluso si son tan abundantes como la espuma del mar.' (Bujari y Muslim)"
+        },
+        "1foisattestationComplete": {
+            "traduction": "No hay divinidad digna de ser adorada fuera de Allah, Único y sin asociado. A Él pertenece la soberanía absoluta y la alabanza, y Él es Omnipotente.",
+            "source": "Narrado por An Nasâ’i 24.",
+            "recompense": "Quien recite esta invocación por la mañana obtendrá la recompensa equivalente a liberar a un esclavo de los descendientes de Ismâʿîl. Además, se le registrarán diez buenas acciones, se le borrarán diez pecados, se le elevará en diez grados y estará protegido contra el diablo hasta la noche. Si recita esta fórmula por la noche, disfrutará de los mismos favores hasta la mañana. Sahîh Abû Dâwûd n.º 5077."
         },
         "saliWaSelim10fois": {
             "traduction": "¡Oh Señor! Concédele bendiciones y paz a nuestro Profeta Muhammad.",

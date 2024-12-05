@@ -6,6 +6,8 @@ import { Audio } from 'expo-av'; // Importation d'Expo Audio
 import Slider from '@react-native-community/slider';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
+import ColorWheel from 'react-native-wheel-color-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AdhkarSabah = () => {
 
@@ -15,6 +17,8 @@ const AdhkarSabah = () => {
     const [playbackPositionList, setPlaybackPositionList] = useState([]); // Pour stocker la position de lecture
     const soundRefList = useRef([]);
     const [audioDurationList, setAudioDurationList] = useState([]);
+    const [customColors, setCustomColors] = useState(['#E0EAF4', '#A6CBE3', '#FDE2E4']); // Couleurs du dégradé par défaut
+    const [selectedColorIndex, setSelectedColorIndex] = useState(null);
     const { t } = useTranslation();
 
     const adhkars = [
@@ -203,17 +207,17 @@ const AdhkarSabah = () => {
             number: 19,
             adkharArab: `لا إلَهَ إلاَّ اللهُ وَحْدَهُ لا شَرِيْكَ لَهُ، لَهُ المُلْكُ، ولَهُ الحَمْدُ، وَهُوَ عَلَى كُلِّ شَيءٍ قَديرٌ`,
             frenchTraduction: t('adhkarSabah.100foisattestationComplete.traduction'),
-            source: t('adhkarSabah.100foisattestationComplete.source'),
-            howMuchManyTime: "dix fois, ou une fois au moins lorsque l’on éprouve de la paresse",
+            reward: t('adhkarSabah.100foisattestationComplete.recompense'),
+            howMuchTime: 100,
             phonetique: "Lâ ilâha illa-llâhu wahdahu lâ sharîka lah. Lahu-l-mulku wa lahu-l-hamdu, wa huwa ‘alâ kulli shayin Qadîr.",
             audio: require('../assets/audios/100foisattestationComplete.mp3')
         },
         {
             number: 20,
             adkharArab: `لَا إلَهَ إلاَّ اللهُ، وَحْدَهُ لا شريكَ لهُ، لَهُ المُلْكُ ولَهُ الحَمْدُ، وهُوَ علَى كُلِّ شَيءٍ قَديرٌ`,
-            frenchTraduction: t('adhkarSabah.100foisattestationComplete.traduction'),
-            reward: t('adhkarSabah.100foisattestationComplete.recompense'),
-            howMuchTime: 100,
+            frenchTraduction: t('adhkarSabah.1foisattestationComplete.traduction'),
+            reward: t('adhkarSabah.1foisattestationComplete.recompense'),
+
             phonetique: "Lâ ilâha illa-llâhu wahdahu lâ sharîka lah. Lahu-l-mulku wa lahu-l-hamdu, wa huwa ‘alâ kulli shayin Qadîr.",
             audio: require('../assets/audios/100foisattestationComplete.mp3')
         },
@@ -239,7 +243,7 @@ const AdhkarSabah = () => {
             adkharArab: `أستَغْفِرُ اللهَ وأتُوبُ إليهِ`,
             frenchTraduction: t('adhkarSabah.toubouIlayh.traduction'),
             source: t('adhkarSabah.toubouIlayh.source'),
-            howMuchManyTime: "100 fois par jour",
+            howMuchManyTime: t('dixfoisjours'),
             phonetique: "Astaghfiru-llāha wa atūbu ilayh.",
             audio: require('../assets/audios/toubouIlayh.mp3')
         },
@@ -255,22 +259,45 @@ const AdhkarSabah = () => {
         },
     ]
 
-    useEffect(() => {
-        const test = async () => {
-            const excludeProperty = 'adkharArab';
-            const excludeProperty2 = 'phonetique';
-            const excludeProperty3 = 'audio';
+    const handleColorChange = (color, index) => {
+        const updatedColors = [...customColors];
+        updatedColors[index] = color;
+        setCustomColors(updatedColors);
+        saveColorsToStorage(updatedColors); // Sauvegarde les couleurs dans le storage
+    };
 
-            // Créer un nouveau tableau sans les propriétés spécifiées
-            const filteredArray = adhkars.map(item => {
-                const { [excludeProperty3]: excluded0, [excludeProperty]: excluded1, [excludeProperty2]: excluded2, ...rest } = item;
-                return rest;
-            });
-            console.log(filteredArray.length);
+
+    const saveColorsToStorage = async (colors) => {
+        try {
+            await AsyncStorage.setItem('customColors', JSON.stringify(colors));
+        } catch (error) {
+            console.error('Erreur lors de la sauvegarde des couleurs :', error);
+        }
+    };
+
+    useEffect(() => {
+        const fetchColors = async () => {
+            const storedColors = await loadColorsFromStorage();
+            if (storedColors && JSON.stringify(storedColors) !== JSON.stringify(customColors)) {
+                setCustomColors(storedColors); // Met à jour si les couleurs sont différentes
+            }
         };
-        test()
+        fetchColors();
     }, []);
 
+
+    const loadColorsFromStorage = async () => {
+        try {
+            const storedColors = await AsyncStorage.getItem('customColors');
+            if (storedColors) {
+                const parsedColors = JSON.parse(storedColors);
+                return parsedColors;
+            }
+        } catch (error) {
+            console.error('Erreur lors du chargement des couleurs :', error);
+        }
+        return null; // Renvoie null si aucune donnée n'est trouvée
+    };
 
     const triggerHapticFeedback = () => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -354,6 +381,14 @@ const AdhkarSabah = () => {
         }
     };
 
+    const resetColors = () => {
+        const defaultColors = ['#E0EAF4', '#A6CBE3', '#FDE2E4'];
+        setCustomColors(defaultColors);
+        saveColorsToStorage(defaultColors); // Sauvegarde les couleurs par défaut dans le storage
+        setSelectedColorIndex(null); // Réinitialise la sélection
+    };
+
+
 
     // Met à jour la position de l'audio lorsque l'utilisateur déplace le slider
     const handleSliderValueChange = async (value, index) => {
@@ -385,16 +420,47 @@ const AdhkarSabah = () => {
 
         return () => clearInterval(interval); // Nettoyage de l'intervalle
     }, [isPlayingList]);
+
     return (
         <SafeAreaView style={styles.safeArea}>
             <LinearGradient
-                colors={['#E0EAF4', '#A6CBE3', '#FDE2E4']} // Douces couleurs de l'aube
+                colors={customColors}
                 style={styles.background}
             >
                 <View>
-                    <Text style={styles.title}>Invocations du matin</Text>
-                    <Text style={styles.subTitle}>أَذْكَارُ ٱلصَّبَاحِ</Text>
+                    <Text style={styles.title}>{t('invocationsMatin')}</Text>
+                    <Text style={styles.subTitle}>أَذْكَارُ ٱلصَّبَاحِ</Text>
                 </View>
+
+                {/* Ronds de sélection de couleurs */}
+                <View style={styles.colorSelectorContainer}>
+                    {customColors.map((color, index) => (
+                        <TouchableOpacity
+                            key={index}
+                            style={[styles.colorCircle, { backgroundColor: color }]}
+                            onPress={() => setSelectedColorIndex(index)}
+                        />
+                    ))}
+                </View>
+
+                {/* Palette de couleurs */}
+                {selectedColorIndex !== null && (
+                    <View style={styles.colorPickerContainer}>
+                        <TouchableOpacity onPress={resetColors}>
+                            <Text style={styles.resetColorsText}>{t('réinitialiserLesCouleurs')}</Text>
+                        </TouchableOpacity>
+
+                        <ColorWheel
+                            color={customColors[selectedColorIndex]} // Couleur actuelle sélectionnée
+                            onColorChange={(color) => handleColorChange(color, selectedColorIndex)} // Lorsque la couleur change
+                            style={styles.colorWheel}
+                        />
+                        <TouchableOpacity style={{ alignSelf: "flex-end", marginTop: 10 }} onPress={() => setSelectedColorIndex(null)}>
+                            <Text style={styles.closePickerText}>{t('valider')}</Text>
+                        </TouchableOpacity>
+
+                    </View>
+                )}
 
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
                     {adhkars.map((adhkar, index) => (
@@ -402,21 +468,21 @@ const AdhkarSabah = () => {
                             {(adhkar.howMuchTime || adhkar.howMuchManyTime) && (
                                 <Text style={styles.howMuchTimeText}>
                                     ({adhkar.howMuchTime || adhkar.howMuchManyTime}
-                                    {adhkar.howMuchTime ? " fois" : ""})
+                                    {adhkar.howMuchTime ? " " + t('fois') : ""})
                                 </Text>
                             )}
                             {adhkar.week && (
-                                <Text style={styles.howMuchTimeText}>Il existe une divergence concernant l’authenticité de ce hadith.</Text>
+                                <Text style={styles.howMuchTimeText}>{t('divergenceExiste')}</Text>
                             )}
                             <ScrollView showsVerticalScrollIndicator={false} style={styles.cardContent} nestedScrollEnabled={true}>
                                 {!showRewards[index] ? (
                                     <>
                                         <Text style={styles.adhkarArab}>{adhkar.adkharArab}</Text>
                                         <View style={styles.divider} />
-                                        <Text style={styles.texteInsideCardTitle}>Traduction du sens</Text>
+                                        <Text style={styles.texteInsideCardTitle}>{t('traductionSens')}</Text>
                                         <Text style={styles.frenchTraduction}>{adhkar.frenchTraduction}</Text>
                                         <View style={styles.divider} />
-                                        <Text style={styles.texteInsideCardTitle}>Phonétique</Text>
+                                        <Text style={styles.texteInsideCardTitle}>{t('phonétique')}</Text>
                                         <Text style={styles.frenchTraduction}>{adhkar.phonetique}</Text>
                                     </>
                                 ) : (
@@ -435,7 +501,7 @@ const AdhkarSabah = () => {
                                 {/* Bouton "Pourquoi/Source" */}
                                 <TouchableOpacity style={styles.RewardBtn} onPress={() => handleToggleReward(index)}>
                                     <Text style={styles.RewardBtnText}>
-                                        {showRewards[index] ? "Revenir -" : adhkar.reward ? "Pourquoi +" : "Source +"}
+                                        {showRewards[index] ? t('revenir') + " -" : adhkar.reward ? t('pourquoi') + " +" : t('source') + " +"}
                                     </Text>
                                 </TouchableOpacity>
 
@@ -452,7 +518,7 @@ const AdhkarSabah = () => {
                                             <Text style={styles.counterButtonText}>+</Text>
                                         </TouchableOpacity>
                                         <TouchableOpacity onPress={() => handleReset(index)} style={styles.resetButton}>
-                                            <Text style={styles.resetButtonText}>Reset</Text>
+                                            <Text style={styles.resetButtonText}>{t('Réinitialiser')}</Text>
                                         </TouchableOpacity>
                                     </View>
                                 )}
@@ -516,6 +582,53 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "black"
     },
+    colorWheel: {
+        width: 300,
+        height: 300,
+    },
+    rewardText: {
+        marginTop: 20,
+        fontFamily: "SpaceMono"
+    },
+    colorSelectorContainer: { flexDirection: 'row', justifyContent: 'center', marginVertical: 10 },
+    colorCircle: {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        marginHorizontal: 5,
+        borderWidth: 2,
+        borderColor: 'white',
+    },
+    colorPickerContainer: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        width: 320, // Largeur fixe pour le conteneur
+        backgroundColor: 'white',
+        borderRadius: 10,
+        padding: 20,
+        zIndex: 1000,
+        transform: [
+            { translateX: -130 }, // Déplace horizontalement de la moitié de la largeur
+            { translateY: -130 }, // Déplace verticalement de la moitié de la hauteur
+        ],
+        shadowColor: '#000', // Optionnel, pour un effet de profondeur
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 4,
+        elevation: 5, // Pour Android,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    resetColorsText: {
+        fontSize: 16,
+        color: '#007bff',  // Couleur bleue pour le bouton "Réinitialiser"
+        marginTop: 10,
+        fontWeight: 'bold',  // Pour rendre le texte plus visible
+        textAlign: 'center',
+        textTransform: "uppercase"
+    },
+    closePickerText: { textTransform: "uppercase", textAlign: "right", marginTop: 10, fontSize: 16, color: '#008000', fontWeight: "bold" },
     background: {
         flex: 1,
         alignItems: 'center',
@@ -621,7 +734,7 @@ const styles = StyleSheet.create({
     counterButton: {
         paddingHorizontal: 10,
         paddingVertical: 5,
-        backgroundColor: "#FF6F61",
+        backgroundColor: "#007bff",
         borderRadius: 5,
         marginHorizontal: 5,
     },
@@ -638,7 +751,7 @@ const styles = StyleSheet.create({
     resetButton: {
         paddingHorizontal: 10,
         paddingVertical: 5,
-        backgroundColor: "#FFA07A",
+        backgroundColor: "#676767",
         borderRadius: 5,
         marginLeft: 10,
     },

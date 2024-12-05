@@ -1,6 +1,30 @@
 {
     "invocationsMatin": "Invocations du matin",
     "invocationSsoir": "Invocations du soir",
+    "pourquoi": "Pourquoi",
+    "source": "Source",
+    "revenir": "Retour",
+    "fois": "fois",
+    "fermer": "Fermer",
+    "valider": "Valider",
+    "merites": "Mérites",
+    "sourate76V25": "Sourate 76, verset 25",
+    "etInvoque": "« Et invoque le nom de ton Seigneur, Boukratane (matin) et Assilane (après midi) »",
+    "bouclier": "Le rappel du matin et du soir est à l’exemple du bouclier, lorsque son épaisseur (c’est à dire la quantité d’évocation) augmente, celui qui s’y adonne ne sera pas touché (par les attaques du diable).",
+    "ibnQayimMisericorde": "Ibn Al Qayyim qu’Allah lui fasse miséricorde a dit :",
+    "pourquoiFaireCeci": "Pourquoi faisons-nous ces invocations ?",
+    "anasRapporte": "Anas rapporte que le prophète ﷺ a dit :",
+    "nabiADit": "Le prophète ﷺ a dit :",
+    "aimeriezVous": "N’aimeriez-vous pas que je vous informe de la meilleure œuvre, celle qui est la plus pure auprès de votre Seigneur, celle qui élève le plus haut en degré, celle qui est meilleure pour vous que le don de votre or et de votre argent, meilleure pour vous que de confronter vos opposants au cours d’après combats ? «Mais oui ! Ô Messager d’Allâh» répondirent-ils. Il dit : «C’est l’évocation d’Allâh»",
+    "rapporteAbouDaoud698": "Rapporté par Abu Dawud 3667. Rendu bon (hassan) par Cheikh Al Albâni dans Sahih Sunan Abi Dawûd 2 – 698.",
+    "meJoindre": "Me joindre à un groupe de personnes évoquant le souvenir d’Allah, Exalté soit-Il, de la prière de l’aube jusqu’au lever du soleil, est plus cher à mon cœur que d’affranchir quatre enfants d’Ismà‘il. Et me joindre à un groupe de personnes évoquant le souvenir d’Allah, de la prière du ‘Asr jusqu’au maghrib m’est bien plus cher que d’affranchir quatre esclaves.",
+    "réinitialiserLesCouleurs": "Réinitialiser",
+    "dixfoisouparesse": "dix fois, ou une fois au moins lorsque l’on éprouve de la paresse",
+    "dixfoisjours": "100 fois par jour",
+    "traductionSens": "Traduction du sens",
+    "phonétique": "Phonétique",
+    "Réinitialiser": "Réinitialiser",
+    "divergenceExiste": "Il existe une divergence concernant l’authenticité de ce hadith.",
     "adhkarSabah": {
         "ayatKursi": {
             "traduction": "« Allah ! Point de divinité à part Lui, le Vivant, Celui qui n’a besoin de rien et dont toute chose dépend « al-Qayyûm ». Ni somnolence ni sommeil ne Le saisissent. À Lui appartient tout ce qui est dans les cieux et sur la Terre. Qui peut intercéder auprès de Lui sans Sa permission ? Il connaît leur passé et leur futur. Et, de Sa science, ils n’embrassent que ce qu’Il veut. Son Kursî (Piédestal) déborde les cieux et la Terre et leur garde ne Lui coûte aucune peine. Et Il est le Très Haut, l’Immense. »",
@@ -80,8 +104,11 @@
         },
         "100foisattestationComplete": {
             "traduction": "Nulle divinité n’est digne d’être adorée en dehors d’Allah, Seul et sans associé. À lui appartiennent la Souveraineté absolue et la louange, et Il est Omnipotent.",
-            "source": "Rapporté par An Nasâ’i 24.",
-            "recompense": "Abû Hurayra, qu'Allah soit satisfait de lui, a rapporté que le Prophète () a dit : « Celui qui dit cent fois dans la journée : 'Lâ ilâha ill-Allahu wahdahu lâ charîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘lâ kulli chay’in qadîr (Nulle divinité n’est digne d’être adorée en dehors d’Allah, seul, sans associé, à Lui la Royauté et à Lui la Louange, et il est Omnipotent)', aura l'équivalent (en rétribution) de l'affranchissement de dix personnes, cent bonnes actions lui seront inscrites, cent péchés lui seront effacés et elle (l'invocation) le protégera contre le diable durant ce jour-là jusqu'au soir. De plus, nul ne fera mieux que lui si ce n’est celui qui fera davantage. Quant à celui qui dit cent fois dans la journée : 'Subhân Allahi wa bihamdihi (Gloire à Allah et Louanges à Lui)', il se verra pardonner ses péchés, même s’ils sont aussi abondants que l’écume de la mer. » Rapporté par Al Bukhari 3293 – Muslim 2691."
+            "recompense": "« Celui qui dit cent fois dans la journée : 'Lâ ilâha ill-Allahu wahdahu lâ charîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘lâ kulli chay’in qadîr (Nulle divinité n’est digne d’être adorée en dehors d’Allah, seul, sans associé, à Lui la Royauté et à Lui la Louange, et il est Omnipotent)', aura l'équivalent (en rétribution) de l'affranchissement de dix personnes, cent bonnes actions lui seront inscrites, cent péchés lui seront effacés et elle (l'invocation) le protégera contre le diable durant ce jour-là jusqu'au soir. De plus, nul ne fera mieux que lui si ce n’est celui qui fera davantage. Quant à celui qui dit cent fois dans la journée : 'Subhân Allahi wa bihamdihi (Gloire à Allah et Louanges à Lui), il se verra pardonner ses péchés, même s’ils sont aussi abondants que l’écume de la mer. » (Boukhari et Mouslim)"
+        },
+        "1foisattestationComplete": {
+            "traduction": "Nulle divinité n’est digne d’être adorée en dehors d’Allah, Seul et sans associé. À lui appartiennent la Souveraineté absolue et la louange, et Il est Omnipotent.",
+            "recompense": "Celui qui prononce cette invocation au matin aura la récompense de l’affranchissement d’un esclave de la descendance d’Ismâ’îl, de plus dix bonnes actions seront inscrites à son compte, dix péchés lui seront effacés, il sera élevé de dix degrés et sera protégé contre le diable jusqu’au soir. S’il prononce cette formule le soir il jouira des mêmes faveurs jusqu’au matin. Rapporté par Sahîh Abû Dâwûd n°5077."
         },
         "3èdèdè": {
             "traduction": "Gloire, pureté et louange à Allah, autant de fois qu’il n’y a de créatures, autant qu’il ne faut pour obtenir Son agrément, autant que ne pèse Son Trône et autant qu’il ne faudrait d’encre pour écrire Ses paroles.",
@@ -175,8 +202,11 @@
         },
         "100foisattestationComplete": {
             "traduction": "Nulle divinité n’est digne d’être adorée en dehors d’Allah, Seul et sans associé. À lui appartiennent la Souveraineté absolue et la louange, et Il est Omnipotent.",
-            "source": "Rapporté par An Nasâ’i 24.",
-            "recompense": "Abû Hurayra, qu'Allah soit satisfait de lui, a rapporté que le Prophète () a dit : « Celui qui dit cent fois dans la journée : 'Lâ ilâha ill-Allahu wahdahu lâ charîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘lâ kulli chay’in qadîr (Nulle divinité n’est digne d’être adorée en dehors d’Allah, seul, sans associé, à Lui la Royauté et à Lui la Louange, et il est Omnipotent)', aura l'équivalent (en rétribution) de l'affranchissement de dix personnes, cent bonnes actions lui seront inscrites, cent péchés lui seront effacés et elle (l'invocation) le protégera contre le diable durant ce jour-là jusqu'au soir. De plus, nul ne fera mieux que lui si ce n’est celui qui fera davantage. Quant à celui qui dit cent fois dans la journée : 'Subhân Allahi wa bihamdihi (Gloire à Allah et Louanges à Lui)', il se verra pardonner ses péchés, même s’ils sont aussi abondants que l’écume de la mer. » Rapporté par Al Bukhari 3293 – Muslim 2691."
+            "recompense": "Celui qui prononce cette invocation au matin aura la récompense de l’affranchissement d’un esclave de la descendance d’Ismâ’îl, de plus dix bonnes actions seront inscrites à son compte, dix péchés lui seront effacés, il sera élevé de dix degrés et sera protégé contre le diable jusqu’au soir. S’il prononce cette formule le soir il jouira des mêmes faveurs jusqu’au matin. Rapporté par Sahîh Abû Dâwûd n°5077."
+        },
+        "1foisattestationComplete": {
+            "traduction": "Nulle divinité n’est digne d’être adorée en dehors d’Allah, Seul et sans associé. À lui appartiennent la Souveraineté absolue et la louange, et Il est Omnipotent.",
+            "recompense": "Celui qui prononce cette invocation au matin aura la récompense de l’affranchissement d’un esclave de la descendance d’Ismâ’îl, de plus dix bonnes actions seront inscrites à son compte, dix péchés lui seront effacés, il sera élevé de dix degrés et sera protégé contre le diable jusqu’au soir. S’il prononce cette formule le soir il jouira des mêmes faveurs jusqu’au matin. Rapporté par Sahîh Abû Dâwûd n°5077."
         },
         "saliWaSelim10fois": {
             "traduction": "Ô Seigneur ! Accorde Tes bénédictions et la paix à notre Prophète Muhammad.",

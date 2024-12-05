@@ -1,6 +1,30 @@
 {
     "invocationsMatin": "Morning Invocations",
     "invocationSsoir": "Evening Invocations",
+    "pourquoi": "Why",
+    "source": "Origin",
+    "revenir": "Return",
+    "fermer": "Close",
+    "valider": "Validate",
+    "merites": "Merits",
+    "sourate76V25": "Surah 76, verse 25",
+    "etInvoque": "« And mention the name of your Lord, morning (Bukratan) and afternoon (‘Asilan) »",
+    "bouclier": "The morning and evening remembrance is like a shield; as its thickness (i.e., the amount of remembrance) increases, the one who engages in it will not be harmed (by the devil's attacks).",
+    "pourquoiFaireCeci": "Why do we make these invocations?",
+    "nabiADit": "The Prophet ﷺ said :",
+    "ibnQayimMisericorde": "Ibn Al-Qayyim, may Allah have mercy on him, said :",
+    "aimeriezVous": "Would you not like me to inform you of the best deed, the one that is the purest in the sight of your Lord, the one that raises you the highest in rank, the one that is better for you than giving away your gold and silver, and better for you than confronting your enemies in battle? They replied, 'Yes, O Messenger of Allah.' He said, 'It is the remembrance of Allah.'",
+    "anasRapporte": "Anas reports that the Prophet ﷺ said :",
+    "rapporteAbouDaoud698": "Transmitido por Abu Dawud 3667. Clasificado como bueno (hasan) por el Sheij Al Albani en Sahih Sunan Abi Dawud 2 – 698.",
+    "meJoindre": "Joining a group of people remembering Allah, Exalted is He, from the dawn prayer until sunrise is more beloved to my heart than freeing four children of Isma‘il. And joining a group of people remembering Allah from the ‘Asr prayer until Maghrib is far more beloved to me than freeing four slaves.",
+    "réinitialiserLesCouleurs": "Reset",
+    "dixfoisouparesse": "Ten times, or at least once when feeling lazy",
+    "dixfoisjours": "100 times a day.",
+    "fois": "times",
+    "traductionSens": "Translation of the meaning",
+    "phonétique": "Phonetics",
+    "Réinitialiser": "Reset",
+    "divergenceExiste": "There is a divergence regarding the authenticity of this hadith.",
     "adhkarSabah": {
         "ayatKursi": {
             "traduction": "« Allah! There is no deity but Him, the Ever-Living, the Sustainer of all existence, Al-Qayyum. Neither drowsiness nor sleep overtakes Him. To Him belongs all that is in the heavens and the earth. Who can intercede with Him except by His permission? He knows what is before them and what will be after them. And from His knowledge, they encompass only what He wills. His Kursi (Footstool) extends over the heavens and the earth, and their preservation does not tire Him. And He is the Most High, the Most Great. »",
@@ -80,8 +104,11 @@
         },
         "100foisattestationComplete": {
             "traduction": "There is no deity worthy of worship except Allah, alone and without partner. To Him belongs the absolute sovereignty and praise, and He is omnipotent.",
-            "source": "Reported by An Nasâ’i 24.",
-            "recompense": "Abu Huraira (may Allah be pleased with him) reported that the Prophet (peace and blessings be upon him) said: « Whoever says one hundred times during the day: 'There is no deity worthy of worship except Allah, alone without partner, to Him belongs the kingdom, and to Him belongs the praise, and He is omnipotent', will have the equivalent (in recompense) of the freeing of ten people, one hundred good deeds will be recorded for him, one hundred sins will be erased, and it will protect him from the devil throughout that day until evening. Furthermore, no one will do better than him except for someone who does even more. » Reported by Al Bukhari 3293 – Muslim 2691."
+            "recompense": "Whoever says a hundred times in a day: 'Lâ ilâha ill-Allahu wahdahu lâ sharîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘alâ kulli shay’in qadîr' (There is no deity worthy of worship except Allah, alone, without partner. To Him belongs sovereignty and to Him belongs all praise, and He is over all things omnipotent), will receive a reward equivalent to freeing ten slaves, one hundred good deeds will be recorded for them, one hundred sins will be erased, and it (the invocation) will protect them from the devil throughout that day until the evening. Furthermore, no one will do better than them except someone who does more. As for the one who says a hundred times in a day: 'Subhân Allahi wa bihamdihi' (Glory be to Allah and praise be to Him), their sins will be forgiven, even if they are as abundant as the foam of the sea.' (Bukhari and Muslim)"
+        },
+        "1foisattestationComplete": {
+            "traduction": "There is no deity worthy of worship except Allah, alone and without partner. To Him belongs the absolute sovereignty and praise, and He is omnipotent.",
+            "recompense": "Whoever recites this supplication in the morning will earn the reward equivalent to freeing a slave from the descendants of Ismāʿīl. Additionally, ten good deeds will be recorded in their account, ten sins will be erased, they will be elevated by ten degrees, and they will be protected from the devil until the evening. If they recite this supplication in the evening, they will enjoy the same blessings until the morning. Sahih Abu Dawood No. 5077."
         },
         "3èdèdè": {
             "traduction": "Glory, purity, and praise to Allah, as many times as there are creatures, as much as it takes to gain His pleasure, as heavy as His Throne, and as much ink as would be needed to write His words.",
@@ -175,8 +202,11 @@
         },
         "100foisattestationComplete": {
             "traduction": "There is no deity worthy of worship except Allah, alone, without partner. To Him belongs absolute sovereignty and all praise, and He is All-Powerful.",
-            "source": "Reported by An Nasâ’i 24.",
-            "recompense": "Abu Hurayra (may Allah be pleased with him) reported that the Prophet (peace and blessings be upon him) said: 'Whoever says a hundred times in a day: *There is no deity but Allah, alone, without partner. To Him belongs the sovereignty and praise, and He is All-Powerful,* will have a recompense equivalent to freeing ten slaves, one hundred good deeds will be recorded for him, one hundred sins will be erased, and it will be a protection for him from the devil for the rest of the day until the evening. No one will do anything better than what he has done except someone who does more than that. As for the one who says: *Glory is to Allah and praise is to Him* one hundred times in a day, his sins will be forgiven even if they are as much as the foam of the sea.' Reported by Al Bukhari 3293 – Muslim 2691."
+            "recompense": "Whoever says a hundred times in a day: 'Lâ ilâha ill-Allahu wahdahu lâ sharîka lahu, lahu al-Mulku wa lahu al-Hamdu wa huwa ‘alâ kulli shay’in qadîr' (There is no deity worthy of worship except Allah, alone, without partner. To Him belongs sovereignty and to Him belongs all praise, and He is over all things omnipotent), will receive a reward equivalent to freeing ten slaves, one hundred good deeds will be recorded for them, one hundred sins will be erased, and it (the invocation) will protect them from the devil throughout that day until the evening. Furthermore, no one will do better than them except someone who does more. As for the one who says a hundred times in a day: 'Subhân Allahi wa bihamdihi' (Glory be to Allah and praise be to Him), their sins will be forgiven, even if they are as abundant as the foam of the sea.' (Bukhari and Muslim)"
+        },
+        "1foisattestationComplete": {
+            "traduction": "There is no deity worthy of worship except Allah, alone and without partner. To Him belongs the absolute sovereignty and praise, and He is omnipotent.",
+            "recompense": "Whoever recites this supplication in the morning will earn the reward equivalent to freeing a slave from the descendants of Ismāʿīl. Additionally, ten good deeds will be recorded in their account, ten sins will be erased, they will be elevated by ten degrees, and they will be protected from the devil until the evening. If they recite this supplication in the evening, they will enjoy the same blessings until the morning. Sahih Abu Dawood No. 5077."
         },
         "saliWaSelim10fois": {
             "traduction": "O Allah, send Your blessings and peace upon our Prophet Muhammad.",

@@ -6,6 +6,7 @@ import { Audio } from 'expo-av'; // Importation d'Expo Audio
 import Slider from '@react-native-community/slider';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
+import ColorWheel from 'react-native-wheel-color-picker';
 
 
 const adhkarMassa = () => {
@@ -16,6 +17,8 @@ const adhkarMassa = () => {
   const [playbackPositionList, setPlaybackPositionList] = useState([]); // Pour stocker la position de lecture
   const soundRefList = useRef([]);
   const [audioDurationList, setAudioDurationList] = useState([]);
+  const [customColors, setCustomColors] = useState(['#1A1A2E', '#16213E', '#0F3460']); // Couleurs du dégradé par défaut
+  const [selectedColorIndex, setSelectedColorIndex] = useState(null);
   const { t } = useTranslation();
 
   const adhkars = [
@@ -197,9 +200,9 @@ const adhkarMassa = () => {
     {
       number: 19,
       adkharArab: `لا إلَهَ إلاَّ اللهُ وَحْدَهُ لا شَرِيْكَ لَهُ، لَهُ المُلْكُ، ولَهُ الحَمْدُ، وَهُوَ عَلَى كُلِّ شَيءٍ قَديرٌ`,
-      frenchTraduction: t('adhkarMassa.100foisattestationComplete.traduction'),
-      source: t('adhkarMassa.100foisattestationComplete.source'),
-      howMuchManyTime: "dix fois, ou une fois au moins lorsque l’on éprouve de la paresse",
+      frenchTraduction: t('adhkarMassa.1foisattestationComplete.traduction'),
+      reward: t('adhkarMassa.1foisattestationComplete.recompense'),
+
       phonetique: "Lâ ilâha illa-llâhu wahdahu lâ sharîka lah. Lahu-l-mulku wa lahu-l-hamdu, wa huwa ‘alâ kulli shayin Qadîr.",
       audio: require('../assets/audios/100foisattestationComplete.mp3')
     },
@@ -232,6 +235,12 @@ const adhkarMassa = () => {
 
     },
   ]
+
+  const handleColorChange = (color, index) => {
+    const updatedColors = [...customColors];
+    updatedColors[index] = color;
+    setCustomColors(updatedColors);
+  };
 
   const triggerHapticFeedback = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -335,7 +344,13 @@ const adhkarMassa = () => {
     return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
   };
 
+  const resetColors = () => {
+    setCustomColors(['#1A1A2E', '#16213E', '#0F3460']); // Remet les couleurs par défaut
+    setSelectedColorIndex(null); // Réinitialise la couleur sélectionnée
+  };
+
   useEffect(() => {
+
     const interval = setInterval(() => {
       isPlayingList.forEach((isPlaying, index) => {
         if (isPlaying) {
@@ -349,13 +364,43 @@ const adhkarMassa = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <LinearGradient
-        colors={["#1A1A2E", "#16213E", "#0F3460"]}
+        colors={customColors}
         style={styles.background}
       >
         <View>
-          <Text style={styles.title}>Invocations du soir</Text>
+          <Text style={styles.title}>{t('invocationSsoir')}</Text>
           <Text style={styles.subTitle}>أَذْكَارُ ٱلصَّبَاحِ</Text>
         </View>
+
+        {/* Ronds de sélection de couleurs */}
+        <View style={styles.colorSelectorContainer}>
+          {customColors.map((color, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[styles.colorCircle, { backgroundColor: color }]}
+              onPress={() => setSelectedColorIndex(index)}
+            />
+          ))}
+        </View>
+
+        {/* Palette de couleurs */}
+        {selectedColorIndex !== null && (
+          <View style={styles.colorPickerContainer}>
+            <TouchableOpacity onPress={resetColors}>
+              <Text style={styles.resetColorsText}>{t('réinitialiserLesCouleurs')}</Text>
+            </TouchableOpacity>
+
+            <ColorWheel
+              color={customColors[selectedColorIndex]} // Couleur actuelle sélectionnée
+              onColorChange={(color) => handleColorChange(color, selectedColorIndex)} // Lorsque la couleur change
+              style={styles.colorWheel}
+            />
+            <TouchableOpacity style={{ alignSelf: "flex-end", marginTop: 10 }} onPress={() => setSelectedColorIndex(null)}>
+              <Text style={styles.closePickerText}>{t('valider')}</Text>
+            </TouchableOpacity>
+
+          </View>
+        )}
 
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -366,13 +411,12 @@ const adhkarMassa = () => {
               {(adhkar.howMuchTime || adhkar.howMuchManyTime) && (
                 <Text style={styles.howMuchTimeText}>
                   ({adhkar.howMuchTime || adhkar.howMuchManyTime}
-                  {adhkar.howMuchTime ? " fois" : ""})
+                  {adhkar.howMuchTime ? " " + t('fois') : ""})
                 </Text>
               )}
               {adhkar.week && (
                 <Text style={styles.howMuchTimeText}>
-                  Il existe une divergence concernant l’authenticité de ce
-                  hadith.
+                  {t('divergenceExiste')}
                 </Text>
               )}
               <ScrollView
@@ -385,14 +429,14 @@ const adhkarMassa = () => {
                     <Text style={styles.adhkarArab}>{adhkar.adkharArab}</Text>
                     <View style={styles.divider} />
                     <Text style={styles.texteInsideCardTitle}>
-                      Traduction du sens
+                      {t('traductionSens')}
                     </Text>
                     <Text style={styles.frenchTraduction}>
                       {adhkar.frenchTraduction}
                     </Text>
                     <View style={styles.divider} />
                     <Text style={styles.texteInsideCardTitle}>
-                      Phonétique
+                      {t('phonétique')}
                     </Text>
                     <Text style={styles.frenchTraduction}>
                       {adhkar.phonetique}
@@ -417,11 +461,7 @@ const adhkarMassa = () => {
                   onPress={() => handleToggleReward(index)}
                 >
                   <Text style={styles.RewardBtnText}>
-                    {showRewards[index]
-                      ? "Revenir -"
-                      : adhkar.reward
-                        ? "Pourquoi +"
-                        : "Source +"}
+                    {showRewards[index] ? t('revenir') + " -" : adhkar.reward ? t('pourquoi') + " +" : t('source') + " +"}
                   </Text>
                 </TouchableOpacity>
 
@@ -452,7 +492,7 @@ const adhkarMassa = () => {
                       onPress={() => handleReset(index)}
                       style={styles.resetButton}
                     >
-                      <Text style={styles.resetButtonText}>Reset</Text>
+                      <Text style={styles.resetButtonText}>{t('Réinitialiser')}</Text>
                     </TouchableOpacity>
                   </View>
                 )}
@@ -524,6 +564,55 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "black"
   },
+  colorWheel: {
+    width: 300,
+    height: 300,
+  },
+  rewardText: {
+    marginTop: 20,
+    fontFamily: "SpaceMono",
+    color: "white"
+  },
+  colorSelectorContainer: { flexDirection: 'row', justifyContent: 'center', marginVertical: 10 },
+  colorCircle: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    marginHorizontal: 5,
+    borderWidth: 2,
+    borderColor: 'white',
+  },
+  colorPickerContainer: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    width: 320, // Largeur fixe pour le conteneur
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 20,
+    zIndex: 1000,
+    transform: [
+      { translateX: -130 }, // Déplace horizontalement de la moitié de la largeur
+      { translateY: -130 }, // Déplace verticalement de la moitié de la hauteur
+    ],
+    shadowColor: '#000', // Optionnel, pour un effet de profondeur
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5, // Pour Android,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  resetColorsText: {
+    fontSize: 16,
+    color: '#007bff',  // Couleur bleue pour le bouton "Réinitialiser"
+    marginTop: 10,
+    fontWeight: 'bold',  // Pour rendre le texte plus visible
+    textAlign: 'center',
+    textTransform: "uppercase"
+  },
+  closePickerText: { textTransform: "uppercase", textAlign: "right", marginTop: 10, fontSize: 16, color: '#008000', fontWeight: "bold" },
+
   background: {
     flex: 1,
     alignItems: 'center',
@@ -630,7 +719,7 @@ const styles = StyleSheet.create({
   counterButton: {
     paddingHorizontal: 10,
     paddingVertical: 5,
-    backgroundColor: "#FF6F61",
+    backgroundColor: "#007bff",
     borderRadius: 5,
     marginHorizontal: 5,
   },
@@ -647,7 +736,7 @@ const styles = StyleSheet.create({
   resetButton: {
     paddingHorizontal: 10,
     paddingVertical: 5,
-    backgroundColor: "#FFA07A",
+    backgroundColor: "#494848",
     borderRadius: 5,
     marginLeft: 10,
   },
