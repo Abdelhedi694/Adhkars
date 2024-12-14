@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, StyleSheet, View, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, View, ScrollView, TouchableOpacity, Dimensions, Platform, StatusBar } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
@@ -8,9 +8,10 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import ColorWheel from 'react-native-wheel-color-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { BannerAd, BannerAdSize, TestIds, InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
 
 
-
+const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
 const AdhkarSabah = () => {
 
     const [showRewards, setShowRewards] = useState([]);
@@ -21,6 +22,8 @@ const AdhkarSabah = () => {
     const [audioDurationList, setAudioDurationList] = useState([]);
     const [customColors, setCustomColors] = useState(['#E0EAF4', '#A6CBE3', '#FDE2E4']); // Couleurs du dégradé par défaut
     const [selectedColorIndex, setSelectedColorIndex] = useState(null);
+    const [hasClicked, setHasClicked] = useState(false);
+    const [loaded, setLoaded] = useState(false);
     const { t } = useTranslation();
 
     const adhkars = [
@@ -261,13 +264,54 @@ const AdhkarSabah = () => {
         },
     ]
 
+    useEffect(() => {
+        const unsubscribeLoaded = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+            setLoaded(true);
+        });
+
+        const unsubscribeOpened = interstitial.addAdEventListener(AdEventType.OPENED, () => {
+            if (Platform.OS === 'ios') {
+                // Prevent the close button from being unreachable by hiding the status bar on iOS
+                StatusBar.setHidden(true)
+            }
+        });
+
+        const unsubscribeClosed = interstitial.addAdEventListener(AdEventType.CLOSED, () => {
+            if (Platform.OS === 'ios') {
+                StatusBar.setHidden(false)
+            }
+        });
+
+        // Start loading the interstitial straight away
+        interstitial.load();
+
+        // Unsubscribe from events on unmount
+        return () => {
+            unsubscribeLoaded();
+            unsubscribeOpened();
+            unsubscribeClosed();
+        };
+    }, []);
+
     const handleColorChange = (color, index) => {
         const updatedColors = [...customColors];
         updatedColors[index] = color;
         setCustomColors(updatedColors);
-        saveColorsToStorage(updatedColors); // Sauvegarde les couleurs dans le storage
+        saveColorsToStorage(updatedColors);
+
+        if (!hasClicked) {
+            setHasClicked(true);  // Marque que l'utilisateur a cliqué pour la première fois
+            // Afficher la publicité plein écran ici
+            // Vous pouvez utiliser une bibliothèque d'ads pour afficher un interstitiel (par exemple, AdMob)
+            showFullScreenAd();
+        }
     };
 
+    const showFullScreenAd = () => {
+        // Exemple avec une publicité interstitielle
+        // Vérifiez si la publicité est prête avant de la montrer
+        interstitial.show()
+    };
 
     const saveColorsToStorage = async (colors) => {
         try {
@@ -567,6 +611,14 @@ const AdhkarSabah = () => {
                     ))}
 
                 </ScrollView>
+                <BannerAd
+                    unitId={TestIds.BANNER}
+                    size={BannerAdSize.BANNER}
+                    requestOptions={{
+                        requestNonPersonalizedAdsOnly: true,
+                    }}
+                    style={styles.banner}
+                />
             </LinearGradient>
         </SafeAreaView>
     )
@@ -585,10 +637,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "black"
     },
-    bannerAd: {
-        position: 'absolute',
-        bottom: 0,
-        alignSelf: 'center',
+    banner: {
+        position: 'absolute', // Bannière en position absolue
+        bottom: 20,  // Fixée en bas de l'écran
+        left: 0,
+        right: 0,
+        zIndex: 1, // La bannière doit être au-dessus du contenu
+        backgroundColor: 'transparent', // Aucune couleur de fond pour la bannière, elle doit être transparente
     },
     colorWheel: {
         width: 300,

@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, StyleSheet, View, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, View, ScrollView, TouchableOpacity, Dimensions, Platform, StatusBar } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
@@ -7,7 +7,11 @@ import Slider from '@react-native-community/slider';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import ColorWheel from 'react-native-wheel-color-picker';
+import { BannerAd, BannerAdSize, TestIds, InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
+const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
 const adhkarMassa = () => {
 
   const [showRewards, setShowRewards] = useState([]);
@@ -18,6 +22,8 @@ const adhkarMassa = () => {
   const [audioDurationList, setAudioDurationList] = useState([]);
   const [customColors, setCustomColors] = useState(['#1A1A2E', '#16213E', '#0F3460']); // Couleurs du dégradé par défaut
   const [selectedColorIndex, setSelectedColorIndex] = useState(null);
+  const [hasClicked, setHasClicked] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const { t } = useTranslation();
 
   const adhkars = [
@@ -235,10 +241,61 @@ const adhkarMassa = () => {
     },
   ]
 
+  useEffect(() => {
+    const unsubscribeLoaded = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+      setLoaded(true);
+    });
+
+    const unsubscribeOpened = interstitial.addAdEventListener(AdEventType.OPENED, () => {
+      if (Platform.OS === 'ios') {
+        // Prevent the close button from being unreachable by hiding the status bar on iOS
+        StatusBar.setHidden(true)
+      }
+    });
+
+    const unsubscribeClosed = interstitial.addAdEventListener(AdEventType.CLOSED, () => {
+      if (Platform.OS === 'ios') {
+        StatusBar.setHidden(false)
+      }
+    });
+
+    // Start loading the interstitial straight away
+    interstitial.load();
+
+    // Unsubscribe from events on unmount
+    return () => {
+      unsubscribeLoaded();
+      unsubscribeOpened();
+      unsubscribeClosed();
+    };
+  }, []);
+
   const handleColorChange = (color, index) => {
     const updatedColors = [...customColors];
     updatedColors[index] = color;
     setCustomColors(updatedColors);
+    saveColorsToStorage(updatedColors);
+
+    if (!hasClicked) {
+      setHasClicked(true);  // Marque que l'utilisateur a cliqué pour la première fois
+      // Afficher la publicité plein écran ici
+      // Vous pouvez utiliser une bibliothèque d'ads pour afficher un interstitiel (par exemple, AdMob)
+      showFullScreenAd();
+    }
+  };
+
+  const saveColorsToStorage = async (colors) => {
+    try {
+      await AsyncStorage.setItem('customColorsMassa', JSON.stringify(colors));
+    } catch (error) {
+      console.error('Erreur lors de la sauvegarde des couleurs :', error);
+    }
+  };
+
+  const showFullScreenAd = () => {
+    // Exemple avec une publicité interstitielle
+    // Vérifiez si la publicité est prête avant de la montrer
+    interstitial.show()
   };
 
   const triggerHapticFeedback = () => {
@@ -344,8 +401,33 @@ const adhkarMassa = () => {
   };
 
   const resetColors = () => {
-    setCustomColors(['#1A1A2E', '#16213E', '#0F3460']); // Remet les couleurs par défaut
-    setSelectedColorIndex(null); // Réinitialise la couleur sélectionnée
+    const defaultColors = ['#1A1A2E', '#16213E', '#0F3460'];
+    setCustomColors(defaultColors);
+    saveColorsToStorage(defaultColors); // Sauvegarde les couleurs par défaut dans le storage
+    setSelectedColorIndex(null);
+  };
+
+  useEffect(() => {
+    const fetchColors = async () => {
+      const storedColors = await loadColorsFromStorage();
+      if (storedColors && JSON.stringify(storedColors) !== JSON.stringify(customColors)) {
+        setCustomColors(storedColors); // Met à jour si les couleurs sont différentes
+      }
+    };
+    fetchColors();
+  }, []);
+
+  const loadColorsFromStorage = async () => {
+    try {
+      const storedColors = await AsyncStorage.getItem('customColorsMassa');
+      if (storedColors) {
+        const parsedColors = JSON.parse(storedColors);
+        return parsedColors;
+      }
+    } catch (error) {
+      console.error('Erreur lors du chargement des couleurs :', error);
+    }
+    return null; // Renvoie null si aucune donnée n'est trouvée
   };
 
   useEffect(() => {
@@ -368,7 +450,7 @@ const adhkarMassa = () => {
       >
         <View>
           <Text style={styles.title}>{t('invocationSsoir')}</Text>
-          <Text style={styles.subTitle}>أَذْكَارُ ٱلصَّبَاحِ</Text>
+          <Text style={styles.subTitle}>أَذْكَارُ ٱلصَّبَاحِ</Text>
         </View>
 
         {/* Ronds de sélection de couleurs */}
@@ -404,6 +486,7 @@ const adhkarMassa = () => {
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContainer}
+          style={{ marginTop: 15, marginBottom: 0 }}
         >
           {adhkars.map((adhkar, index) => (
             <View key={index} style={styles.adhkarContainer}>
@@ -546,9 +629,20 @@ const adhkarMassa = () => {
               )}
             </View>
           ))}
+
         </ScrollView>
+        <BannerAd
+          unitId={TestIds.BANNER}
+          size={BannerAdSize.BANNER}
+          requestOptions={{
+            requestNonPersonalizedAdsOnly: true,
+          }}
+          style={styles.banner}
+        />
       </LinearGradient>
+
     </SafeAreaView>
+
   );
 };
 
@@ -562,6 +656,14 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "black"
+  },
+  banner: {
+    position: 'absolute', // Bannière en position absolue
+    bottom: 20,  // Fixée en bas de l'écran
+    left: 0,
+    right: 0,
+    zIndex: 1, // La bannière doit être au-dessus du contenu
+    backgroundColor: 'transparent', // Aucune couleur de fond pour la bannière, elle doit être transparente
   },
   colorWheel: {
     width: 300,
@@ -634,6 +736,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingVertical: 20,
+    flexGrow: 1,
   },
   adhkarContainer: {
     backgroundColor: '#ffffff40', // Couleur de fond translucide
