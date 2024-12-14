@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator, Dimensions, StyleSheet, ImageBackground, TouchableOpacity, SafeAreaView, StatusBar, Modal } from 'react-native';
+import { View, Text, ActivityIndicator, Dimensions, StyleSheet, ImageBackground, TouchableOpacity, SafeAreaView, StatusBar, Modal, Platform } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Animated, { interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
@@ -38,6 +38,8 @@ const Cards = () => {
     const { t } = useTranslation();
     const [language, setLanguage] = useState(getShortLanguageCode(i18next.language));
     const [modalVisible, setModalVisible] = useState(false);
+
+    const isAndroid = Platform.OS === "android";
 
     const languages = [
         { label: "Français", value: "fr" },
@@ -177,7 +179,8 @@ const Cards = () => {
                             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
                             imageStyle={{ borderRadius: 16 }}
                         >
-                            {text && <Text style={style}>{text}</Text>}
+                            {text && <Text style={{ fontFamily: 'Arabolic', marginBottom: 5, color: "white", fontSize: 19, textTransform: "uppercase", flexWrap: "wrap" }}>{text}</Text>}
+
                             {arabicText && <Text style={arabicStyle}>{arabicText}</Text>}
                         </ImageBackground>
                     </Animated.View>
@@ -209,27 +212,48 @@ const Cards = () => {
                 </TouchableOpacity>
                 <Modal
                     visible={modalVisible}
-                    transparent={true}
+                    transparent={Platform.OS === "ios"} // Semi-transparent pour iOS uniquement
                     animationType="slide"
                     onRequestClose={() => setModalVisible(false)}
                 >
-                    <View style={styles.modalContainer}>
-                        <Picker
-                            selectedValue={language}
-                            onValueChange={(value) => {
-                                changeLanguage(value);
-                                setModalVisible(false);
-                            }}
-                            style={styles.picker}
-                            itemStyle={{ color: 'white' }}
-                        >
-                            {Object.keys(languageLabels[language]).map((key) => (
-                                <Picker.Item key={key} label={languageLabels[language][key]} value={key} />
-                            ))}
-                        </Picker>
-
+                    <View style={[styles.modalContainer, Platform.OS === "android" && styles.androidBackground]}>
+                        {Platform.OS === "android" ? (
+                            <View style={styles.pickerWrapper}>
+                                <Picker
+                                    selectedValue={language}
+                                    onValueChange={(value) => {
+                                        changeLanguage(value);
+                                        setModalVisible(false);
+                                    }}
+                                    style={styles.picker}
+                                >
+                                    {Object.keys(languageLabels[language]).map((key) => (
+                                        <Picker.Item key={key} label={languageLabels[language][key]} value={key} />
+                                    ))}
+                                </Picker>
+                            </View>
+                        ) : (
+                            <Picker
+                                selectedValue={language}
+                                onValueChange={(value) => {
+                                    changeLanguage(value);
+                                    setModalVisible(false);
+                                }}
+                                style={styles.iosPicker}
+                            >
+                                {Object.keys(languageLabels[language]).map((key) => (
+                                    <Picker.Item
+                                        key={key}
+                                        label={languageLabels[language][key]}
+                                        value={key}
+                                        color="white" // Couleur blanche pour iOS
+                                    />
+                                ))}
+                            </Picker>
+                        )}
                     </View>
                 </Modal>
+
             </View>
             {/* Contenu principal */}
             <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
@@ -270,11 +294,14 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20, // Marges gauche/droite
         zIndex: 10, // Assurez-vous que le picker reste visible au-dessus des autres vues
     },
+    androidBackground: {
+        backgroundColor: "rgba(0, 0, 0, 0.8)", // Fond semi-transparent sur Android
+    },
     modalContainer: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(0,0,0,0.8)", // Fond semi-transparent pour assombrir l'arrière-plan
+        backgroundColor: "rgba(0, 0, 0, 0.8)", // Fond semi-transparent
     },
     title: {
         fontSize: 18,
@@ -284,7 +311,7 @@ const styles = StyleSheet.create({
         color: "white", // Texte blanc pour le titre
     },
     pickerWrapper: {
-        backgroundColor: "rgba(255, 255, 255, 0.7)", // Fond clair et semi-transparent pour le Picker
+        backgroundColor: "white", // Fond blanc pour Android
         padding: 20,
         borderRadius: 10,
     },
@@ -292,6 +319,10 @@ const styles = StyleSheet.create({
         width: 250, // Ajustez la taille du Picker si nécessaire
         height: 50,
         borderRadius: 5,
+    },
+    iosPicker: {
+        backgroundColor: "transparent", // Pas de conteneur blanc sur iOS
+        width: "100%",
     },
 });
 

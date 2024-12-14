@@ -4,34 +4,60 @@
     "slug": "Invocations_Matin_et_Soir",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.AdhkarSabahMassa"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-1810776046585518~2880373886"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "INTERNET"
+      ],
+      "package": "com.abdelhedi.Invocations_Matin_et_Soir"
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "output": "static"
     },
     "plugins": [
       "expo-router",
-      "expo-localization"
+      "expo-localization",
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-1810776046585518~2880373886",
+          "iosAppId": "ca-app-pub-1810776046585518~6222419769"
+        }
+      ],
+      "expo-tracking-transparency"
     ],
+    "react-native-google-mobile-ads": {
+      "android_app_id": "ca-app-pub-1810776046585518~2880373886",
+      "ios_app_id": "ca-app-pub-1810776046585518~6222419769"
+    },
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "91b47c98-8e74-4311-a750-32a820857b21"
+      }
     }
   }
 }

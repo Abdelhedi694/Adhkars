@@ -8,7 +8,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import ColorWheel from 'react-native-wheel-color-picker';
 
-
 const adhkarMassa = () => {
 
   const [showRewards, setShowRewards] = useState([]);
@@ -116,7 +115,7 @@ const adhkarMassa = () => {
       frenchTraduction: t('adhkarMassa.allahummamaamsabiminnimatin.traduction'),
       source: t('adhkarMassa.allahummamaamsabiminnimatin.source'),
       phonetique: "Allâhoumma mâ amsa bî min ni’matin aw bi-ahadin min khalqika, fa-minka wahdaka lâ sharîka laka. Fa-laka-l-hamdou wa laka sh-shoukr.",
-      audio: require('../assets/audios/Allahumma ma amsa bi min nimatin - Mishary Rashid #sunnah #shortsvideo #dzikir (1).mp3')
+      audio: require('../assets/audios/7fois.mp3')
     },
     {
       number: 10,
@@ -145,7 +144,7 @@ const adhkarMassa = () => {
       frenchTraduction: t('adhkarMassa.èfwaWa3afiyata.traduction'),
       reward: t('adhkarMassa.èfwaWa3afiyata.recompense'),
       phonetique: "Allahumma Inni As'aluka l-'Afwa wal-'Âfiyata Fî-d-Dunyâ wa-l-Âkhira, Allahumma Inni As'aluka l-'Afwa wa-l-'Âfiyata Fî Dînî wa Dunyâya wa Ahlî wa Mâlî, Allahumma Ustur 'Awrâtî wa Âmin Raw'âtî, Allahumma Ihfadhnî Min Bayni Yadayya wa Min Khalfî wa 'An Yamînî, wa 'An Chimâlî, wa Min Fawqî, wa A'ûdhu Bi'Adhamatika An Ughtala Min Tahtî.",
-      audio: require('../assets/audios/èfwaWa3afiyata.mp3')
+      audio: require('../assets/audios/7fois.mp3')
     },
     {
       number: 12,
@@ -162,7 +161,7 @@ const adhkarMassa = () => {
       reward: t('adhkarMassa.lèYaDurru3fois.recompense'),
       howMuchTime: 3,
       phonetique: "Bismilllah Alladhi La Yadourrou Ma'a Smihi Chay oun Fil Ardi Wa La Fis Sama Wa Houwas Sami'oul 'Alim.",
-      audio: require('../assets/audios/lèYaDurru3fois.mp3')
+      audio: require('../assets/audios/7fois.mp3')
     },
     {
       number: 14,
@@ -178,7 +177,7 @@ const adhkarMassa = () => {
       frenchTraduction: t('adhkarMassa.yèHayyou.traduction'),
       source: t('adhkarMassa.yèHayyou.source'),
       phonetique: "Yâ hayyû, yâ qayyûmou bi rahmatika astaghîth. Aslih lî sha nî koullahou wa lâ takilnî ilâ nafsî tarfata 'ayn.",
-      audio: require('../assets/audios/yèHayyou.mp3')
+      audio: require('../assets/audios/7fois.mp3')
     },
     {
       number: 16,
@@ -187,7 +186,7 @@ const adhkarMassa = () => {
       source: t('adhkarMassa.amsalmulkulillahiRabbi.source'),
       week: true,
       phonetique: "Amsaynâ wa amsâ-l-mulku li-llâhi Rabbi-l-‘âlamîn. Allâhumma innî asaluka khayra hâdhihi-l-laylah : fathahâ, wa nasrahâ, wa nûrahâ, wa barakatahâ, wa hudâhâ. Wa a’ûdhu bika min sharri mâ fîhâ wa sharri mâ ba’dahâ.",
-      audio: require('../assets/audios/Amsayna wa amsal mulku lillahi Rabbi ‘l alamin  Daily Adhkar  Dua for victory, guidance from Allah (1).mp3')
+      audio: require('../assets/audios/7fois.mp3')
     },
     {
       number: 17,
@@ -195,7 +194,7 @@ const adhkarMassa = () => {
       frenchTraduction: t('adhkarMassa.fitratilislamSoir.traduction'),
       source: t('adhkarMassa.fitratilislamSoir.source'),
       phonetique: "Amsayna 'ala fitrati-l-islami, wa 'ala kalimati-l-ikhlasi, wa 'ala dini nabiyyina Muhammadin, wa 'ala millati abina Ibrahima, hanifan, musliman, wa ma kana mina-l-mushrikin.",
-      audio: require('../assets/audios/Amsayna ala fitratil-Islam wa ala kalimatil-ikhlas  Daily Adhkar  Recite daily once in the evening (1).mp3')
+      audio: require('../assets/audios/7fois.mp3')
     },
     {
       number: 19,

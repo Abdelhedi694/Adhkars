@@ -9,6 +9,8 @@ import { useTranslation } from 'react-i18next';
 import ColorWheel from 'react-native-wheel-color-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
+
 const AdhkarSabah = () => {
 
     const [showRewards, setShowRewards] = useState([]);
@@ -142,7 +144,7 @@ const AdhkarSabah = () => {
             frenchTraduction: t('adhkarSabah.èfwaWa3afiyata.traduction'),
             reward: t('adhkarSabah.èfwaWa3afiyata.recompense'),
             phonetique: "Allahumma Inni As'aluka l-'Afwa wal-'Âfiyata Fî-d-Dunyâ wa-l-Âkhira, Allahumma Inni As'aluka l-'Afwa wa-l-'Âfiyata Fî Dînî wa Dunyâya wa Ahlî wa Mâlî, Allahumma Ustur 'Awrâtî wa Âmin Raw'âtî, Allahumma Ihfadhnî Min Bayni Yadayya wa Min Khalfî wa 'An Yamînî, wa 'An Chimâlî, wa Min Fawqî, wa A'ûdhu Bi'Adhamatika An Ughtala Min Tahtî.",
-            audio: require('../assets/audios/èfwaWa3afiyata.mp3')
+            audio: require('../assets/audios/7fois.mp3')
         },
         {
             number: 12,
@@ -159,7 +161,7 @@ const AdhkarSabah = () => {
             reward: t('adhkarSabah.lèYaDurru3fois.recompense'),
             howMuchTime: 3,
             phonetique: "Bismilllah Alladhi La Yadourrou Ma'a Smihi Chay oun Fil Ardi Wa La Fis Sama Wa Houwas Sami'oul 'Alim.",
-            audio: require('../assets/audios/lèYaDurru3fois.mp3')
+            audio: require('../assets/audios/7fois.mp3')
         },
         {
             number: 14,
@@ -175,7 +177,7 @@ const AdhkarSabah = () => {
             frenchTraduction: t('adhkarSabah.yèHayyou.traduction'),
             source: t('adhkarSabah.yèHayyou.source'),
             phonetique: "Yâ hayyû, yâ qayyûmou bi rahmatika astaghîth. Aslih lî sha nî koullahou wa lâ takilnî ilâ nafsî tarfata 'ayn.",
-            audio: require('../assets/audios/yèHayyou.mp3')
+            audio: require('../assets/audios/7fois.mp3')
         },
         {
             number: 16,
@@ -184,7 +186,7 @@ const AdhkarSabah = () => {
             source: t('adhkarSabah.moulkoulillâhirabbilalamin.source'),
             week: true,
             phonetique: "Asbahnâ wa asbaha-l-moulkou li-l-lâhi rabbi-l-‘âlamîn. Allahoumma innî as alouka khayra hâdhâ-l-yawmi : fathahou, wa nousrahou, wa noûrahou, wa barakatahou, wa houdâhou. Wa a’oûdhou bika min sharri mâ fîhi wa sharri mâ ba’dah.",
-            audio: require('../assets/audios/Adkar sabah Asbahnâ wa asbaha-l-mulku li-llâhi Rabbi-l-‘âlamîn (1).mp3')
+            audio: require('../assets/audios/7fois.mp3')
         },
         {
             number: 17,
@@ -192,7 +194,7 @@ const AdhkarSabah = () => {
             frenchTraduction: t('adhkarSabah.fitratilislami.traduction'),
             source: t('adhkarSabah.fitratilislami.source'),
             phonetique: "Asbahna 'ala fitrati-l-islami, wa 'ala kalimati-l-ikhlasi, wa 'ala dini nabiyyina Muhammadin, wa 'ala millati abina Ibrahima, hanifan, musliman, wa ma kana mina-l-mushrikin.",
-            audio: require('../assets/audios/Adkar sabah Asbahna alâ fitrati-l-islâmi, wa alâ kalimati-l-ikhlâsi, wa alâ nabiyyinâ mouhammadin (1).mp3')
+            audio: require('../assets/audios/7fois.mp3')
         },
         {
             number: 18,
@@ -228,7 +230,7 @@ const AdhkarSabah = () => {
             reward: t('adhkarSabah.3èdèdè.recompense'),
             howMuchTime: 3,
             phonetique: "Subhâna-llâhi wa bi-hamdih, ‘adada khalqih, wa ridâ nafsih, wa zinata ‘arshih, wa midâda kalimâtih.",
-            audio: require('../assets/audios/3èdèdè.mp3')
+            audio: require('../assets/audios/7fois.mp3')
         },
         {
             number: 22,
@@ -236,7 +238,7 @@ const AdhkarSabah = () => {
             frenchTraduction: t('adhkarSabah.3ilmNéfi3en.traduction'),
             source: t('adhkarSabah.3ilmNéfi3en.source'),
             phonetique: "Allâhumma innî asaluka ‘ilman nâfi’â, wa rizqan tayyibâ, wa ‘amalan mutaqabbalâ.",
-            audio: require('../assets/audios/3ilmNéfi3en.mp3')
+            audio: require('../assets/audios/7fois.mp3')
         },
         {
             number: 23,
@@ -563,6 +565,7 @@ const AdhkarSabah = () => {
                             )}
                         </View>
                     ))}
+
                 </ScrollView>
             </LinearGradient>
         </SafeAreaView>
@@ -581,6 +584,11 @@ const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
         backgroundColor: "black"
+    },
+    bannerAd: {
+        position: 'absolute',
+        bottom: 0,
+        alignSelf: 'center',
     },
     colorWheel: {
         width: 300,
