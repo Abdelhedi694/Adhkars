@@ -121,7 +121,7 @@ const adhkarMassa = () => {
       frenchTraduction: t('adhkarMassa.allahummamaamsabiminnimatin.traduction'),
       source: t('adhkarMassa.allahummamaamsabiminnimatin.source'),
       phonetique: "Allâhoumma mâ amsa bî min ni’matin aw bi-ahadin min khalqika, fa-minka wahdaka lâ sharîka laka. Fa-laka-l-hamdou wa laka sh-shoukr.",
-      audio: require('../assets/audios/7fois.mp3')
+      audio: require('../assets/audios/allahummamaamsabiminnimatin.mp3')
     },
     {
       number: 10,
@@ -147,10 +147,10 @@ const adhkarMassa = () => {
     {
       number: 11,
       adkharArab: `اللهُمَّ إنِّي أسْألُكَ العَفْوَ والعَافيةَ في الدُّنْيَا والآخِرَةِ، اللهُمَّ إنِّي أسْألُكَ العَفْوَ والعَافيةَ في دِيْني ودُنْيَاي، وأهْلِي، ومَالي، اللهُمَّ اسْتُرْ عَوْرَاتي، وآمِنْ رَوْعَاتي، اللهُمَّ احْفَظْني مِنْ بيْنِ يَدَيَّ، ومِنْ خَلْفِي، وعَنْ يَميني، وعَنْ شِمَالي، ومِنْ فَوْقِي، وأعُوذُ بِعَظَمَتكَ أنْ أُغْتالَ مِنْ تَحْتي`,
-      frenchTraduction: t('adhkarMassa.èfwaWa3afiyata.traduction'),
-      reward: t('adhkarMassa.èfwaWa3afiyata.recompense'),
+      frenchTraduction: t('adhkarMassa.efwaWa3afiyata.traduction'),
+      reward: t('adhkarMassa.efwaWa3afiyata.recompense'),
       phonetique: "Allahumma Inni As'aluka l-'Afwa wal-'Âfiyata Fî-d-Dunyâ wa-l-Âkhira, Allahumma Inni As'aluka l-'Afwa wa-l-'Âfiyata Fî Dînî wa Dunyâya wa Ahlî wa Mâlî, Allahumma Ustur 'Awrâtî wa Âmin Raw'âtî, Allahumma Ihfadhnî Min Bayni Yadayya wa Min Khalfî wa 'An Yamînî, wa 'An Chimâlî, wa Min Fawqî, wa A'ûdhu Bi'Adhamatika An Ughtala Min Tahtî.",
-      audio: require('../assets/audios/7fois.mp3')
+      audio: require('../assets/audios/efwaWa3afiyata.mp3')
     },
     {
       number: 12,
@@ -163,11 +163,11 @@ const adhkarMassa = () => {
     {
       number: 13,
       adkharArab: `بِسْمِ اللهِ الَّذِي لا يَضُرُّ مَعَ اسْمِهِ شَيءٌ في الأرْضِ وَلَا فِي السَّمَاءِ وهُوَ السَّمِيعُ العَلِيْمُ`,
-      frenchTraduction: t('adhkarMassa.lèYaDurru3fois.traduction'),
-      reward: t('adhkarMassa.lèYaDurru3fois.recompense'),
+      frenchTraduction: t('adhkarMassa.leYaDurru3fois.traduction'),
+      reward: t('adhkarMassa.leYaDurru3fois.recompense'),
       howMuchTime: 3,
       phonetique: "Bismilllah Alladhi La Yadourrou Ma'a Smihi Chay oun Fil Ardi Wa La Fis Sama Wa Houwas Sami'oul 'Alim.",
-      audio: require('../assets/audios/7fois.mp3')
+      audio: require('../assets/audios/leYaDurru3fois.mp3')
     },
     {
       number: 14,
@@ -180,10 +180,10 @@ const adhkarMassa = () => {
     {
       number: 15,
       adkharArab: `يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ، وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ`,
-      frenchTraduction: t('adhkarMassa.yèHayyou.traduction'),
-      source: t('adhkarMassa.yèHayyou.source'),
+      frenchTraduction: t('adhkarMassa.yeHayyou.traduction'),
+      source: t('adhkarMassa.yeHayyou.source'),
       phonetique: "Yâ hayyû, yâ qayyûmou bi rahmatika astaghîth. Aslih lî sha nî koullahou wa lâ takilnî ilâ nafsî tarfata 'ayn.",
-      audio: require('../assets/audios/7fois.mp3')
+      audio: require('../assets/audios/yeHayyou.mp3')
     },
     {
       number: 16,
@@ -192,7 +192,7 @@ const adhkarMassa = () => {
       source: t('adhkarMassa.amsalmulkulillahiRabbi.source'),
       week: true,
       phonetique: "Amsaynâ wa amsâ-l-mulku li-llâhi Rabbi-l-‘âlamîn. Allâhumma innî asaluka khayra hâdhihi-l-laylah : fathahâ, wa nasrahâ, wa nûrahâ, wa barakatahâ, wa hudâhâ. Wa a’ûdhu bika min sharri mâ fîhâ wa sharri mâ ba’dahâ.",
-      audio: require('../assets/audios/7fois.mp3')
+      audio: require('../assets/audios/amsalmulkulillahiRabbi.mp3')
     },
     {
       number: 17,
@@ -200,7 +200,7 @@ const adhkarMassa = () => {
       frenchTraduction: t('adhkarMassa.fitratilislamSoir.traduction'),
       source: t('adhkarMassa.fitratilislamSoir.source'),
       phonetique: "Amsayna 'ala fitrati-l-islami, wa 'ala kalimati-l-ikhlasi, wa 'ala dini nabiyyina Muhammadin, wa 'ala millati abina Ibrahima, hanifan, musliman, wa ma kana mina-l-mushrikin.",
-      audio: require('../assets/audios/7fois.mp3')
+      audio: require('../assets/audios/fitratilislamSoir.mp3')
     },
     {
       number: 19,

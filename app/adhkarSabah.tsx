@@ -144,10 +144,10 @@ const AdhkarSabah = () => {
         {
             number: 11,
             adkharArab: `اللهُمَّ إنِّي أسْألُكَ العَفْوَ والعَافيةَ في الدُّنْيَا والآخِرَةِ، اللهُمَّ إنِّي أسْألُكَ العَفْوَ والعَافيةَ في دِيْني ودُنْيَاي، وأهْلِي، ومَالي، اللهُمَّ اسْتُرْ عَوْرَاتي، وآمِنْ رَوْعَاتي، اللهُمَّ احْفَظْني مِنْ بيْنِ يَدَيَّ، ومِنْ خَلْفِي، وعَنْ يَميني، وعَنْ شِمَالي، ومِنْ فَوْقِي، وأعُوذُ بِعَظَمَتكَ أنْ أُغْتالَ مِنْ تَحْتي`,
-            frenchTraduction: t('adhkarSabah.èfwaWa3afiyata.traduction'),
-            reward: t('adhkarSabah.èfwaWa3afiyata.recompense'),
+            frenchTraduction: t('adhkarSabah.efwaWa3afiyata.traduction'),
+            reward: t('adhkarSabah.efwaWa3afiyata.recompense'),
             phonetique: "Allahumma Inni As'aluka l-'Afwa wal-'Âfiyata Fî-d-Dunyâ wa-l-Âkhira, Allahumma Inni As'aluka l-'Afwa wa-l-'Âfiyata Fî Dînî wa Dunyâya wa Ahlî wa Mâlî, Allahumma Ustur 'Awrâtî wa Âmin Raw'âtî, Allahumma Ihfadhnî Min Bayni Yadayya wa Min Khalfî wa 'An Yamînî, wa 'An Chimâlî, wa Min Fawqî, wa A'ûdhu Bi'Adhamatika An Ughtala Min Tahtî.",
-            audio: require('../assets/audios/7fois.mp3')
+            audio: require('../assets/audios/efwaWa3afiyata.mp3')
         },
         {
             number: 12,
@@ -160,11 +160,11 @@ const AdhkarSabah = () => {
         {
             number: 13,
             adkharArab: `بِسْمِ اللهِ الَّذِي لا يَضُرُّ مَعَ اسْمِهِ شَيءٌ في الأرْضِ وَلَا فِي السَّمَاءِ وهُوَ السَّمِيعُ العَلِيْمُ`,
-            frenchTraduction: t('adhkarSabah.lèYaDurru3fois.traduction'),
-            reward: t('adhkarSabah.lèYaDurru3fois.recompense'),
+            frenchTraduction: t('adhkarSabah.leYaDurru3fois.traduction'),
+            reward: t('adhkarSabah.leYaDurru3fois.recompense'),
             howMuchTime: 3,
             phonetique: "Bismilllah Alladhi La Yadourrou Ma'a Smihi Chay oun Fil Ardi Wa La Fis Sama Wa Houwas Sami'oul 'Alim.",
-            audio: require('../assets/audios/7fois.mp3')
+            audio: require('../assets/audios/leYaDurru3fois.mp3')
         },
         {
             number: 14,
@@ -177,19 +177,19 @@ const AdhkarSabah = () => {
         {
             number: 15,
             adkharArab: `يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ، وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ`,
-            frenchTraduction: t('adhkarSabah.yèHayyou.traduction'),
-            source: t('adhkarSabah.yèHayyou.source'),
+            frenchTraduction: t('adhkarSabah.yeHayyou.traduction'),
+            source: t('adhkarSabah.yeHayyou.source'),
             phonetique: "Yâ hayyû, yâ qayyûmou bi rahmatika astaghîth. Aslih lî sha nî koullahou wa lâ takilnî ilâ nafsî tarfata 'ayn.",
-            audio: require('../assets/audios/7fois.mp3')
+            audio: require('../assets/audios/yeHayyou.mp3')
         },
         {
             number: 16,
             adkharArab: `أصْبَحْنَا وأصْبَحَ المُلْكُ للَّهِ رَبِّ العَالَمِيْنَ، اللَّهُمَّ إنِّي أسْألُكَ خَيْرَ هَذَا اليَوْمِ: فَتْحَهُ، ونَصْرَهُ، وَنُورَهُ، وبَرَكَتَهُ، وهُدَاهُ، وأعُوْذُ بِكَ مِنْ شَرِّ مَا فِيْهِ وَشَرِّ مَا بَعْدَهُ`,
-            frenchTraduction: t('adhkarSabah.moulkoulillâhirabbilalamin.traduction'),
-            source: t('adhkarSabah.moulkoulillâhirabbilalamin.source'),
+            frenchTraduction: t('adhkarSabah.moulkoulillahirabbilalamin.traduction'),
+            source: t('adhkarSabah.moulkoulillahirabbilalamin.source'),
             week: true,
             phonetique: "Asbahnâ wa asbaha-l-moulkou li-l-lâhi rabbi-l-‘âlamîn. Allahoumma innî as alouka khayra hâdhâ-l-yawmi : fathahou, wa nousrahou, wa noûrahou, wa barakatahou, wa houdâhou. Wa a’oûdhou bika min sharri mâ fîhi wa sharri mâ ba’dah.",
-            audio: require('../assets/audios/7fois.mp3')
+            audio: require('../assets/audios/moulkoulillahirabbilalamin.mp3')
         },
         {
             number: 17,
@@ -197,7 +197,7 @@ const AdhkarSabah = () => {
             frenchTraduction: t('adhkarSabah.fitratilislami.traduction'),
             source: t('adhkarSabah.fitratilislami.source'),
             phonetique: "Asbahna 'ala fitrati-l-islami, wa 'ala kalimati-l-ikhlasi, wa 'ala dini nabiyyina Muhammadin, wa 'ala millati abina Ibrahima, hanifan, musliman, wa ma kana mina-l-mushrikin.",
-            audio: require('../assets/audios/7fois.mp3')
+            audio: require('../assets/audios/fitratilislami.mp3')
         },
         {
             number: 18,
@@ -229,19 +229,19 @@ const AdhkarSabah = () => {
         {
             number: 21,
             adkharArab: `سُبْحَانَ اللهِ وَ بِحَمْدِهِ عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَ مِدَادَ كَلِمَاتِهِ`,
-            frenchTraduction: t('adhkarSabah.3èdèdè.traduction'),
-            reward: t('adhkarSabah.3èdèdè.recompense'),
+            frenchTraduction: t('adhkarSabah.3edede.traduction'),
+            reward: t('adhkarSabah.3edede.recompense'),
             howMuchTime: 3,
             phonetique: "Subhâna-llâhi wa bi-hamdih, ‘adada khalqih, wa ridâ nafsih, wa zinata ‘arshih, wa midâda kalimâtih.",
-            audio: require('../assets/audios/7fois.mp3')
+            audio: require('../assets/audios/3edede.mp3')
         },
         {
             number: 22,
             adkharArab: `اللهُمَّ إنِّي أَسْألُكَ عِلْماً نافِعاً، ورِزْقاً طَيِّباً، وعَملاً مُتقَبَّلاً`,
-            frenchTraduction: t('adhkarSabah.3ilmNéfi3en.traduction'),
-            source: t('adhkarSabah.3ilmNéfi3en.source'),
+            frenchTraduction: t('adhkarSabah.3ilmNefi3en.traduction'),
+            source: t('adhkarSabah.3ilmNefi3en.source'),
             phonetique: "Allâhumma innî asaluka ‘ilman nâfi’â, wa rizqan tayyibâ, wa ‘amalan mutaqabbalâ.",
-            audio: require('../assets/audios/7fois.mp3')
+            audio: require('../assets/audios/3ilmNefi3en.mp3')
         },
         {
             number: 23,
