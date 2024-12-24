@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   mainTitle: {
     fontFamily: 'Arabolic',
     marginBottom: 20,
+    marginHorizontal: 5,
     fontSize: 25,
     textTransform: "uppercase",
     color: "#ffe45e",

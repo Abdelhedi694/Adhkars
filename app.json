@@ -1,10 +1,11 @@
 {
   "expo": {
-    "name": "Invocations_Matin_et_Soir",
+    "name": "Invocations Matin et Soir",
     "slug": "Invocations_Matin_et_Soir",
-    "version": "1.0.0",
+    "version": "1.0.5",
     "orientation": "portrait",
     "scheme": "myapp",
+    "icon": "./assets/images/logo.png",
     "userInterfaceStyle": "automatic",
     "splash": {
       "resizeMode": "contain",
@@ -12,7 +13,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.AdhkarSabahMassa"
+      "bundleIdentifier": "com.Invocations.MatinEtSoir"
     },
     "android": {
       "adaptiveIcon": {

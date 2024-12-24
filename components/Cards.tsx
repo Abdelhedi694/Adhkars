@@ -33,7 +33,7 @@ const getShortLanguageCode = (fullLanguageCode: string) => {
 const Cards = () => {
     const [images, setImages] = useState<Photo[]>([]);
     const apiKey = 'SZBEtVVy5qezPxReVn8cbABYCgnWSvMytVKOFT9KBrjvvyTBQzD8TSzV';
-    const imageIds = ['12796622', '16733037'];
+    const imageIds = ['18274181', '16012748'];
     const [isLoading, setIsLoading] = useState(true);
     const { t } = useTranslation();
     const [language, setLanguage] = useState(getShortLanguageCode(i18next.language));
@@ -149,8 +149,28 @@ const Cards = () => {
     }
 
     const imageTexts = [
-        { text: t('invocationsMatin'), arabicText: 'أَذْكَارُ ٱلصَّبَاحِ', style: { color: '#F2F7F2', fontWeight: 'bold', fontSize: 25, textTransform: 'uppercase', fontFamily: 'Arabolic', textAlign: 'center', textShadowColor: '#000' }, arabicStyle: { color: '#F2F7F2', fontSize: 20, textAlign: 'center', fontFamily: 'Arabolic', textShadowColor: '#000' } },
-        { text: t('invocationSsoir'), arabicText: 'أَذْكَارُ الْمَسَاءِ', style: { color: '#F2F7F2', fontWeight: 'bold', fontSize: 25, textTransform: 'uppercase', fontFamily: 'Arabolic', textAlign: 'center', textShadowColor: '#fff' }, arabicStyle: { color: '#F2F7F2', fontSize: 20, textAlign: 'center', fontFamily: 'Arabolic', textShadowColor: '#fff' } },
+        {
+            text: t('invocationsMatin'), arabicText: 'أَذْكَارُ ٱلصَّبَاحِ', style: { color: '#F2F7F2', fontWeight: 'bold', fontSize: 25, textTransform: 'uppercase', fontFamily: 'Arabolic', textAlign: 'center', textShadowColor: '#000' }, arabicStyle: {
+                color: '#F2F7F2', // Couleur claire pour le texte
+                fontSize: 20,
+                textAlign: 'center',
+                fontFamily: 'Arabolic',
+                textShadowColor: 'rgba(0, 0, 0, 0.7)', // Ombre sombre pour contraster avec le texte
+                textShadowOffset: { width: 1, height: 1 }, // Déplacement subtil de l'ombre
+                textShadowRadius: 2, // Flou doux pour l'ombre
+            },
+        },
+        {
+            text: t('invocationSsoir'), arabicText: 'أَذْكَارُ الْمَسَاءِ', style: { color: '#F2F7F2', fontWeight: 'bold', fontSize: 25, textTransform: 'uppercase', fontFamily: 'Arabolic', textAlign: 'center', textShadowColor: '#fff' }, arabicStyle: {
+                color: '#F2F7F2', // Couleur claire pour le texte
+                fontSize: 20,
+                textAlign: 'center',
+                fontFamily: 'Arabolic',
+                textShadowColor: 'rgba(0, 0, 0, 0.7)', // Ombre sombre pour contraster avec le texte
+                textShadowOffset: { width: 1, height: 1 }, // Déplacement subtil de l'ombre
+                textShadowRadius: 2, // Flou doux pour l'ombre
+            },
+        },
     ];
 
     function Photo({ item, index, scrollX }: { item: Photo; index: number; scrollX: SharedValue<number> }) {
@@ -179,7 +199,25 @@ const Cards = () => {
                             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
                             imageStyle={{ borderRadius: 16 }}
                         >
-                            {text && <Text style={{ fontFamily: 'Arabolic', marginBottom: 5, color: "white", fontSize: 19, textTransform: "uppercase", flexWrap: "wrap" }}>{text}</Text>}
+                            {text && (
+                                <Text
+                                    style={{
+                                        fontFamily: 'Arabolic',
+                                        marginBottom: 5,
+                                        textAlign: 'center',
+                                        marginTop: 20,
+                                        color: "white",
+                                        fontSize: 19,
+                                        textTransform: "uppercase",
+                                        flexWrap: "wrap",
+                                        textShadowColor: 'rgba(0, 0, 0, 0.7)', // Ombre sombre pour contraster avec le texte blanc
+                                        textShadowOffset: { width: 1, height: 1 }, // Déplacement de l'ombre
+                                        textShadowRadius: 2, // Flou de l'ombre
+                                    }}
+                                >
+                                    {text}
+                                </Text>
+                            )}
 
                             {arabicText && <Text style={arabicStyle}>{arabicText}</Text>}
                         </ImageBackground>

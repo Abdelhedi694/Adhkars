@@ -9,9 +9,31 @@ import { useTranslation } from 'react-i18next';
 import ColorWheel from 'react-native-wheel-color-picker';
 import { BannerAd, BannerAdSize, TestIds, InterstitialAd, AdEventType } from 'react-native-google-mobile-ads';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency';
 
+import { Link } from 'expo-router';
 
-const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
+const adUnitId = Platform.OS === 'ios'
+  ? 'ca-app-pub-1810776046585518/4631529126'  // Remplacez par l'ID de l'annonce iOS
+  : 'ca-app-pub-1810776046585518/5093799210'
+
+async function initInter() {
+  let interstitial: InterstitialAd;
+  if (Platform.OS == 'ios') {
+    const { status } = await requestTrackingPermissionsAsync();
+    // Créer l'interstitiel en fonction du statut du suivi
+    interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+      requestNonPersonalizedAdsOnly: status === 'granted' ? false : true,
+    });
+  } else {
+    // defaut android
+    interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+      requestNonPersonalizedAdsOnly: true,
+    });
+  }
+  return interstitial
+}
+
 const adhkarMassa = () => {
 
   const [showRewards, setShowRewards] = useState([]);
@@ -24,7 +46,29 @@ const adhkarMassa = () => {
   const [selectedColorIndex, setSelectedColorIndex] = useState(null);
   const [hasClicked, setHasClicked] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [iosPermission, setIosPermission] = useState("");
+  const [bannerId, setBannerId] = useState("");
   const { t } = useTranslation();
+
+
+
+  useEffect(() => {
+    const checkIosConsentAndAdsIds = async () => {
+      try {
+        if (Platform.OS === 'ios') {
+          const { status } = await requestTrackingPermissionsAsync();
+          setIosPermission(status)
+          setBannerId("ca-app-pub-1810776046585518/2260516659")
+        } else {
+          setBannerId("ca-app-pub-1810776046585518/6578271274")
+        }
+      } catch (error) {
+        console.error('Erreur lors de la vérification du consentement :', error);
+      }
+    };
+
+    checkIosConsentAndAdsIds();
+  }, []);
 
   const adhkars = [
     {
@@ -157,7 +201,7 @@ const adhkarMassa = () => {
       adkharArab: `اللَّهُمَّ عَالِمَ الغَيْبِ والشَّهَادَةِ، فَاطِرَ السَّموَاتِ والأرْضِ، رَبَّ كُلِّ شَيءٍ ومَلِيْكَهُ، أشْهَدُ أنْ لا إلَهَ إلاَّ أنْتَ، أعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وأنْ أقْتَرِفَ عَلَى نَفْسِي سُوءاً، أوْ أجُرَّهُ إلَى مُسْلِمٍ`,
       frenchTraduction: t('adhkarMassa.visibleInvisible.traduction'),
       source: t('adhkarMassa.visibleInvisible.source'),
-      phonetique: "Allâhoumma 'âlim-alghaybi wa sh-shahâdati, fâtira s-samâwâti wa-l ardi, rabba koulli shay in wa malîkahou. Ash-hadou anlâ ilâha illâ anta. A'oûdhou bika min sharrin nafsî, wa min sharri sh-shaytâni wa 'hirkihi, wa an aqtarifa 'alâ nafsî soû an ajourrahou ilâ Mouslim.",
+      phonetique: "Allâhoumma 'âlim-alghaybi wa sh-shahâdati, fâtira s-samâwâti wa-l ardi, rabba koulli shay in wa malîkahou. Ash-hadou anlâ ilâha illâ anta. A'oûdhou bika min sharrin nafsî, wa min sharri sh-shaytâni wa shirkihi, wa an aqtarifa 'alâ nafsî soû an ajourrahou ilâ Mouslim.",
       audio: require('../assets/audios/visibleInvisible.mp3')
     },
     {
@@ -171,10 +215,11 @@ const adhkarMassa = () => {
     },
     {
       number: 14,
-      adkharArab: `رَضِيْتُ بِاللهِ رَبًّا، وبالإسْلامِ دِيْناً، وبِمُحَمَّدٍ نَبيًّا`,
+      adkharArab: `رَضِيْتُ بِاللهِ رَبًّا، وبالإسْلامِ دِيْناً، وبِمُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ نَبيًّا`,
+      howMuchTime: 3,
       frenchTraduction: t('adhkarMassa.attestation3fois.traduction'),
       reward: t('adhkarMassa.attestation3fois.recompense'),
-      phonetique: "Raditou Billahi Raban Wa Bil Islami Dinan Wa Bi Mohamedin Nabiyan.",
+      phonetique: "Raditou Billahi Raban Wa Bil Islami Dinan Wa Bi Mohamedin Sallallahu 'Alayhi Wa Sallam Nabiyan.",
       audio: require('../assets/audios/attestation3fois.mp3')
     },
     {
@@ -199,7 +244,7 @@ const adhkarMassa = () => {
       adkharArab: `أَمْسَيْنَا عَلَى فِطْرَةِ الإسْلامِ، وعَلَى كَلِمَةِ الإخْلاصِ، وعَلَى دِيْنِ نَبيِّنَا مُحَمَّدٍ – صلى الله عليه وسلم -، وعَلَى مِلَّةِ أبِينَا إبْرَاهيمَ، حَنيفاً مُسْلِماً ومَا كَانَ مِنَ المُشْرِكِينَ.`,
       frenchTraduction: t('adhkarMassa.fitratilislamSoir.traduction'),
       source: t('adhkarMassa.fitratilislamSoir.source'),
-      phonetique: "Amsayna 'ala fitrati-l-islami, wa 'ala kalimati-l-ikhlasi, wa 'ala dini nabiyyina Muhammadin, wa 'ala millati abina Ibrahima, hanifan, musliman, wa ma kana mina-l-mushrikin.",
+      phonetique: "Amsayna 'ala fitrati-l-islami, wa 'ala kalimati-l-ikhlasi, wa 'ala dini nabiyyina Muhammadin Sallallahu 'Alayhi Wa Sallam, wa 'ala millati abina Ibrahima, hanifan, musliman, wa ma kana mina-l-mushrikin.",
       audio: require('../assets/audios/fitratilislamSoir.mp3')
     },
     {
@@ -226,7 +271,7 @@ const adhkarMassa = () => {
       frenchTraduction: t('adhkarMassa.kalimatilLah3fois.traduction'),
       reward: t('adhkarMassa.kalimatilLah3fois.recompense'),
       howMuchTime: 3,
-      phonetique: "A’ûdhu bi-kalimati-llâhi-t-tâmmâti min sharri mâ khalaq.",
+      phonetique: "A’ûdhu bi-kalimaati-llâhi-t-tâmmâti min sharri mâ khalaq.",
       audio: require('../assets/audios/kalimatilLah3fois.mp3')
     },
     {
@@ -242,33 +287,43 @@ const adhkarMassa = () => {
   ]
 
   useEffect(() => {
-    const unsubscribeLoaded = interstitial.addAdEventListener(AdEventType.LOADED, () => {
-      setLoaded(true);
-    });
+    const initializeAds = async () => {
+      try {
+        let interstitial = await initInter();
+        const unsubscribeLoaded = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+          setLoaded(true);
+        });
 
-    const unsubscribeOpened = interstitial.addAdEventListener(AdEventType.OPENED, () => {
-      if (Platform.OS === 'ios') {
-        // Prevent the close button from being unreachable by hiding the status bar on iOS
-        StatusBar.setHidden(true)
+        const unsubscribeOpened = interstitial.addAdEventListener(AdEventType.OPENED, () => {
+          if (Platform.OS === 'ios') {
+            // Prevent the close button from being unreachable by hiding the status bar on iOS
+            StatusBar.setHidden(true)
+          }
+        });
+
+        const unsubscribeClosed = interstitial.addAdEventListener(AdEventType.CLOSED, () => {
+          if (Platform.OS === 'ios') {
+            StatusBar.setHidden(false)
+          }
+        });
+
+        // Start loading the interstitial straight away
+        interstitial.load();
+
+        // Unsubscribe from events on unmount
+        return () => {
+          unsubscribeLoaded();
+          unsubscribeOpened();
+          unsubscribeClosed();
+        };
+      } catch (error) {
+        console.error('Erreur lors de l\'initialisation des annonces :', error);
       }
-    });
-
-    const unsubscribeClosed = interstitial.addAdEventListener(AdEventType.CLOSED, () => {
-      if (Platform.OS === 'ios') {
-        StatusBar.setHidden(false)
-      }
-    });
-
-    // Start loading the interstitial straight away
-    interstitial.load();
-
-    // Unsubscribe from events on unmount
-    return () => {
-      unsubscribeLoaded();
-      unsubscribeOpened();
-      unsubscribeClosed();
     };
+
+    initializeAds();
   }, []);
+
 
   const handleColorChange = (color, index) => {
     const updatedColors = [...customColors];
@@ -442,6 +497,10 @@ const adhkarMassa = () => {
 
     return () => clearInterval(interval); // Nettoyage de l'intervalle
   }, [isPlayingList]);
+
+  if (!loaded) {
+    return null;
+  }
   return (
     <SafeAreaView style={styles.safeArea}>
       <LinearGradient
@@ -454,31 +513,47 @@ const adhkarMassa = () => {
         </View>
 
         {/* Ronds de sélection de couleurs */}
-        <View style={styles.colorSelectorContainer}>
-          {customColors.map((color, index) => (
-            <TouchableOpacity
-              key={index}
-              style={[styles.colorCircle, { backgroundColor: color }]}
-              onPress={() => setSelectedColorIndex(index)}
-            />
-          ))}
+        <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "baseline" }}>
+          <View>
+            <Link
+              style={{ alignSelf: "flex-start", marginTop: 5 }}
+              href={'/(tabs)'}
+            >
+              <Ionicons
+                name="arrow-back-circle"  // Ou utilisez "chevron-back" selon vos préférences
+                size={30}  // Ajustez la taille
+                color="#007bff"  // Changez la couleur si besoin
+              />
+            </Link>
+          </View>
+          <View style={styles.colorSelectorContainer}>
+            {customColors.map((color, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[styles.colorCircle, { backgroundColor: color }]}
+                onPress={() => setSelectedColorIndex(index)}
+              />
+            ))}
+          </View>
         </View>
 
         {/* Palette de couleurs */}
         {selectedColorIndex !== null && (
           <View style={styles.colorPickerContainer}>
-            <TouchableOpacity onPress={resetColors}>
-              <Text style={styles.resetColorsText}>{t('réinitialiserLesCouleurs')}</Text>
-            </TouchableOpacity>
-
             <ColorWheel
               color={customColors[selectedColorIndex]} // Couleur actuelle sélectionnée
               onColorChange={(color) => handleColorChange(color, selectedColorIndex)} // Lorsque la couleur change
               style={styles.colorWheel}
             />
-            <TouchableOpacity style={{ alignSelf: "flex-end", marginTop: 10 }} onPress={() => setSelectedColorIndex(null)}>
-              <Text style={styles.closePickerText}>{t('valider')}</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", marginTop: 15 }}>
+              <TouchableOpacity onPress={resetColors}>
+                <Text style={styles.resetColorsText}>{t('réinitialiserLesCouleurs')}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setSelectedColorIndex(null)}>
+                <Text style={styles.closePickerText}>{t('valider')}</Text>
+              </TouchableOpacity>
+            </View>
+
 
           </View>
         )}
@@ -537,19 +612,9 @@ const adhkarMassa = () => {
 
               {/* Section inférieure */}
               <View style={styles.bottomContainer}>
-                {/* Bouton "Pourquoi/Source" */}
-                <TouchableOpacity
-                  style={styles.RewardBtn}
-                  onPress={() => handleToggleReward(index)}
-                >
-                  <Text style={styles.RewardBtnText}>
-                    {showRewards[index] ? t('revenir') + " -" : adhkar.reward ? t('pourquoi') + " +" : t('source') + " +"}
-                  </Text>
-                </TouchableOpacity>
-
-                {/* Compteur */}
+                {/* Ligne 1 : Compteur */}
                 {(adhkar.howMuchTime || adhkar.howMuchManyTime) && (
-                  <View style={styles.counter}>
+                  <View style={styles.counterRow}>
                     <TouchableOpacity
                       onPress={() => handleDecrement(index)}
                       style={styles.counterButton}
@@ -578,7 +643,20 @@ const adhkarMassa = () => {
                     </TouchableOpacity>
                   </View>
                 )}
+
+                {/* Ligne 2 : Bouton "Pourquoi" */}
+                <View style={styles.whyButtonRow}>
+                  <TouchableOpacity
+                    style={styles.RewardBtn}
+                    onPress={() => handleToggleReward(index)}
+                  >
+                    <Text style={styles.RewardBtnText}>
+                      {showRewards[index] ? t('revenir') + " -" : adhkar.reward ? t('pourquoi') + " +" : t('source') + " +"}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
               </View>
+
 
               {/* Section audio */}
               {adhkar.audio && (
@@ -631,14 +709,27 @@ const adhkarMassa = () => {
           ))}
 
         </ScrollView>
-        <BannerAd
-          unitId={TestIds.BANNER}
-          size={BannerAdSize.BANNER}
-          requestOptions={{
-            requestNonPersonalizedAdsOnly: true,
-          }}
-          style={styles.banner}
-        />
+        {bannerId !== "" && (
+          Platform.OS === 'ios' ? (
+            <BannerAd
+              unitId={bannerId}
+              size={BannerAdSize.BANNER}
+              requestOptions={{
+                requestNonPersonalizedAdsOnly: iosPermission == "granted" ? false : true,
+              }}
+              style={styles.banner}
+            />
+          ) : (
+            <BannerAd
+              unitId={bannerId}
+              size={BannerAdSize.BANNER}
+              requestOptions={{
+                requestNonPersonalizedAdsOnly: true,
+              }}
+              style={styles.banner}
+            />
+          )
+        )}
       </LinearGradient>
 
     </SafeAreaView>
@@ -674,6 +765,7 @@ const styles = StyleSheet.create({
     fontFamily: "SpaceMono",
     color: "white"
   },
+
   colorSelectorContainer: { flexDirection: 'row', justifyContent: 'center', marginVertical: 10 },
   colorCircle: {
     width: 30,
@@ -688,7 +780,7 @@ const styles = StyleSheet.create({
     top: '50%',
     left: '50%',
     width: 320, // Largeur fixe pour le conteneur
-    backgroundColor: 'white',
+    backgroundColor: '#323944',
     borderRadius: 10,
     padding: 20,
     zIndex: 1000,
@@ -706,14 +798,27 @@ const styles = StyleSheet.create({
   },
   resetColorsText: {
     fontSize: 16,
-    color: '#007bff',  // Couleur bleue pour le bouton "Réinitialiser"
+    color: '#80ed99', // Couleur verte pour le bouton "Réinitialiser"
     marginTop: 10,
-    fontWeight: 'bold',  // Pour rendre le texte plus visible
+    fontWeight: 'bold', // Pour rendre le texte plus visible
     textAlign: 'center',
-    textTransform: "uppercase"
+    textTransform: "uppercase",
+    textShadowColor: 'rgba(0, 128, 0, 0.7)', // Ombre adaptée à la couleur du texte (vert foncé)
+    textShadowOffset: { width: 1, height: 1 }, // Déplacement de l'ombre
+    textShadowRadius: 2, // Flou de l'ombre
   },
-  closePickerText: { textTransform: "uppercase", textAlign: "right", marginTop: 10, fontSize: 16, color: '#008000', fontWeight: "bold" },
 
+  closePickerText: {
+    textTransform: "uppercase",
+    textAlign: "right",
+    marginTop: 10,
+    fontSize: 16,
+    color: '#fff', // Texte blanc
+    fontWeight: "bold",
+    textShadowColor: 'rgba(0, 0, 0, 0.7)', // Ombre sombre pour contraster avec le texte blanc
+    textShadowOffset: { width: 1, height: 1 }, // Déplacement de l'ombre
+    textShadowRadius: 2, // Flou de l'ombre
+  },
   background: {
     flex: 1,
     alignItems: 'center',
@@ -741,7 +846,8 @@ const styles = StyleSheet.create({
   adhkarContainer: {
     backgroundColor: '#ffffff40', // Couleur de fond translucide
     borderRadius: 10,
-    padding: 15,
+    padding: 5,
+    paddingTop: 10,
     marginBottom: 15,
     alignItems: 'center',
     width: '100%',
@@ -764,7 +870,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Arabolic', // Assurez-vous d'avoir cette police installée
     textAlign: 'right',
     marginVertical: 15,
-
+    paddingVertical: 5,
+    lineHeight: 45
   },
   frenchTraduction: {
     fontSize: 16,
@@ -773,22 +880,18 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   bottomContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
     marginTop: 10,
-    paddingHorizontal: 10,
-  },
-  RewardBtn: {
-    flex: 1, // Prend la place disponible à gauche
-    alignItems: "flex-start",
   },
 
   RewardBtnText: {
-    color: "#9FDFFB",
+    color: "#FFFFFF", // Texte blanc
     textTransform: "uppercase",
     fontWeight: "bold",
+    letterSpacing: 1,
     fontSize: 14,
+    textShadowColor: '#000000', // Couleur de l'ombre (ici noir)
+    textShadowOffset: { width: 1, height: 1 }, // Position de l'ombre
+    textShadowRadius: 2, // Intensité de la diffusion de l'ombre
   },
   divider: {
     height: 0.5,             // Hauteur du diviseur
@@ -800,7 +903,8 @@ const styles = StyleSheet.create({
     fontFamily: "SpaceMono",
     textTransform: "uppercase",
     marginBottom: 10,
-    color: "#FBFCFA"
+    color: "#FBFCFA",
+    lineHeight: 35
   },
   howMuchTimeText: {
     textAlign: "center",
@@ -881,7 +985,22 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     width: 50,  // Fixe la largeur du texte pour qu'il ne change pas de taille
     textAlign: 'right',  // Vous pouvez ajuster l'alignement selon vos préférences
-  }
+  },
+  counterRow: {
+    flexDirection: "row", // Les éléments du compteur sur une seule ligne
+    justifyContent: "flex-start",
+    alignItems: "center",
+    marginBottom: 10
+  },
+
+  whyButtonRow: {
+    flexDirection: "row", // Assurez que le bouton "Pourquoi" est sur une seule ligne
+    justifyContent: "center", // Aligne le bouton à droite
+    marginTop: 7,
+  },
+  RewardBtn: {
+    alignItems: "flex-end", // Permet d'aligner à droite
+  },
 });
 
 export default adhkarMassa;
