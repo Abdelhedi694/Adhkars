@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, StyleSheet, View, ScrollView, TouchableOpacity, Dimensions, Platform, StatusBar } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, View, ScrollView, TouchableOpacity, Dimensions, Platform, StatusBar, ActivityIndicator } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
@@ -17,22 +17,6 @@ const adUnitId = Platform.OS === 'ios'
   ? 'ca-app-pub-1810776046585518/4631529126'  // Remplacez par l'ID de l'annonce iOS
   : 'ca-app-pub-1810776046585518/5093799210'
 
-async function initInter() {
-  let interstitial: InterstitialAd;
-  if (Platform.OS == 'ios') {
-    const { status } = await requestTrackingPermissionsAsync();
-    // Créer l'interstitiel en fonction du statut du suivi
-    interstitial = InterstitialAd.createForAdRequest(adUnitId, {
-      requestNonPersonalizedAdsOnly: status === 'granted' ? false : true,
-    });
-  } else {
-    // defaut android
-    interstitial = InterstitialAd.createForAdRequest(adUnitId, {
-      requestNonPersonalizedAdsOnly: true,
-    });
-  }
-  return interstitial
-}
 
 const adhkarMassa = () => {
 
@@ -48,6 +32,7 @@ const adhkarMassa = () => {
   const [loaded, setLoaded] = useState(false);
   const [iosPermission, setIosPermission] = useState("");
   const [bannerId, setBannerId] = useState("");
+  const [interstitial, setInterstitial] = useState<InterstitialAd | null>(null);
   const { t } = useTranslation();
 
 
@@ -289,28 +274,40 @@ const adhkarMassa = () => {
   useEffect(() => {
     const initializeAds = async () => {
       try {
-        let interstitial = await initInter();
+        let interstitial: InterstitialAd;
+        if (Platform.OS === 'ios') {
+          const { status } = await requestTrackingPermissionsAsync();
+          interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+            requestNonPersonalizedAdsOnly: status === 'granted' ? false : true,
+          });
+        } else {
+          interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+            requestNonPersonalizedAdsOnly: true,
+          });
+        }
+
+        // Enregistrer l'interstitiel dans le state
+        setInterstitial(interstitial);
+
         const unsubscribeLoaded = interstitial.addAdEventListener(AdEventType.LOADED, () => {
           setLoaded(true);
         });
 
         const unsubscribeOpened = interstitial.addAdEventListener(AdEventType.OPENED, () => {
           if (Platform.OS === 'ios') {
-            // Prevent the close button from being unreachable by hiding the status bar on iOS
-            StatusBar.setHidden(true)
+            StatusBar.setHidden(true);
           }
         });
 
         const unsubscribeClosed = interstitial.addAdEventListener(AdEventType.CLOSED, () => {
           if (Platform.OS === 'ios') {
-            StatusBar.setHidden(false)
+            StatusBar.setHidden(false);
           }
         });
 
-        // Start loading the interstitial straight away
         interstitial.load();
 
-        // Unsubscribe from events on unmount
+        // Nettoyer les abonnements au démontage du composant
         return () => {
           unsubscribeLoaded();
           unsubscribeOpened();
@@ -348,9 +345,11 @@ const adhkarMassa = () => {
   };
 
   const showFullScreenAd = () => {
-    // Exemple avec une publicité interstitielle
-    // Vérifiez si la publicité est prête avant de la montrer
-    interstitial.show()
+    if (interstitial && loaded) {
+      interstitial.show();
+    } else {
+      console.log('Annonce non prête à être affichée');
+    }
   };
 
   const triggerHapticFeedback = () => {
@@ -499,7 +498,12 @@ const adhkarMassa = () => {
   }, [isPlayingList]);
 
   if (!loaded) {
-    return null;
+    return (
+      <View style={styles.loaderContainer}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        <Text style={{ color: "black" }}>{loaded}</Text>
+      </View>
+    );
   }
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -744,6 +748,12 @@ const screenHeight = Dimensions.get('window').height;
 // Modifiez la hauteur de chaque carte à la moitié de l'écran
 const cardHeight = screenHeight / 1.7;
 const styles = StyleSheet.create({
+  loaderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white', // Facultatif, selon l'apparence souhaitée
+  },
   safeArea: {
     flex: 1,
     backgroundColor: "black"

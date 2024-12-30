@@ -2,7 +2,7 @@
   "expo": {
     "name": "Invocations Matin et Soir",
     "slug": "Invocations_Matin_et_Soir",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "orientation": "portrait",
     "scheme": "myapp",
     "icon": "./assets/images/logo.png",
